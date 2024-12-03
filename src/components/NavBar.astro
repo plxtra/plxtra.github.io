@@ -1,0 +1,125 @@
+---
+import { type MenuItemDefinition, Hamburger, MainMenu, DefaultSettings } from '@pbkware/astro-main-menu';
+
+const menuItemDefinitions: MenuItemDefinition[] = [
+    { text: 'Home', url: '/', title: 'Plxtra home' },
+    {
+        text: 'Solutions',
+        url: '/solutions/',
+        children: [
+            { text: 'Exchanges', url: '/solutions/exchanges/' },
+            { text: 'Brokerage firms', url: '/solutions/brokerage-firms/' },
+        ],
+    },
+    {
+        text: 'Documentation',
+        url: '/getting-started/',
+        children: [
+            { text: 'Getting Started', url: '/getting-started/'},
+            { text: 'Using', url: '/using/'},
+            { text: 'Configuration', url: '/configuration/'},
+            { text: 'Architecture', url: '/architecture/'},
+            { text: 'External APIs', url: '/external-api/'},
+            { text: 'Extensibility', url: '/extensibility/'},
+            { text: 'Working with source', url: '/source/'},
+            { text: 'Deploy', url: '/deploy/'},
+        ]
+    },
+    { text: 'News', url: '/news/' },
+];
+---
+
+<nav class="navbar">
+    <div class="navbar-narrow-left">
+    </div>
+
+    <div class="navbar-wide-left">
+    </div>
+
+    <MainMenu settings={DefaultSettings.mainMenuSettings}, menuItemDefinitions={menuItemDefinitions} />
+
+    <div class="narrow-heading">
+        <slot name="narrow-heading" />
+    </div>
+
+    <div class="navbar-wide-right">
+        <div class="navbar-wide-right-icon">
+        </div>
+        <Hamburger settings={DefaultSettings.hamburgerSettings} />
+    </div>
+</nav>
+
+<style lang="scss" define:vars={{
+    wideNavBarBackgroundColor: DefaultSettings.wideMenuBackgroundColor,
+    hamburgerWidth: DefaultSettings.hamburgerSettings.width,
+}}>
+    @use '/src/styles/scss/main-menu-config'; // Sass is only used to to allow media breakpoint to be specified by a variable.  Otherwise rest of style is plain CSS.
+
+    .navbar {
+        width: 100%;
+        background-color: var(--wideNavBarBackgroundColor, #d0dae0);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        > .narrow-heading {
+            display: none;
+        }
+
+        > .navbar-narrow-left {
+            width: var(--hamburgerWidth, 1.8em);
+            display: none;
+        }
+
+        > .navbar-wide-left {
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+        }
+
+        > .navbar-wide-right {
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+        }
+
+        @media screen and ((hover: none) or (width < main-menu-config.$narrow-breakpoint)) {
+            > .narrow-heading {
+                display: flex;
+                align-items: center;
+            }
+
+            > .navbar-narrow-left {
+                display: flex;
+                align-items: center;
+            }
+
+            > .navbar-wide-left {
+                display: none;
+            }
+
+            > .navbar-wide-right {
+                width: var(--hamburgerWidth, 1.8em);
+
+                > .navbar-wide-right-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+</style>
+
+<script>
+    import { MenuClickProcessor } from '@pbkware/astro-main-menu';
+    const processor = MenuClickProcessor.get(); // This always needs to be called however only need processor if want to handle dataClick event
+
+    // Hide narrow menu and hamburger if document is clicked outside menu
+    document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target === null || !processor.isClickHandledEventTarget(target)) {
+            processor.deactivateNarrow();
+        }
+    });
+</script>

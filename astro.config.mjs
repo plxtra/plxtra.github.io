@@ -5,6 +5,9 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://plxtra.github.io',
+  trailingSlash: 'always',
+
   integrations: [
     starlight({
       title: 'Plxtra',
@@ -21,19 +24,19 @@ export default defineConfig({
         {
           label: 'Using',
           items: [
-            'using'
+            'using',
           ]
         },
         {
           label: 'Configuration',
           items: [
-            
+            'configuration',
           ]
         },
         {
           label: 'Architecture',
           items: [
-
+            'architecture',
           ]
         },
         {
@@ -97,7 +100,7 @@ export default defineConfig({
         {
           label: 'Working with source',
           items: [
-            
+            'source',
           ]
         },
         {
@@ -108,5 +111,16 @@ export default defineConfig({
         },
       ]
     })
-  ]
+  ],
+    // Set the vite scss api property below if the following warning is displayed:
+    // Deprecation Warning: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler' // or "modern"
+        }
+      }
+    }
+  }
 });
