@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
@@ -9,6 +10,11 @@ export default defineConfig({
   trailingSlash: 'always',
 
   integrations: [
+    sitemap({
+      // filter out all pages except home page while under construction
+      filter: (page) => page === 'https://plxtra.github.io/',
+    }),
+
     starlight({
       title: 'Plxtra',
       
