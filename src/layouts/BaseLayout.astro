@@ -6,7 +6,8 @@ export interface Props {
     pageTitle: string;
 };
 
-const canonicalSite = 'https://fieldedtext.org/';
+export const canonicalHost = 'plxtra.org'; // Defined in Astro Config. In future get this from environmental variable
+export const canonicalSite = `https://${canonicalHost}/`;
 const canonicalURl = new URL(Astro.url.pathname, canonicalSite);
 
 const { pageTitle } = Astro.props;
@@ -16,8 +17,9 @@ const narrowHeading = 'Fielded Text';
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/plxtra-logo.svg" />
         <link rel="canonical" href={canonicalURl} />
+        <link rel="sitemap" href="/sitemap-index.xml" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
