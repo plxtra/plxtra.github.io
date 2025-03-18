@@ -1,0 +1,14 @@
+@mixin all {
+    .gridded-photoswipe-pages {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-auto-rows: max-content;
+        gap: 1.5em;
+        margin-top: 2em;
+    
+        img {
+            object-fit: contain;
+            height: 10em;
+        }
+    }
+}

@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
+import icon from "astro-icon";
 
 const canonicalHost = 'plxtra.org'; // Put into environmental variable for BaseLayout
 
@@ -29,6 +30,8 @@ export default defineConfig({
             },
         }),
 
+        icon(),
+
         starlight({
             title: 'Plxtra',
 
@@ -47,7 +50,30 @@ export default defineConfig({
                 },
                 {
                     label: 'Architecture',
-                    items: ['architecture'],
+                    items: [
+                        'architecture',
+                        {
+                            label: 'Components',
+                            items: [
+                                'architecture/components',
+                                'architecture/components/arclight',
+                                'architecture/components/foundry',
+                                'architecture/components/motif',
+                                'architecture/components/motif-xl',
+                                'architecture/components/order-management-system',
+                                'architecture/components/prodigy',
+                                'architecture/components/session-management',
+                                'architecture/components/vetting',
+                                'architecture/components/zenith',
+                            ],
+                        },
+                        {
+                            label: 'Motionite',
+                            items: [
+                                'architecture/motionite',
+                            ],
+                        }
+                    ],
                 },
                 {
                     label: 'External APIs',
@@ -104,15 +130,7 @@ export default defineConfig({
             ],
         }),
     ],
-    // Set the vite scss api property below if the following warning is displayed:
-    // Deprecation Warning: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
-    vite: {
-        css: {
-            preprocessorOptions: {
-                scss: {
-                    api: 'modern-compiler', // or "modern"
-                },
-            },
-        },
+    experimental: {
+        svg: true,
     },
 });

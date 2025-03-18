@@ -1,3 +1,3 @@
 ---
-title: IQ External APIs
+title: Prodigy External APIs overview
 ---

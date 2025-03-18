@@ -1,0 +1,23 @@
+@use '@scss/color';
+
+@mixin all {
+    .light-bordered-table {
+        td {
+            border-collapse: collapse;
+            border: 1px solid #f0f0f0;
+            padding: .1em .5em;
+        }
+
+        tr td:nth-child(2) {
+            font-size: smaller;
+        }
+
+        tr:nth-child(odd) {
+            background-color: color.get(color.$light-bordered-table-odd-row-background);
+        }
+
+        table {
+            margin-bottom: 1em;
+        }
+    }
+}

@@ -1,0 +1,254 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:color';
+
+// Color scheme names
+$dark-color-scheme-name: 'dark';
+$light-color-scheme-name: 'light';
+
+
+// Color Names
+
+$main-background: 'main-background-color';
+$main-foreground: 'main-foreground-color';
+
+$a-link: 'a-link';
+$a-visited: 'a-visited';
+$a-hover: 'a-hover';
+$a-active: 'a-active';
+
+$icon: 'icon';
+
+$ammWideMainMenuBackground: 'amm-wideMainMenuBackgroundColor';
+$ammNarrowMainMenuBackground: 'amm-narrowMainMenuBackgroundColor';
+$ammExpandControlBackground: 'amm-expandControlBackgroundColor';
+$ammNotExpandedIcon: 'amm-notExpandedIconColor';
+$ammExpandedIcon: 'amm-expandedIconColor';
+$ammWideSubMenuBackground: 'amm-wideSubMenuBackgroundColor';
+$ammNarrowSubMenuBackground: 'amm-narrowSubMenuBackgroundColor';
+$ammMenuItem: 'amm-menuItemColor';
+$ammMenuItemHoverBackground: 'amm-menuItemHoverBackgroundColor';
+$ammHamburgerTopLineBackground: 'amm-hamburgerTopLineBackgroundColor';
+$ammHamburgerBottomLineBackground: 'amm-hamburgerBottomLineBackgroundColor';
+
+
+
+$anchor-foreground: 'anchor-foreground';
+$anchor-hover-foreground: 'anchor-hover-foreground';
+$wide-header-nav-background: 'wide-header-nav-background';
+$wide-header-home-anchor-foreground: 'wide-header-home-anchor-foreground';
+$wide-header-title-foreground: 'wide-header-title-foreground';
+$wide-header-tagline-foreground: 'wide-header-tagline-foreground';
+$wide-header-menu-first-level-anchor-foreground: 'wide-header-menu-first-level-anchor-foreground';
+$wide-header-menu-first-level-anchor-hover-foreground: 'wide-header-menu-first-level-anchor-hover-foreground';
+$wide-header-menu-first-level-menu-item-page-tree-active: 'wide-header-menu-first-level-menu-item-page-tree-active';
+$wide-header-menu-second-level-background: 'wide-header-menu-second-level-background';
+$wide-header-menu-second-level-container-right-padding-left-border: 'wide-header-menu-second-level-container-right-padding-left-border';
+$wide-header-menu-second-level-headlined-dated-menu-background: 'wide-header-menu-second-level-headlined-dated-menu-background';
+$wide-header-menu-second-level-anchor-foreground: 'wide-header-menu-second-level-anchor-foreground';
+$wide-header-menu-second-level-anchor-hover-foreground: 'wide-header-menu-second-level-anchor-hover-foreground';
+$narrow-header-background: 'narrow-header-background';
+$narrow-header-title-foreground: 'narrow-header-title-foreground';
+$narrow-header-popup-background: 'narrow-header-popup-background';
+$narrow-header-nav-second-level-background: 'narrow-header-nav-second-level-background';
+$narrow-header-menu-first-level-anchor-foreground: 'narrow-header-menu-first-level-anchor-foreground';
+$narrow-header-menu-first-level-anchor-hover-foreground: 'narrow-header-menu-first-level-anchor-hover-foreground';
+$narrow-header-menu-first-level-menu-item-page-tree-active: 'narrow-header-menu-first-level-menu-item-page-tree-active';
+$narrow-header-menu-second-level-anchor-foreground: 'narrow-header-menu-second-level-anchor-foreground';
+$narrow-header-menu-second-level-anchor-hover-foreground: 'narrow-header-menu-second-level-anchor-hover-foreground';
+$narrow-header-hamburger-layer: 'narrow-header-hamburger-layer';
+$footer-background: 'footer-background';
+$footer-foreground: 'footer-foreground';
+$footer-anchor-hover-foreground: 'footer-anchor-hover-foreground';
+$footer-anchor-bottom-border: 'footer-anchor-bottom-border';
+$page-band-a-background: 'page-band-a-background';
+$page-band-b-background: 'page-band-b-background';
+$page-band-c-background: 'page-band-c-background';
+$odd-row-background: 'odd-row-background';
+$even-row-background: 'even-row-background';
+$pagination-default-disabled-active-anchor-foreground: 'pagination-default-disabled-active-anchor-foreground';
+
+// Color names used in adornments
+$banner-background: 'banner-background';
+$banner-foreground: 'banner-foreground';
+$light-bordered-table-odd-row-background: 'light-bordered-table-odd-row-background';
+
+// All color names
+$_all: (
+    $main-background,
+    $main-foreground,
+
+    $a-link,
+    $a-visited,
+    $a-hover,
+    $a-active,
+
+    $icon,
+
+    $ammWideMainMenuBackground,
+    $ammNarrowMainMenuBackground,
+    $ammExpandControlBackground,
+    $ammNotExpandedIcon,
+    $ammExpandedIcon,
+    $ammWideSubMenuBackground,
+    $ammNarrowSubMenuBackground,
+    $ammMenuItem,
+    $ammMenuItemHoverBackground,
+    $ammHamburgerTopLineBackground,
+    $ammHamburgerBottomLineBackground,
+
+    $anchor-foreground,
+    $anchor-hover-foreground,
+    $wide-header-nav-background,
+    $wide-header-home-anchor-foreground,
+    $wide-header-title-foreground,
+    $wide-header-tagline-foreground,
+    $wide-header-menu-first-level-anchor-foreground,
+    $wide-header-menu-first-level-anchor-hover-foreground,
+    $wide-header-menu-first-level-menu-item-page-tree-active,
+    $wide-header-menu-second-level-background,
+    $wide-header-menu-second-level-container-right-padding-left-border,
+    $wide-header-menu-second-level-headlined-dated-menu-background,
+    $wide-header-menu-second-level-anchor-foreground,
+    $wide-header-menu-second-level-anchor-hover-foreground,
+    $narrow-header-background,
+    $narrow-header-title-foreground,
+    $narrow-header-popup-background,
+    $narrow-header-nav-second-level-background,
+    $narrow-header-menu-first-level-anchor-foreground,
+    $narrow-header-menu-first-level-anchor-hover-foreground,
+    $narrow-header-menu-first-level-menu-item-page-tree-active,
+    $narrow-header-menu-second-level-anchor-foreground,
+    $narrow-header-menu-second-level-anchor-hover-foreground,
+    $narrow-header-hamburger-layer,
+    $footer-background,
+    $footer-foreground,
+    $footer-anchor-bottom-border,
+    $page-band-a-background,
+    $page-band-b-background,
+    $page-band-c-background,
+    $odd-row-background,
+    $even-row-background,
+    $pagination-default-disabled-active-anchor-foreground,
+
+    // adornments
+    $banner-background,
+    $banner-foreground,
+    $light-bordered-table-odd-row-background,
+);
+
+$_main-foreground-color: rgb(206, 205, 202);
+
+$_header-nav-footer-banner-background: #333;
+$_menu-item-anchor-foreground: #c0c0c0;
+$_menu-item-anchor-hover-foreground: white;
+$_first-level-menu-item-page-tree-active: dimgray;
+
+$_dark-scheme: (
+    $main-background: #0d0a27,
+    $main-foreground: $_main-foreground-color,
+    $a-link: $_main-foreground-color,
+    $a-visited: $_main-foreground-color,
+    $a-hover: $_main-foreground-color,
+    $a-active: $_main-foreground-color,
+    $icon: rgb(137, 201, 154),
+
+    $ammWideMainMenuBackground: 'transparent',
+    $ammNarrowMainMenuBackground: #cddee8,
+    $ammExpandControlBackground: #bcc3c8,
+    $ammNotExpandedIcon: #586f8a,
+    $ammExpandedIcon: #586f8a,
+    $ammWideSubMenuBackground: #06011a,
+    $ammNarrowSubMenuBackground: #bcc3c8,
+    $ammMenuItem: #a6aeb5,
+    $ammMenuItemHoverBackground: #2a3b46,
+    $ammHamburgerTopLineBackground: #194adc,
+    $ammHamburgerBottomLineBackground: #1a42c4,
+
+    $anchor-foreground: #206bba,
+    $anchor-hover-foreground: #206bba,
+    $wide-header-nav-background: $_header-nav-footer-banner-background,
+    $wide-header-home-anchor-foreground: #37c0fb,
+    $wide-header-title-foreground: #b9efab,
+    $wide-header-tagline-foreground: white,
+    $wide-header-menu-first-level-anchor-foreground: $_menu-item-anchor-foreground,
+    $wide-header-menu-first-level-anchor-hover-foreground: $_menu-item-anchor-hover-foreground,
+    $wide-header-menu-first-level-menu-item-page-tree-active: $_first-level-menu-item-page-tree-active,
+    $wide-header-menu-second-level-background: #222,
+    $wide-header-menu-second-level-container-right-padding-left-border: rgb(73, 123, 167),
+    $wide-header-menu-second-level-headlined-dated-menu-background: #1a2a16,
+    $wide-header-menu-second-level-anchor-foreground: $_menu-item-anchor-foreground,
+    $wide-header-menu-second-level-anchor-hover-foreground: $_menu-item-anchor-hover-foreground,
+    $narrow-header-background: $_header-nav-footer-banner-background,
+    $narrow-header-title-foreground: white,
+    $narrow-header-popup-background: #2c2929,
+    $narrow-header-nav-second-level-background: $_header-nav-footer-banner-background,
+    $narrow-header-menu-first-level-anchor-foreground: $_menu-item-anchor-foreground,
+    $narrow-header-menu-first-level-anchor-hover-foreground: $_menu-item-anchor-hover-foreground,
+    $narrow-header-menu-first-level-menu-item-page-tree-active: $_first-level-menu-item-page-tree-active,
+    $narrow-header-menu-second-level-anchor-foreground: #c0c0c0,
+    $narrow-header-menu-second-level-anchor-hover-foreground: $_menu-item-anchor-hover-foreground,
+    $narrow-header-hamburger-layer: #eee,
+    $footer-background: $_header-nav-footer-banner-background,
+    $footer-foreground: whitesmoke,
+    $footer-anchor-hover-foreground: #37c0fb,
+    $footer-anchor-bottom-border: black,
+    $page-band-a-background: rgb(235, 253, 244),
+    $page-band-b-background: rgb(255, 233, 233),
+    $page-band-c-background: rgb(242, 242, 242),
+    $odd-row-background: rgb(244, 244, 244),
+    $even-row-background: rgba(236, 236, 236),
+    $pagination-default-disabled-active-anchor-foreground: black,
+
+    // adornments
+    $banner-background: $_header-nav-footer-banner-background,
+    $banner-foreground: whitesmoke,
+    $light-bordered-table-odd-row-background: #f8f8f8,
+);
+
+$_light-scheme: (
+
+);
+
+@mixin color-scheme-vars($color-scheme-name) {
+    $color-scheme: null;
+    @if $color-scheme-name == $dark-color-scheme-name {
+        $color-scheme: $_dark-scheme;
+    } @else if $color-scheme-name == $light-color-scheme-name {
+        $color-scheme: $_light-scheme;
+    }
+
+    @if $color-scheme == null {
+        @error "Invalid color scheme name: #{$color-scheme-name}";
+    } @else {
+        @each $color-name in $_all {
+            $color: map.get($color-scheme, $color-name);
+            @if $color == null and $color-scheme == $_light-scheme {
+                $dark-color: map.get($_dark-scheme, $color-name);
+                @if $dark-color != null {
+                    @if $dark-color == 'transparent' {
+                        $color: 'transparent';
+                    } @else {
+                        $color: color.invert($dark-color, $space: rgb);
+                    }
+                }
+            }
+
+            @if $color == null {
+                @error "#{$color-scheme-name} color not found: #{$color-name}";
+            } @else {
+                --#{$color-name}: #{$color};
+            }
+        }
+    }
+}
+
+@function get($key) {
+    $name: list.index($_all, $key);
+    @if $name == null {
+        @error "Color not found: #{$key}";
+    } @else {
+        @return var(--#{$key});
+    }
+}

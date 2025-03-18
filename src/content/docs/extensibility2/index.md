@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Extensibility overview
 ---
 
 * Prodigy

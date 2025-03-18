@@ -1,52 +1,26 @@
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Plxtra</title>
-    </head>
-    <body>
-        <main>
-            <h1>Plxtra</h1>
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
 
-            <h2>Under construction</h2>
+<BaseLayout pageTitle="Plxtra">
+	<main>
+		<h1>An open source trading platform</h1>
+        <ul>
+            <li>For Exchange or Brokerage operations</li>
+            <li>Fully featured</li>
+            <li>Highly extensible</li>
+            <li>Detail documentation</li>
+            <li>Well designed architecture</li>
+            <li>C# back-end, Typescript front-end</li>
+            <li>Web, mobile and excel clients</li>
+            <li>Permissive licence (MIT)</li>
+            <li>Commercial support available</li>
+            <li>Easy install and deploy (using Docker)</li>
+        </ul>
 
-            <p>Coming soon</p>
-        </main>
-    </body>
-</html>
+        Load full exchange on your computer to test it out.
+        <button>Install now</button>
 
-<style>
-    html {
-        background-color: #f1f5f9;
-        color: black;
-        font-family: sans-serif;
-        font-size: calc(15px + 0.390625vw);
-    }
 
-    * {
-        box-sizing: border-box;
-    }
-
-    h1 {
-        margin: 1rem 0;
-        font-size: 2rem;
-        line-height: 1.1;
-    }
-
-    h2 {
-        margin: 1rem 0;
-        font-size: 1.5rem;
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-    }
-
-    main {
-        max-width: 30ch;
-        margin: 0 auto;
-    }
-</style>
+	</main>
+</BaseLayout>

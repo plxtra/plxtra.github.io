@@ -1,0 +1,86 @@
+@use '@scss/color';
+
+@mixin _base {
+    .blog-entry-summaries {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        > :nth-child(2n + 1) {
+            background-color: color.get(color.$odd-row-background);
+        }
+        > :nth-child(2n) {
+            background-color: color.get(color.$even-row-background);
+        }
+
+        .blog-entry-summary-headline-date {
+            display: flex;
+            align-items: center;
+
+            .blog-entry-summary-headline {
+                flex: 1 1 auto;
+                font-size: 120%;
+            }
+
+            .blog-entry-summary-date {
+                flex: 0 0 auto;
+                font-size: 70%;
+                margin-left: 2em;
+                font-style: italic;
+            }
+        }
+        .blog-entry-summary-body {
+            margin: .5em 0 0 2em;
+        }
+    }
+}
+
+@mixin _smaller {
+    @include _base;
+
+    .blog-entry-summaries {
+        .blog-entry-summary {
+            .blog-entry-summary-date {
+                font-size: 70%;
+                margin-left: 1em;
+            }
+
+
+            .blog-entry-summary-headline {
+                font-size: 120%;
+            }
+
+            .blog-entry-summary-body {
+                margin: .5em 0 0 1em;
+            }
+        }
+    }
+}
+
+@mixin infinite {
+    @include _base;
+}
+
+@mixin wide {
+    @include _base;
+}
+
+@mixin normal {
+    @include _base;
+}
+
+@mixin narrow {
+    @include _base;
+}
+
+@mixin narrower {
+    @include _smaller;
+}
+
+@mixin mobile {
+    @include _smaller;
+}
+
+@mixin mobilep {
+    @include _smaller;
+}

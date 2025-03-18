@@ -1,0 +1,8 @@
+---
+title: Vetting
+weight: 90
+readMoreUrl: /platforms/documentation/technology/vetting
+iconName: noun_confirm or deny_394608
+---
+
+Vetting of orders is critical to protect brokers and users from the consequences of bad orders. The scripting language used in Plxtra vetting is both simple enough to be easily configured but also flexible enough to cover brokers' and exchanges' many vetting scenarios.

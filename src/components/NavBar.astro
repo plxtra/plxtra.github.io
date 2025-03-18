@@ -1,8 +1,8 @@
 ---
-import { type MenuItemDefinition, Hamburger, MainMenu, DefaultSettings } from '@pbkware/astro-main-menu';
+import { type MenuItemDefinition, Hamburger, MainMenu, DefaultSettings, type MainMenuSettings } from '@pbkware/astro-main-menu';
+import { Icon } from 'astro-icon/components';
 
 const menuItemDefinitions: MenuItemDefinition[] = [
-    { text: 'Home', url: '/', title: 'Plxtra home' },
     {
         text: 'Solutions',
         url: '/solutions/',
@@ -25,39 +25,57 @@ const menuItemDefinitions: MenuItemDefinition[] = [
             { text: 'Deploy', url: '/deploy/'},
         ]
     },
+    {
+        text: 'About',
+        url: '/',
+        title: 'About',
+        children: [
+            { text: 'Home', url: '/' },
+            { text: 'Features', url: '/features/' },
+            { text: 'Contact', url: '/contact/' },
+        ],
+    },
     { text: 'News', url: '/news/' },
 ];
+
+const mainMenuSettings: MainMenuSettings = {
+    // ...DefaultSettings.mainMenuSettings,
+    wideMainMenuFontSize: '0.95em',
+}
 ---
 
 <nav class="navbar">
     <div class="navbar-narrow-left">
+        <Icon name="plxtra-logo" id="navbar-narrow-left-icon" />
     </div>
 
     <div class="navbar-wide-left">
+        <a href="/">
+            <Icon name="plxtra-logo" id="navbar-wide-left-icon" />
+        </a>
+        <a href="/">
+            <span id="logoOrgName">Plxtra</span>
+        </a>
     </div>
 
-    <MainMenu settings={DefaultSettings.mainMenuSettings}, menuItemDefinitions={menuItemDefinitions} />
+    <MainMenu id="main-menu" settings={mainMenuSettings}, menuItemDefinitions={menuItemDefinitions} />
 
     <div class="narrow-heading">
         <slot name="narrow-heading" />
     </div>
 
     <div class="navbar-wide-right">
-        <div class="navbar-wide-right-icon">
-        </div>
         <Hamburger settings={DefaultSettings.hamburgerSettings} />
     </div>
 </nav>
 
 <style lang="scss" define:vars={{
-    wideNavBarBackgroundColor: DefaultSettings.wideMenuBackgroundColor,
     hamburgerWidth: DefaultSettings.hamburgerSettings.width,
 }}>
-    @use '/src/styles/scss/main-menu-config'; // Sass is only used to to allow media breakpoint to be specified by a variable.  Otherwise rest of style is plain CSS.
+    @use '@scss/breakpoint';
 
     .navbar {
         width: 100%;
-        background-color: var(--wideNavBarBackgroundColor, #d0dae0);
         margin: 0;
         padding: 0;
         display: flex;
@@ -71,21 +89,44 @@ const menuItemDefinitions: MenuItemDefinition[] = [
         > .navbar-narrow-left {
             width: var(--hamburgerWidth, 1.8em);
             display: none;
+
+            > #navbar-narrow-left-icon {
+                height: 1.3lh;
+            }
         }
 
         > .navbar-wide-left {
+            flex: 0 0 auto;
             display: flex;
             align-items: center;
-            flex: 0 0 auto;
+            gap: .5em;
+
+            > a {
+                > #navbar-wide-left-icon {
+                    height: 1.3lh;
+                }
+            }
+            > a, a:visited, a:active, a:hover {
+                text-decoration-line: none !important;
+                color: inherit;
+                > #logoOrgName {
+                    font-size: 1.5em;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        > #main-menu {
+            margin-right: 1em;
         }
 
         > .navbar-wide-right {
-            display: flex;
+            display: none;
             align-items: center;
             flex: 0 0 auto;
         }
 
-        @media screen and ((hover: none) or (width < main-menu-config.$narrow-breakpoint)) {
+        @include breakpoint.createMainMenuConfigNarrowBreakpoint {
             > .narrow-heading {
                 display: flex;
                 align-items: center;
@@ -101,11 +142,8 @@ const menuItemDefinitions: MenuItemDefinition[] = [
             }
 
             > .navbar-wide-right {
+                display: flex;
                 width: var(--hamburgerWidth, 1.8em);
-
-                > .navbar-wide-right-icon {
-                    display: none;
-                }
             }
         }
     }

@@ -1,0 +1,37 @@
+@mixin _base {
+    .image-text-grid {
+        display: grid;
+        grid-template-columns: min-content max-content;
+        column-gap: 2em;
+        row-gap: 1em;
+        align-items: center;
+    }
+}
+
+@mixin infinite {
+    @include _base;
+}
+
+@mixin wide {
+    @include _base;
+}
+
+@mixin normal {
+    @include _base;
+}
+
+@mixin narrow {
+    @include _base;
+}
+
+@mixin narrower {
+    @include _base;
+}
+
+@mixin mobile {
+    @include _base;
+}
+
+@mixin mobilep {
+    @include _base;
+}

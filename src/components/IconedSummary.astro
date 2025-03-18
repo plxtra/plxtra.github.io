@@ -1,0 +1,127 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+
+interface Props {
+    entry: CollectionEntry<'features'>;
+    title: string;
+    iconName: string | undefined;
+    readMoreUrl: string;
+}
+
+const { title, iconName, entry, readMoreUrl } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<div class="iconed-summary">
+    <div class="icon-more">
+        <Icon name={iconName} class="icon"/>
+
+        { readMoreUrl &&
+            <a class="read-more" title="more" href={ readMoreUrl }>...</a>
+        }
+    </div>
+
+    <div class="titled-summary">
+        <span class="title">{title}</span>
+
+        <div class="summary">
+            <Content/>
+        </div>
+    </div>
+</div>
+
+<style lang="scss">
+    @use '@scss/breakpoint';
+    @use '@scss/color';
+
+    .iconed-summary {
+        display: flex;
+        gap: 0.5em;
+        margin-top: -1em;
+        margin-bottom: -1em;
+
+        @include breakpoint.createNarrowerOrEquals(breakpoint.$narrower) {
+            margin-top: 0;
+            margin-bottom: .7em;
+        }
+
+        .icon-more {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+            [data-icon] {
+                color: color.get(color.$icon);
+                margin-top: .4em;
+                width: 1.2em;
+                height: 1.2em;
+            }
+
+            .read-more {
+                border: 0;
+                font-size: 70%;
+                text-decoration: none;
+            }
+
+        }
+
+        .titled-summary {
+            .title {
+                display: block;
+                font-size: 130%;
+                margin-top: 0;
+                margin-bottom: .3em;
+
+                @include breakpoint.createNarrowerOrEquals(breakpoint.$narrower) {
+                    margin-bottom: .1em;
+                }
+
+            }
+            .summary {
+                line-height: 1.2;
+                margin-block-start: -1em; // work around for <p>
+                margin-block-end: -1em; // work around for <p>
+                font-size: smaller;
+            }
+        }
+    }
+
+    @mixin narrow {
+        @include wide;
+
+        .iconed-summary {
+            margin-bottom: 1em;
+
+            .titled-summary {
+                .title {
+                    margin-bottom: .1em;
+                }
+            }
+        }
+    }
+
+
+
+// @mixin bulleted-selectors {
+//     @include selectors;
+
+//     .grid {
+//         display: block;
+//         font-size: 90%;
+
+//         .iconed-summary {
+//             margin-bottom: 1em;
+
+//             .titled-summary {
+//                 .title {
+//                     margin-bottom: .1em;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+</style>
