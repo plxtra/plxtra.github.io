@@ -4,13 +4,15 @@ import Header from '../components/Header.astro';
 
 export interface Props {
     pageTitle: string;
+    mainHeading?: string;
 };
 
 export const canonicalHost = 'plxtra.org'; // Defined in Astro Config. In future get this from environmental variable
 export const canonicalSite = `https://${canonicalHost}/`;
 const canonicalURl = new URL(Astro.url.pathname, canonicalSite);
 
-const { pageTitle } = Astro.props;
+let { pageTitle, mainHeading } = Astro.props;
+const resolvedMainHeading = mainHeading ?? pageTitle;
 ---
 
 <html lang="en" color-scheme="dark">
@@ -28,8 +30,8 @@ const { pageTitle } = Astro.props;
             <span class="narrow-heading" slot="narrow-heading">{pageTitle}</span>
         </Header>
 
-        <div id="titleAndContent">
-            <h1 id="title">{pageTitle}</h1>
+        <div id="mainHeadingAndContent">
+            <h1 id="mainHeading">{resolvedMainHeading}</h1>
             <slot />
         </div>
         <Footer />
@@ -244,14 +246,14 @@ const { pageTitle } = Astro.props;
         font-size: calc(15px + 0.390625vw);
     }
 
-    #titleAndContent {
+    #mainHeadingAndContent {
         width: 100%;
         max-width: 80ch;
         margin: 0 auto;
         padding: 0 1rem;
         line-height: 1.5;
 
-        #title {
+        #mainHeading {
             @include breakpoint.createMainMenuConfigNarrowBreakpoint {
                 display: none;
             }

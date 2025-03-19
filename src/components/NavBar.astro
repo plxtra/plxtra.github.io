@@ -58,10 +58,15 @@ const mainMenuSettings: MainMenuSettings = {
         </a>
     </div>
 
+    <div class="wide-under-construction">
+        <span>Under construction</span>
+    </div>
+
     <MainMenu id="main-menu" settings={mainMenuSettings}, menuItemDefinitions={menuItemDefinitions} />
 
     <div class="narrow-heading">
-        <slot name="narrow-heading" />
+        <span>Under construction</span>
+        <!-- <slot name="narrow-heading" /> -->
     </div>
 
     <div class="navbar-wide-right">
@@ -127,6 +132,10 @@ const mainMenuSettings: MainMenuSettings = {
         }
 
         @include breakpoint.createMainMenuConfigNarrowBreakpoint {
+            > .wide-under-construction {
+                display: none;
+            }
+
             > .narrow-heading {
                 display: flex;
                 align-items: center;

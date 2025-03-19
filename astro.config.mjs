@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
 import icon from "astro-icon";
@@ -15,10 +16,14 @@ export default defineConfig({
     site: githubSite,
     trailingSlash: 'always',
 
+    experimental: {
+        svg: true,
+    },
+
     integrations: [
         sitemap({
             // filter out all pages except home page while under construction
-            filter: (page) => page === githubSite,
+            // filter: (page) => page === githubSite,
             // Change sitemap URLs to use custom host supplied to GitHub.
             serialize(item) {
                 const url = new URL(item.url);
@@ -29,7 +34,6 @@ export default defineConfig({
                 return item;
             },
         }),
-
         icon(),
 
         starlight({
@@ -129,8 +133,7 @@ export default defineConfig({
                 },
             ],
         }),
+
+        mdx(),
     ],
-    experimental: {
-        svg: true,
-    },
 });
