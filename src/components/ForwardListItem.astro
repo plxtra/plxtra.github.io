@@ -1,0 +1,36 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import ForwardIcon from '/src/icons/ic--outline-forward.svg';
+
+interface Props extends HTMLAttributes<"li"> {
+    href?: string;
+}
+
+const { href } = Astro.props;
+---
+
+<li>
+    <div id="list-content">
+        <slot />
+        <a href={href}><ForwardIcon id="icon"/></a>
+    </div>
+</li>
+
+<style>
+    li {
+        #list-content {
+            display: flex;
+            gap: 0.5em;
+            align-items: center;
+
+            a {
+                display: flex;
+                align-items: center;
+
+                svg {
+                    height: .8em;
+                }
+            }
+        }
+    }
+</style>

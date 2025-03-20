@@ -1,20 +1,21 @@
 ---
+import ForwardListItem from '@components/ForwardListItem.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout pageTitle="Plxtra" mainHeading="An open source trading platform">
 	<main>
         <ul>
-            <li>For Exchange or Brokerage operations</li>
-            <li>Fully featured</li>
-            <li>Highly extensible</li>
-            <li>Detail documentation</li>
-            <li>Well designed architecture</li>
-            <li>C# back-end, Typescript front-end</li>
-            <li>Web, mobile and excel clients</li>
-            <li>Permissive licence (MIT)</li>
-            <li>Commercial support available</li>
-            <li>Easy install and deploy (using Docker)</li>
+            <ForwardListItem href='./features/'>For Exchange or Brokerage operations</ForwardListItem>
+            <ForwardListItem href='./features/'>Fully featured</ForwardListItem>
+            <ForwardListItem href='./features/'>Highly extensible</ForwardListItem>
+            <ForwardListItem href='./features/'>Detail documentation</ForwardListItem>
+            <ForwardListItem href='./features/'>Well designed architecture</ForwardListItem>
+            <ForwardListItem href='./features/'>C# back-end, Typescript front-end</ForwardListItem>
+            <ForwardListItem href='./features/'>Web, mobile and excel clients</ForwardListItem>
+            <ForwardListItem href='./features/'>Permissive licence (MIT)</ForwardListItem>
+            <ForwardListItem href='./features/'>Commercial support available</ForwardListItem>
+            <ForwardListItem href='./features/'>Easy install and deploy (using Docker)</ForwardListItem>
         </ul>
 
         Load full exchange on your computer to test it out.
@@ -23,3 +24,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	</main>
 </BaseLayout>
+
+<style lang="scss">
+    @use '@adornments/unordered-list';
+
+    main {
+        @include unordered-list.collapse-narrow;
+    }
+
+</style>

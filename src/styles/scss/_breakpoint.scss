@@ -6,6 +6,7 @@
 
 @use '/src/styles/scss/main-menu-config';
 
+$slim: 'slim';
 $mobilep: 'mobilep';
 $mobile: 'mobile';
 $narrower: 'narrower';
@@ -22,7 +23,8 @@ $_prev-max-key: 'prev-max';
 $_abbreviation-key: 'abbreviation';
 
 $_definitions: (
-    ('name': $mobilep, 'prev_max': null, 'max': 480, 'abbreviation': mp),
+    ('name': $slim, 'prev-max': null, 'max': 330, 'abbreviation': sl),
+    ('name': $mobilep, 'prev-max': 330, 'max': 480, 'abbreviation': mp),
     ('name': $mobile, 'prev-max': 480, 'max': 736, 'abbreviation': mb),
     ('name': $narrower, 'prev-max': 736, 'max': 840, 'abbreviation': nr),
     ('name': $narrow, 'prev-max': 840, 'max': 980, 'abbreviation': nw),
@@ -46,13 +48,13 @@ $_definitions: (
             @if ($max == null) {
                 $media: 'screen';
             } @else {
-                $media: 'screen and (width < #{$max} px)';
+                $media: 'screen and (width <= #{$max}px)';
             }
         } @else {
             @if ($max == null) {
-                $media: 'screen and (min-width: ' + $min + 'px)';
+                $media: 'screen and (#{$prev-max}px < width)';
             } @else {
-                $media: 'screen and (min-width: ' + $min + 'px) and (max-width: ' + $max + 'px)';
+                $media: 'screen and (#{$prev-max}px < width <= #{$max}px)';
             }
 		}
 	}
@@ -61,15 +63,12 @@ $_definitions: (
 		@error 'No breakpoint definition has name: #{$name}';
 	} @else {
 		@media #{$media} {
-			.media-size-display::after {
-				content: "#{$abbreviation}";
-			}
 			@content;
 		}
 	}
 }
 
-@mixin createNarrowerOrEquals($name) {
+@mixin createNarrowerOrEqual($name) {
 	$media: null;
 
     $definition: _find-definition($name);
@@ -78,12 +77,12 @@ $_definitions: (
         @if $max == null {
             $media: 'screen';
         } @else {
-            $media: 'screen and (max-width: #{$max}px)';
+            $media: 'screen and (width <= #{$max}px)';
         }
     }
 
 	@if ($media == null) {
-		@error 'No createNarrowerOrEquals breakpoint definition has name: #{$name}';
+		@error 'No createNarrowerOrEqual breakpoint definition has name: #{$name}';
 	} @else {
 		@media #{$media} {
 			@content;
@@ -92,8 +91,13 @@ $_definitions: (
 }
 
 @mixin createMainMenuConfigNarrowBreakpoint {
-    @debug main-menu-config.$narrow-breakpoint;
     @media screen and ((hover: none) or (width < main-menu-config.$narrow-breakpoint)) {
+        @content;
+    }
+}
+
+@mixin createMainMenuConfigWideBreakpoint {
+    @media screen and ((not (hover: none)) and (width >= main-menu-config.$narrow-breakpoint)) {
         @content;
     }
 }

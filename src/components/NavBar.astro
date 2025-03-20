@@ -122,7 +122,9 @@ const mainMenuSettings: MainMenuSettings = {
         }
 
         > #main-menu {
-            margin-right: 1em;
+            @include breakpoint.createMainMenuConfigWideBreakpoint {
+                margin-right: 1em;
+            }
         }
 
         > .navbar-wide-right {

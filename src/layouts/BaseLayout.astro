@@ -47,9 +47,6 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
     @use '@scss/adornments/paginated-blog-entry-summaries';
     @use '@scss/adornments/image-text-grid';
     @use '@scss/adornments/captioned-large-icon-strip';
-    @use '@scss/adornments/icon-bulleted-summaries';
-    @use '@scss/adornments/gridded-iconed-summaries';
-    @use '@scss/adornments/left-right-alternating-iconed-summaries';
     @use '@scss/adornments/light-bordered-table';
     @use '@scss/adornments/gridded-photoswipe-pages';
 
@@ -64,9 +61,6 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         @include paginated-blog-entry-summaries.infinite;
         @include image-text-grid.infinite;
         @include captioned-large-icon-strip.infinite;
-        @include icon-bulleted-summaries.infinite;
-        @include gridded-iconed-summaries.infinite;
-        @include left-right-alternating-iconed-summaries.infinite;
     }
 
     @include breakpoint.create(breakpoint.$wide) {
@@ -80,9 +74,6 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         @include paginated-blog-entry-summaries.wide;
         @include image-text-grid.wide;
         @include captioned-large-icon-strip.wide;
-        @include icon-bulleted-summaries.wide;
-        @include gridded-iconed-summaries.wide;
-        @include left-right-alternating-iconed-summaries.wide;
     }
 
     @include breakpoint.create(breakpoint.$normal) {
@@ -96,9 +87,6 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         @include paginated-blog-entry-summaries.normal;
         @include image-text-grid.normal;
         @include captioned-large-icon-strip.normal;
-        @include icon-bulleted-summaries.normal;
-        @include gridded-iconed-summaries.normal;
-        @include left-right-alternating-iconed-summaries.normal;
     }
 
     @include breakpoint.create(breakpoint.$narrow) {
@@ -112,9 +100,6 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         @include paginated-blog-entry-summaries.narrow;
         @include image-text-grid.narrow;
         @include captioned-large-icon-strip.narrow;
-        @include icon-bulleted-summaries.narrow;
-        @include gridded-iconed-summaries.narrow;
-        @include left-right-alternating-iconed-summaries.narrow;
     }
 
     @include breakpoint.create(breakpoint.$narrower) {
@@ -128,9 +113,6 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         @include paginated-blog-entry-summaries.narrower;
         @include image-text-grid.narrower;
         @include captioned-large-icon-strip.narrower;
-        @include icon-bulleted-summaries.narrower;
-        @include gridded-iconed-summaries.narrower;
-        @include left-right-alternating-iconed-summaries.narrower;
     }
 
     @include breakpoint.create(breakpoint.$mobile) {
@@ -144,9 +126,6 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         @include paginated-blog-entry-summaries.mobile;
         @include image-text-grid.mobile;
         @include captioned-large-icon-strip.mobile;
-        @include icon-bulleted-summaries.mobile;
-        @include gridded-iconed-summaries.mobile;
-        @include left-right-alternating-iconed-summaries.mobile;
     }
 
     @include breakpoint.create(breakpoint.$mobilep) {
@@ -160,9 +139,6 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         @include paginated-blog-entry-summaries.mobilep;
         @include image-text-grid.mobilep;
         @include captioned-large-icon-strip.mobilep;
-        @include icon-bulleted-summaries.mobilep;
-        @include gridded-iconed-summaries.mobilep;
-        @include left-right-alternating-iconed-summaries.mobilep;
     }
 
     a:link {
@@ -214,32 +190,6 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         font-size: 1.5rem;
     }
 
-    /* Lists */
-    @media screen and (min-Width: 331px) and (max-width: 430px) {
-        ul {
-            padding-left: 1em;
-        }
-
-        li > p {
-            display: inline;
-        }
-    }
-
-    /* Lists */
-    @media screen and (max-width: 330px) {
-        li {
-            list-style-position: inside;
-        }
-
-        ul {
-            padding-left: 0;
-        }
-
-        li > p {
-            display: inline;
-        }
-    }
-
     body {
         margin: 0 auto;
         padding: 0;
@@ -252,6 +202,18 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         margin: 0 auto;
         padding: 0 1rem;
         line-height: 1.5;
+
+        @include breakpoint.create(breakpoint.$mobile) {
+            padding: 0 .5rem;
+        }
+
+        @include breakpoint.create(breakpoint.$mobilep) {
+            padding: 0 .4rem;
+        }
+
+        @include breakpoint.createNarrowerOrEqual(breakpoint.$slim) {
+            padding: 0 .3rem;
+        }
 
         #mainHeading {
             @include breakpoint.createMainMenuConfigNarrowBreakpoint {

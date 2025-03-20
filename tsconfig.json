@@ -6,7 +6,13 @@
     "allowJs": true, // required, and included with all Astro templates
     "verbatimModuleSyntax": true,
     "paths": {
+      "@icons/*": ["./src/icons/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
       "@scss/*": ["./src/styles/scss/*"],
+      "@adornments/*": ["./src/styles/scss/adornments/*"],
     }
-  }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }

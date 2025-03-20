@@ -42,7 +42,7 @@ const { Content } = await render(entry);
         margin-top: -1em;
         margin-bottom: -1em;
 
-        @include breakpoint.createNarrowerOrEquals(breakpoint.$narrower) {
+        @include breakpoint.createNarrowerOrEqual(breakpoint.$narrower) {
             margin-top: 0;
             margin-bottom: .7em;
         }
@@ -51,6 +51,7 @@ const { Content } = await render(entry);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
 
 
             [data-icon] {
@@ -75,7 +76,7 @@ const { Content } = await render(entry);
                 margin-top: 0;
                 margin-bottom: .3em;
 
-                @include breakpoint.createNarrowerOrEquals(breakpoint.$narrower) {
+                @include breakpoint.createNarrowerOrEqual(breakpoint.$narrower) {
                     margin-bottom: .1em;
                 }
 

@@ -1,0 +1,27 @@
+@use '@scss/breakpoint';
+
+@mixin collapse-narrow {
+    @include breakpoint.create(breakpoint.$mobilep) {
+        ul {
+            padding-left: 1em;
+        }
+
+        li > p {
+            display: inline;
+        }
+    }
+
+    @include breakpoint.createNarrowerOrEqual(breakpoint.$slim) {
+        li {
+            list-style-position: inside;
+        }
+
+        ul {
+            padding-left: 0.7em;
+        }
+
+        li > p {
+            display: inline;
+        }
+    }
+}

@@ -87,7 +87,7 @@ let left = true;
         margin-top: 2em;
         margin-bottom: 2em;
 
-        @include breakpoint.createNarrowerOrEquals(breakpoint.$narrower) {
+        @include breakpoint.createNarrowerOrEqual(breakpoint.$narrower) {
             margin-top: 0;
         }
 
@@ -99,7 +99,7 @@ let left = true;
             row-gap: 0.7em;
             font-size: 90%;
 
-            @include breakpoint.createNarrowerOrEquals(breakpoint.$narrower) {
+            @include breakpoint.createNarrowerOrEqual(breakpoint.$narrower) {
                 display: block;
                 font-size: 90%;
             }
