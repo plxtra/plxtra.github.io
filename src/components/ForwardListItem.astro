@@ -16,7 +16,8 @@ const { href } = Astro.props;
     </div>
 </li>
 
-<style>
+<style lang="scss">
+    @use '@scss/color';
     li {
         #list-content {
             display: flex;
@@ -29,6 +30,7 @@ const { href } = Astro.props;
 
                 svg {
                     height: .8em;
+                    color: color.get(color.$forward-icon);
                 }
             }
         }

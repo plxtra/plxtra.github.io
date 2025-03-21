@@ -19,6 +19,9 @@ $a-hover: 'a-hover';
 $a-active: 'a-active';
 
 $icon: 'icon';
+$forward-icon: 'forward-icon';
+
+$h1-heading: 'h1-heading';
 
 $ammWideMainMenuBackground: 'amm-wideMainMenuBackgroundColor';
 $ammNarrowMainMenuBackground: 'amm-narrowMainMenuBackgroundColor';
@@ -85,6 +88,9 @@ $_all: (
     $a-active,
 
     $icon,
+    $forward-icon,
+
+    $h1-heading,
 
     $ammWideMainMenuBackground,
     $ammNarrowMainMenuBackground,
@@ -153,6 +159,8 @@ $_dark-scheme: (
     $a-hover: $_main-foreground-color,
     $a-active: $_main-foreground-color,
     $icon: rgb(137, 201, 154),
+    $forward-icon: rgb(171, 206, 180),
+    $h1-heading: #bcc19e,
 
     $ammWideMainMenuBackground: 'transparent',
     $ammNarrowMainMenuBackground: #020107,
