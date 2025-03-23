@@ -12,6 +12,7 @@ $light-color-scheme-name: 'light';
 
 $main-background: 'main-background-color';
 $main-foreground: 'main-foreground-color';
+$alt-main-background: 'alt-main-background-color';
 
 $a-link: 'a-link';
 $a-visited: 'a-visited';
@@ -81,6 +82,7 @@ $light-bordered-table-odd-row-background: 'light-bordered-table-odd-row-backgrou
 $_all: (
     $main-background,
     $main-foreground,
+    $alt-main-background,
 
     $a-link,
     $a-visited,
@@ -154,6 +156,7 @@ $_first-level-menu-item-page-tree-active: dimgray;
 $_dark-scheme: (
     $main-background: #0d0a27,
     $main-foreground: $_main-foreground-color,
+    $alt-main-background: #1d1c42,
     $a-link: $_main-foreground-color,
     $a-visited: $_main-foreground-color,
     $a-hover: $_main-foreground-color,

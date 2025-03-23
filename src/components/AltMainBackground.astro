@@ -1,0 +1,21 @@
+---
+---
+
+<div class="alt-main-background">
+    <slot />
+</div>
+
+<style lang="scss">
+    @use '@scss/color';
+
+    .alt-main-background {
+        background-color: color.get(color.$alt-main-background);
+    }
+
+    :global(p) {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+</style>

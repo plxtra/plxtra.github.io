@@ -1,6 +1,7 @@
 ---
 import ForwardListItem from '@components/ForwardListItem.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import {Content} from './_home-content.mdx';
 ---
 
 <BaseLayout pageTitle="Plxtra" mainHeading="An open source trading platform">
@@ -22,6 +23,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h1>Install</h1>
         Load full exchange on your computer to test it out.
         <button>Install now</button>
+
+        <Content />
 
         <h1>Why open source?</h1>
         <h1>Used by</h1>
