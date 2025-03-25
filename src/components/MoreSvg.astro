@@ -1,0 +1,26 @@
+---
+import ForwardIcon from '@icons/ic--outline-forward.svg';
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"li"> {
+    href?: string;
+    title?: string;
+}
+
+const { href, title } = Astro.props;
+---
+
+<a href={href} title={title ?? 'more'}><ForwardIcon id="icon"/></a>
+
+<style lang="scss">
+    @use '@scss/color';
+    a {
+        display: inline-flex;
+        align-items: center;
+
+        svg {
+            height: .8em;
+            color: color.get(color.$forward-icon);
+        }
+    }
+</style>

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import IconedSummary from '../components/IconedSummary.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import IconedSummary from '@components/IconedSummary.astro';
 import type { CollectionEntry } from 'astro:content';
 
 const entries = await getCollection('features');

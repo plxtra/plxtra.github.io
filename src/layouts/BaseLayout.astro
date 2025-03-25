@@ -50,6 +50,19 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
     @use '@scss/adornments/light-bordered-table';
     @use '@scss/adornments/gridded-photoswipe-pages';
 
+    h1 {
+        margin: 1rem 0;
+        font-size: 2rem;
+        line-height: 1.1;
+        color: color.get(color.$h1-heading);
+    }
+
+    h2 {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+    }
+
+
     @include breakpoint.create(breakpoint.$infinite) {
         // @include tags.infinite;
         // @include classes-ids.infinite;
@@ -179,22 +192,11 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         box-sizing: border-box;
     }
 
-    h1 {
-        margin: 1rem 0;
-        font-size: 2rem;
-        line-height: 1.1;
-        color: color.get(color.$h1-heading);
-    }
-
-    h2 {
-        margin: 1rem 0;
-        font-size: 1.5rem;
-    }
-
     body {
         margin: 0 auto;
         padding: 0;
         font-size: calc(15px + 0.390625vw);
+        overflow-x: hidden;
     }
 
     #mainHeadingAndContent {

@@ -1,36 +1,33 @@
 ---
-import ForwardListItem from '@components/ForwardListItem.astro';
+import MoreListItem from '@components/MoreListItem.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import {Content} from './_home-content.mdx';
+import { Content } from './_home-content.mdx';
 ---
 
-<BaseLayout pageTitle="Plxtra" mainHeading="An open source trading platform">
+<BaseLayout pageTitle="Plxtra" mainHeading="Open source retail trading platform">
 	<main>
-        <ul>
-            <ForwardListItem href='./features/'>For Exchange or Brokerage operations</ForwardListItem>
-            <ForwardListItem href='./features/'>Fully featured</ForwardListItem>
-            <ForwardListItem href='./features/'>Highly extensible</ForwardListItem>
-            <ForwardListItem href='./features/'>Detail documentation</ForwardListItem>
-            <ForwardListItem href='./features/'>Well designed architecture</ForwardListItem>
-            <ForwardListItem href='./features/'>C# back-end, Typescript front-end</ForwardListItem>
-            <ForwardListItem href='./features/'>Web, mobile and excel clients</ForwardListItem>
-            <ForwardListItem href='./features/'>Mature design and production proven</ForwardListItem>
-            <ForwardListItem href='./features/'>Permissive licence (MIT)</ForwardListItem>
-            <ForwardListItem href='./features/'>Commercial support available</ForwardListItem>
-            <ForwardListItem href='./features/'>Easy install and deploy (using Docker)</ForwardListItem>
+        <ul id="home-main-list">
+            <MoreListItem href='./features/'>For retail focused Exchange or Brokerage operations</MoreListItem>
+            <MoreListItem href='./about/features/'>Feature rich, full solution</MoreListItem>
+            <MoreListItem href='./features/'>Highly extensible</MoreListItem>
+            <MoreListItem href='./features/'>Thoughtfully engineered structure/architecture</MoreListItem>
+            <MoreListItem href='./features/'>Scalable with redundancy</MoreListItem>
+            <MoreListItem href='./features/'>C# back-end, Typescript front-end</MoreListItem>
+            <MoreListItem href='./features/'>Web, mobile and excel clients</MoreListItem>
+            <MoreListItem href='./features/'>Detail documentation</MoreListItem>
+            <MoreListItem href='./features/'>Mature design and production proven</MoreListItem>
+            <MoreListItem href='./features/'>Permissive licence (MIT)</MoreListItem>
+            <MoreListItem href='./features/'>Commercial support available</MoreListItem>
+            <MoreListItem href='./features/'>Easy install and deploy (using Docker)</MoreListItem>
         </ul>
+
+        <!-- https://stackoverflow.com/questions/14596213/shrink-div-to-text-thats-wrapped-to-its-max-width/73706430#73706430 -->
 
         <h1>Install</h1>
         Load full exchange on your computer to test it out.
         <button>Install now</button>
 
         <Content />
-
-        <h1>Why open source?</h1>
-        <h1>Used by</h1>
-
-        <h1>Commercial Support</h1>
-
 
 	</main>
 </BaseLayout>
@@ -43,3 +40,44 @@ import {Content} from './_home-content.mdx';
     }
 
 </style>
+
+<script>
+    const homeMainListElement = document.getElementById('home-main-list');
+    if (homeMainListElement !== null) {
+        const resizeObserver = new ResizeObserver(() => updateHomeMainListTextNodeWidths());
+        resizeObserver.observe(homeMainListElement);
+
+    }
+
+    updateHomeMainListTextNodeWidths();
+
+    function updateHomeMainListTextNodeWidths() {
+        const range = document.createRange();
+        const elementCollection = document.getElementsByClassName('more-list-item-slot-div');
+        const count = elementCollection.length;
+        for (let i = 0; i < count; i++) {
+            const element = elementCollection.item(i);
+            if (element !== null) {
+                const htmlElement = element as HTMLElement;
+                htmlElement.style.width = 'unset';
+                htmlElement.style.boxSizing = 'unset';
+            }
+        }
+
+        for (let i = 0; i < count; i++) {
+            const element = elementCollection.item(i);
+            if (element !== null) {
+                const textNode = element.firstChild as ChildNode | null;
+
+                if (textNode !== null && textNode.nodeType === Node.TEXT_NODE) {
+                    range.selectNodeContents(textNode);
+                    const { width } = range.getBoundingClientRect();
+                    const htmlElement = element as HTMLElement;
+                    htmlElement.style.width = width + "px";
+                    htmlElement.style.boxSizing = "content-box";
+                }
+            }
+        }
+    }
+
+</script>

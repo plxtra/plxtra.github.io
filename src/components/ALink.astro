@@ -1,15 +1,21 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-// use a `type`
-type Props = HTMLAttributes<"a">;
+interface Props extends HTMLAttributes<"a"> {
+    fontSize?: string;
+}
 
-// or extend with an `interface`
-// interface Props extends HTMLAttributes<"a"> {
-//     myProp?: boolean;
-// }
-
-const { href, ...attrs } = Astro.props;
+const { fontSize, ...attrs } = Astro.props;
 ---
 
-<a href={href} {...attrs}><slot /></a>
+<a {...attrs}>
+    <slot />
+</a>
+
+<style define:vars={{
+    "a-font-size": fontSize,
+}}>
+    a {
+        font-size: var(--a-font-size);
+    }
+</style>
