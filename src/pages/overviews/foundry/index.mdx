@@ -3,17 +3,19 @@ layout: '@layouts/MarkdownLayout.astro'
 title: 'Foundry'
 ---
 
-Foundry is a synchronisation registry and settlement system. It keeps track of accounts, their transactions and their holdings and cash balances. It interacts with a downstream Order Management System (OMS) which notifies it of withdrawals and executed trades. Foundry performs the necessary settlement actions and issues contract notes.
+Foundry is a flexible multi-tennanted accounting system which supports specialised transactions related to share trading and settlement.  It can be programmatically be configured to reflect the arrangement of entities and assets within an exchange.
 
-Foundry can also communicate with upstream registries, clearing houses or banks which are the ‘source of truth’ for some
-accounts and data types.
+An installation of Foundry supports multiple registry operators.  Each registry operator can be configured with a network of:
+* Entity types (owns assets)
+* Asset types
+* Ledgers (links an asset type to an entity type)
 
-The block diagram below shows these various entities and their interactions.
+Typical examples of entity types are: Issuer, Investor, Trading Account. These types can be arranged hierarchically reflecting their place in the exchange eco system.  They can also be assigned attributes that allow the entities to be easily described and searched.
 
-![Foundry connectivity](./foundry-connectivity.svg)
+Typical examples of asset types are: Currency, Token.
 
-For holdings and cash data, it is necessary to specify one entity as being the ‘source of truth’ for this data. There may be different sources of truth for holdings and cash. There may even be different sources for different accounts.
+A ledger will link one entity to one asset and track transactions between these 2 linked items.  For example, a ledger linking entity "Trading Account" to asset "Currency" will record balance related transactions.  Likewise a ledger linking entity "Trading Account" to asset "Token" will record holdings related transactions.  Ledgers can be set up between any entity and asset.  For example, a ledger could link "Issuer" to "Currency".
 
-If a system in the above diagram is the ‘source of truth’ for data, then all other systems need to synchronise with that data in that system. The synchronisation may not involve reflecting all the data from the ‘source of truth’ - only to the extent that it is needed in a system. For example, the OMS is generally not interested in historical transactions and will typically only synchronise with the latest balances.
+Transactions are entered into the system with "Record" types.  Each "Record" type will be processed by its own processor and will result in 2 transactions (debit and credit).
 
-The OMS is never the ‘source of truth’ for persisted data. It will interact with Foundry in real time to receive any changes to accounts in Foundry. However during trading hours, whenever trades or reservations occur, OMS will update its internal accounts to reflect these changes.
+Foundry's flexibility allows it to be customised to wide range of use cases for registries without modification.  If a use case requires transaction types not yet supported within Foundry, then these can easily be added using Foundry's plugin architecture for "Record" processors.
