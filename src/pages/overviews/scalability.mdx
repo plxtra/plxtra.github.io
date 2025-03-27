@@ -1,0 +1,11 @@
+---
+layout: '@layouts/MarkdownLayout.astro'
+title: 'Scalability'
+---
+
+Plxtra has been designed to scale to handle almost any load.
+
+As more users connect to Plxtra, extra [Zenith Proxies](/architecture/components/zenith/) can be added to a Plxtra installation to handle increases in the load. Since Zenith Proxies cache data and are cascadable with [interlink](/architecture/components/interlink/) connections, there is no limit to the number of proxies that can be included to handle user load.
+
+Plxtra back-end software applications have been designed to efficiently process transactions and data streams. Generally, a Plxtra installation can be hosted on very low spec'd servers in cloud environments and even then, the consumption of computing resources is very low. If their load increases due to, say, large increases in data from an exchange, these back-end servers can easily be upgraded to more powerful instances. It is very unlikely that load on a back-end server will ever become an issue.
+

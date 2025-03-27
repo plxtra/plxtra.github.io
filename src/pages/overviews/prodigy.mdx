@@ -2,3 +2,18 @@
 layout: '@layouts/MarkdownLayout.astro'
 title: 'Prodigy'
 ---
+
+Plxtra's matching engine, [Prodigy](/architecture/components/prodigy/), is a multi market matching engine with a market plugin design. It can be accessed either via industry standard [FIX protocol](/architecture/components/fix/) or managed via an internal rest API.
+
+There are 2 parts to Prodigy:
+
+1. Its core. This contains the general matching engine functionality.
+1. The plugins. A plugin implements a markets rules and behaviour.
+
+Prodigy can have multiple plugins installed and can run multiple markets concurrently.
+
+By implementing market rules and behaviour in a plugin, it makes supporting new markets or adding functionality to existing markets a lot easier. Supporting a new market only requires developing a plugin - not implementing a completely new matching engine. Adding new capabilities to a market only requires testing its plugin. In both cases, Prodigy's core is not modified.
+
+In addition, plugins allow hosting of different versions of the same plugin. This can facilitate upgrading and allow other systems to incremental move from one version to the next. Upgrades can be smoother and risks reduced.
+
+For an exchange business, the advantage of plugins boils down to [accelerated market development](/industry/market-development/).
