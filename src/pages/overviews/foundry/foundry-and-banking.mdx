@@ -1,0 +1,76 @@
+---
+layout: '@layouts/MarkdownLayout.astro'
+title: 'Foundry and banking'
+---
+
+import FoundryConnectivity from './_foundry-connectivity.svg'
+
+## What is Foundry
+Foundry is a synchronisation registry. It keeps track of accounts, their transactions and their holdings and cash balances. It interacts with a downstream Order Management System (
+OMS) which notifies it of withdrawals and executed trades. It can also communicate with upstream registries, clearing houses or banks which are the ‘source of truth’ for some
+accounts and data types. The block diagram below shows these various entities and their interactions.
+
+<FoundryConnectivity fill="currentColor" style="background-color: white; padding: 1em"/>
+
+## Source of Truth
+For holdings and cash data, we need to specify one entity as being the ‘source of truth’ for this data. There may be different sources of truth for holdings and cash. There may even be different sources for different accounts.
+
+If a system in the above diagram is the ‘source of truth’ for data, then all other systems need to synchronise with that data in that system. The synchronisation may not involve reflecting all the data from the ‘source of truth’ - only to the extent that it is needed in a system. For example, the OMS is generally not interested in historical transactions and will typically only synchronise with the latest balances.
+
+The OMS is never the ‘source of truth’ for persisted data. It will interact with Foundry in real time to receive any changes to accounts in Foundry. However during trading hours, whenever trades or reservations occur, OMS will update its internal accounts to reflect these changes. It will also inform Foundry of these changes so it can also update its accounts and carry out any required settlement actions.
+
+Foundry can be the ‘source of truth’ for persisted data. This can be configured for groups of accounts and also configured for either or both holdings data and cash data. Foundry will not try to synchronise with upstream entities (banks, clearing houses etc) for data where it is the source of truth.
+
+Where Foundry is not the source of truth for data, it will interact with upstream entities to synchronise with the relevant data in these systems. For example, the source of truth for cash may be individual accounts within a banking provider. In this case, Foundry will communicate with the banking provider and ensure:
+
+1. Cash balances and transactions in its internal accounts are always in sync with the bank accounts (to the extent possible with available APIs)
+1. OMS cash balances are also kept in sync with the bank accounts.
+
+In effect, for this data, Foundry behaves more like a cache. It ensures that data in OMS and upstream entities remain synchronised.
+
+## Sub Registry
+Foundry can act as a sub-registry. In this case, an upstream entity does not keep track of individual user trading accounts. It has only a single account which keeps track of aggregate balances and aggregate incoming and outgoing transactions. However Foundry will keep track of individual user’s trading accounts. In this case, the upstream entity is the source of truth for the aggregate balance whereas Foundry is the source of truth for the individual accounts, their balance and their transactions. Synchronisation in this case involves aggregating the individual transactions and ensuring that the sum of all the individual balances matches the upstream entity’s aggregate balance.
+
+A typical example of this is where banking is done with an Omnibus bank account and Foundry keeps track of all the individual balances and transactions.
+
+## Foundry and OMS
+Both Foundry and OMS contain trading accounts. In both cases, the accounts keep track of holdings and cash balances.
+
+The accounts within Foundry contain a permanent record of transactions that have occurred within the account. These accounts all keep track of the holdings and cash balances resulting from all the transactions and maintain a history of the transactions.
+
+The accounts with OMS are used to process orders. They are not a permanent record of transactions. In general, only recent transactions are maintained within accounts in the OMS - typically the current days. In addition, these accounts also track orders as well. That is, parcels of holdings that users wish to buy or sell but have not yet done so. The OMS accounts track this so that it can ensure that the sum of all orders in an account can be covered by the existing balances (both holdings and cash).
+
+The accounts in OMS and Foundry need to remain synchronised. This is done with the following communication messages:
+
+* Trades\
+Whenever an order is filled, the OMS will send a trades message to the registry. This message advises Foundry that it should transfer stock and cash between 2 accounts. If the source of truth for either holdings or cash is upstream, then Foundry will message the upstream entities accordingly.
+* Withdrawals\
+All cash withdrawals are initiated through the OMS which will check these against the trading account’s cash balance and reservations and also against its business rules. If a request successfully meets these criteria, it is passed onto Foundry to be processed.
+* Transactions|
+External transactions may affect the balances within accounts in Foundry. For example, a user may deposit funds within an account. Foundry can inform OMS of these changes with transactions. These advise the OMS to change the balances (holdings or cash) within an account and allow the corresponding accounts within OMS and Foundry to remain synchronised.
+* Transformations\
+Transformations are similar to transactions however they generally only affect one side of the ledger. For example, a stock split is a transformation.
+
+## Foundry and Banks
+
+A bank can be the source of truth for either:
+1. Individual trading accounts
+1. An aggregate (Omnibus) account
+
+Synchronisation is a lot easier in the case of an Omnibus account. This scenario is discussed below:
+
+## Omnibus account
+
+If banking is done with an Omnibus account, then synchronisation only involves handling inflows and outflows into the Omnibus account. All other transactions are handled within Foundry itself.
+
+### Incoming
+
+An incoming transaction into the Omnibus would normally be from a user’s private bank account into the Omnibus bank account. These transactions should be able to be handled automatically provided a suitable banking feed is available from Omnibus account banking provider. If the feed includes the user’s back account details, this can be used to identify that user’s corresponding trading account in Foundry. These incoming funds can then automatically be allocated to that account.
+
+If a trading account in Foundry is not automatically identified, then this incoming transaction will need to be manually handled.
+
+### Outgoing
+
+Outgoing transactions are initiated by the user and sent to the OMS. It is necessary for the OMS to be involved as the account may have reservations associated with it from open orders and the OMS tracks these reservations. The OMS will check a withdrawal request to confirm the trading account has sufficient funds (also taking into account reservations). It will also check the request against the OMS business/vetting rules.
+
+If the request is approved, the OMS will submit the withdrawal to the Foundry to be processed. This processing will depend on the capability of the Omnibus banking feed. The Foundry operator may also wish to include some manual processing for security and/or regulatory requirements.

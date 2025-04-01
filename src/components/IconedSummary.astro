@@ -7,7 +7,7 @@ interface Props {
     entry: CollectionEntry<'features'>;
     title: string;
     iconName: string | undefined;
-    readMoreUrl: string;
+    readMoreUrl: string | undefined;
 }
 
 const { title, iconName, entry, readMoreUrl } = Astro.props;

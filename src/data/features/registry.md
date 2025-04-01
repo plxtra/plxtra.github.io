@@ -1,6 +1,6 @@
 ---
 title: Registry
-weight: 30
+weight: 10
 readMoreUrl: /overviews/foundry/
 iconName: noun_registry_2528119
 ---

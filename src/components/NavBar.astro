@@ -10,8 +10,8 @@ const menuItemDefinitions: MenuItemDefinition[] = [
             { text: 'Retail exchange', url: '/solutions/retail-exchange/' },
             { text: 'Brokerage trading', url: '/solutions/brokerage-trading/' },
             { text: 'Specialised exchange', url: '/solutions/specialised-exchange/' },
-            { text: 'Market development acceleration', url: '/solutions/market-development-acceleration/' },
-            { text: 'Trading components', url: '/solutions/trading-components/' },
+            { text: 'Market development', url: '/industry/market-development/' },
+            { text: 'Trading componentry', url: '/solutions/trading-componentry/' },
             { text: 'Commercial Support', url: '/solutions/commercial-support/' },
         ],
     },
@@ -31,13 +31,13 @@ const menuItemDefinitions: MenuItemDefinition[] = [
     },
     {
         text: 'About',
-        url: '/',
+        url: '/#about',
         title: 'About',
         children: [
             { text: 'Home', url: '/' },
-            { text: 'Features', url: '/overviews/features/' },
+            { text: 'Features', url: '/overviews/features/', title: 'Summary of Plxtra features' },
             { text: 'History', url: '/about/history/' },
-            { text: 'Contact', url: '/about/contact/' },
+            { text: 'Contact', url: '/about/contact/', title: 'Start a discussion, open an issue or engage with commercial support' },
         ],
     },
     { text: 'News', url: '/news/' },
@@ -54,35 +54,44 @@ const mainMenuSettings: MainMenuSettings = {
         <Icon name="plxtra-logo" id="navbar-narrow-left-icon" />
     </div>
 
-    <div class="navbar-wide-left">
-        <a href="/">
-            <Icon name="plxtra-logo" id="navbar-wide-left-icon" />
-        </a>
-        <a href="/">
-            <span id="logoOrgName">Plxtra</span>
-        </a>
-    </div>
-
-    <div class="wide-under-construction">
-        <span>Under construction</span>
+    <div id="navbar-wide-left-under-construction">
+        <div class="navbar-wide-left">
+            <a href="/">
+                <Icon name="plxtra-logo" id="navbar-wide-left-icon" />
+            </a>
+            <a href="/">
+                <span id="logoOrgName">Plxtra</span>
+            </a>
+        </div>
+        <span id="wide-under-construction-text">Under construction</span>
     </div>
 
     <MainMenu id="main-menu" settings={mainMenuSettings}, menuItemDefinitions={menuItemDefinitions} />
 
     <div class="narrow-heading">
-        <span>Under construction</span>
-        <!-- <slot name="narrow-heading" /> -->
+        <slot name="narrow-heading" />
     </div>
 
     <div class="navbar-wide-right">
         <Hamburger settings={DefaultSettings.hamburgerSettings} />
     </div>
 </nav>
+<span id="narrow-under-construction-text">Under construction</span>
 
 <style lang="scss" define:vars={{
     hamburgerWidth: DefaultSettings.hamburgerSettings.width,
 }}>
     @use '@scss/breakpoint';
+
+    #narrow-under-construction-text {
+        display: none;
+        font-size: smaller;
+        font-style: italic;
+
+        @include breakpoint.createMainMenuConfigNarrowBreakpoint {
+            display: block;
+        }
+    }
 
     .navbar {
         width: 100%;
@@ -105,24 +114,34 @@ const mainMenuSettings: MainMenuSettings = {
             }
         }
 
-        > .navbar-wide-left {
-            flex: 0 0 auto;
+        > #navbar-wide-left-under-construction {
             display: flex;
-            align-items: center;
-            gap: .5em;
+            flex-direction: column;
 
-            > a {
-                > #navbar-wide-left-icon {
-                    height: 1.3lh;
+            > .navbar-wide-left {
+                flex: 0 0 auto;
+                display: flex;
+                align-items: center;
+                gap: .5em;
+
+                > a {
+                    > #navbar-wide-left-icon {
+                        height: 1.3lh;
+                    }
+                }
+                > a, a:visited, a:active, a:hover {
+                    text-decoration-line: none !important;
+                    color: inherit;
+                    > #logoOrgName {
+                        font-size: 1.5em;
+                        font-weight: bold;
+                    }
                 }
             }
-            > a, a:visited, a:active, a:hover {
-                text-decoration-line: none !important;
-                color: inherit;
-                > #logoOrgName {
-                    font-size: 1.5em;
-                    font-weight: bold;
-                }
+
+            > #wide-under-construction-text {
+                font-size: smaller;
+                font-style: italic;
             }
         }
 
@@ -139,10 +158,6 @@ const mainMenuSettings: MainMenuSettings = {
         }
 
         @include breakpoint.createMainMenuConfigNarrowBreakpoint {
-            > .wide-under-construction {
-                display: none;
-            }
-
             > .narrow-heading {
                 display: flex;
                 align-items: center;
@@ -153,7 +168,7 @@ const mainMenuSettings: MainMenuSettings = {
                 align-items: center;
             }
 
-            > .navbar-wide-left {
+            > #navbar-wide-left-under-construction, .navbar-wide-left {
                 display: none;
             }
 

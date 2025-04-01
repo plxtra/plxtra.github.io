@@ -1,6 +1,6 @@
 ---
 title: Scalability
-weight: 160
+weight: 180
 readMoreUrl: /overviews/scalability/
 iconName: noun_layer_3024586
 ---

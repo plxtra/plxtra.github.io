@@ -1,8 +1,8 @@
 ---
 title: Mobile
-weight: 110
-readMoreUrl: /arc-light
+weight: 90
+readMoreUrl: /overviews/front-ends/arclight/
 iconName: noun_Mobile_2301368
 ---
 
-[ArcLight]({{< ref "/platforms/documentation/arc-light" >}}) is a streaming mobile trading app ideal. Ideal for trading on the go.
+[Arclight](/overviews/front-ends/arclight/) is a streaming mobile trading app ideal. Ideal for trading on the go.

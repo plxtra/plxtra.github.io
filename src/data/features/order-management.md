@@ -1,7 +1,7 @@
 ---
 title: Order Management
-weight: 50
-readMoreUrl: /platforms/documentation/technology/oms
+weight: 30
+readMoreUrl: /architecture/components/order-management-system/
 iconName: noun_customer service_2645571
 ---
 

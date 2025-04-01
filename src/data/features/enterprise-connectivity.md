@@ -1,6 +1,6 @@
 ---
 title: Enterprise Connectivity
-weight: 80
+weight: 130
 readMoreUrl: /architecture/components/fix/
 iconName: noun_digital enterprise_3852304
 ---

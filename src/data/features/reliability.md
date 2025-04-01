@@ -1,6 +1,6 @@
 ---
 title: Reliability
-weight: 150
+weight: 170
 readMoreUrl: /overviews/reliability/
 iconName: noun_reliability_373435
 ---

@@ -1,6 +1,6 @@
 ---
 title: Data Dissemination
-weight: 60
+weight: 40
 readMoreUrl: /architecture/components/zenith/
 iconName: mdi--multiplex
 ---

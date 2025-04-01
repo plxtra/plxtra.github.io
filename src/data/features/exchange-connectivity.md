@@ -1,6 +1,6 @@
 ---
 title: Exchange Connectivity
-weight: 10
+weight: 120
 readMoreUrl: /platforms/documentation/technology/exchange-connectivity
 iconName: noun_network_connectivity_2373731
 ---

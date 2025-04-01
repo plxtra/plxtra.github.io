@@ -8,7 +8,7 @@ const features = defineCollection({
     schema: z.object({
         title: z.string(),
         weight: z.number(),
-        readMoreUrl: z.string(),
+        readMoreUrl: z.string().optional(),
         iconName: z.string(),
     }),
 });

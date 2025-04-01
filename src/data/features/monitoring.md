@@ -1,6 +1,6 @@
 ---
 title: Monitoring
-weight: 140
+weight: 160
 readMoreUrl: /overviews/monitoring/
 iconName: noun_CCTV-Security-Camera_2698601
 ---

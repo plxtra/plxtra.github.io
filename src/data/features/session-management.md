@@ -1,7 +1,7 @@
 ---
 title: Session Management
-weight: 130
-readMoreUrl: /platforms/documentation/technology/session-management
+weight: 140
+readMoreUrl: /architecture/components/session-management/
 iconName: noun_Login_3582609
 ---
 

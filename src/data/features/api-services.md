@@ -1,6 +1,6 @@
 ---
 title: API Services
-weight: 70
+weight: 50
 readMoreUrl: /overviews/apis/
 iconName: material-symbols--api-rounded
 ---
