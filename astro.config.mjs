@@ -22,17 +22,15 @@ export default defineConfig({
 
     integrations: [
         sitemap({
-            // // filter out all pages except home page while under construction
-            // // filter: (page) => page === githubSite,
-            // // Change sitemap URLs to use custom host supplied to GitHub.
-            // serialize(item) {
-            //     const url = new URL(item.url);
-            //     if (url.host === githubHost) {
-            //         url.host = canonicalHost;
-            //     }
-            //     item.url = url.href;
-            //     return item;
-            // },
+            // Change sitemap URLs to use custom host supplied to GitHub.
+            serialize(item) {
+                const url = new URL(item.url);
+                if (url.host === githubHost) {
+                    url.host = canonicalHost;
+                }
+                item.url = url.href;
+                return item;
+            },
         }),
         icon(),
 
