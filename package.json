@@ -12,13 +12,13 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.2.1",
+    "@astrojs/mdx": "^4.2.4",
     "@astrojs/sitemap": "^3.3.0",
-    "@astrojs/starlight": "^0.32.2",
+    "@astrojs/starlight": "^0.34.0",
     "@pbkware/astro-main-menu": "^2.0.0",
-    "astro": "^5.5.2",
+    "astro": "^5.7.4",
     "astro-icon": "^1.1.5",
-    "sass": "^1.86.0",
-    "typescript": "^5.8.2"
+    "sass": "^1.87.0",
+    "typescript": "^5.8.3"
   }
 }
