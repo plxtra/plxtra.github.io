@@ -16,10 +16,6 @@ export default defineConfig({
     site: githubSite,
     trailingSlash: 'always',
 
-    experimental: {
-        svg: true,
-    },
-
     integrations: [
         sitemap({
             // Change sitemap URLs to use custom host supplied to GitHub.
@@ -40,7 +36,7 @@ export default defineConfig({
             sidebar: [
                 {
                     label: 'Getting Started',
-                    items: ['getting-started', 'getting-started/install', 'getting-started/quick-start'],
+                    items: ['getting-started', 'getting-started/quick-start', 'getting-started/install'],
                 },
                 {
                     label: 'Using',
