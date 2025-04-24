@@ -4,22 +4,24 @@ import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"a"> {
     title?: string;
+    height?: string;
 }
 
-const { title, ...attrs } = Astro.props;
+const { title, height, ...attrs } = Astro.props;
 const resolvedTitle = title ?? 'more';
 ---
 
 <a title={resolvedTitle} {...attrs}><ForwardIcon id="icon"/></a>
 
-<style lang="scss">
+<style lang="scss" define:vars={{"svg-height": height}}>
     @use '@scss/color';
     a {
         display: inline-flex;
         align-items: center;
+        vertical-align: bottom;
 
         svg {
-            height: .8em;
+            height: var(--svg-height, 0.8em);
             color: color.get(color.$forward-icon);
         }
     }

@@ -14,7 +14,7 @@ This guide quickly steps you through installing Plxtra on your local computer.  
 1. Ensure PowerShell is [installed](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell).
 1. If you are running Windows, ensure WSL2 is [installed](https://dotnet.microsoft.com/en-us/download).
 1. Ensure Docker Desktop is [installed](https://docs.docker.com/get-started/get-docker/).
-1. Clone or copy the Plxtra [XOSP repository](https://github.com/plxtra) onto your computer.
+1. Clone or copy the Plxtra [XOSP repository](https://github.com/plxtra/xosp) onto your computer.
 1. Start Docker Desktop.
 1. Run the `XOSP-Configure.ps1` script from within PowerShell.
 1. Run the `XOSP-Install.ps1` script from within PowerShell.\
