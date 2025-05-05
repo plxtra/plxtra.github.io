@@ -123,7 +123,10 @@ export default defineConfig({
                 },
                 {
                     label: 'Deploy',
-                    items: ['deploy'],
+                    items: [
+                        'deploy',
+                        'deploy/images'
+                    ],
                 },
             ],
         }),

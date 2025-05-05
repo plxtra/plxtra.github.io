@@ -1,10 +1,7 @@
 ---
-title: Containerisation
+title: Deploy
 ---
 
-Deployment scenarios
-
-* Example\
-Full stack of all components
-* Deploy to registry
+* XOSP\
+A sample exchange that can be used for demonstration or application development/debugging
 

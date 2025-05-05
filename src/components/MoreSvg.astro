@@ -9,16 +9,20 @@ interface Props extends HTMLAttributes<"a"> {
 
 const { title, height, ...attrs } = Astro.props;
 const resolvedTitle = title ?? 'more';
+const verticalAlign = height ? 'bottom' : 'initial';
 ---
 
 <a title={resolvedTitle} {...attrs}><ForwardIcon id="icon"/></a>
 
-<style lang="scss" define:vars={{"svg-height": height}}>
+<style lang="scss" define:vars={{
+    "svg-height": height,
+    "a-vertical-align": verticalAlign,
+}}>
     @use '@scss/color';
     a {
         display: inline-flex;
         align-items: center;
-        vertical-align: bottom;
+        vertical-align: var(--a-vertical-align);
 
         svg {
             height: var(--svg-height, 0.8em);
