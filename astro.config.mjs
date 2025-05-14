@@ -40,7 +40,7 @@ export default defineConfig({
                 },
                 {
                     label: 'Using',
-                    items: ['using'],
+                    autogenerate: { directory: 'using', collapsed: true}
                 },
                 {
                     label: 'Configuration',
@@ -51,26 +51,25 @@ export default defineConfig({
                     items: [
                         'architecture',
                         {
-                            label: 'Components',
-                            items: [
-                                'architecture/components',
-                                'architecture/components/arclight',
-                                'architecture/components/foundry',
-                                'architecture/components/motif',
-                                'architecture/components/motif-xl',
-                                'architecture/components/order-management-system',
-                                'architecture/components/prodigy',
-                                'architecture/components/session-management',
-                                'architecture/components/vetting',
-                                'architecture/components/zenith',
-                            ],
+                            label: 'Data and Trading',
+                            autogenerate: { directory: 'architecture/backend-data'},
+                            collapsed: true
                         },
                         {
-                            label: 'Motionite',
-                            items: [
-                                'architecture/motionite',
-                            ],
-                        }
+                            label: 'Exchange',
+                            autogenerate: { directory: 'architecture/backend-exchange'},
+                            collapsed: true
+                        },
+                        {
+                            label: 'Front-Ends',
+                            autogenerate: { directory: 'architecture/frontend'},
+                            collapsed: true
+                        },
+                        {
+                            label: 'Support Services',
+                            autogenerate: { directory: 'architecture/backend-support'},
+                            collapsed: true
+                        },
                     ],
                 },
                 {
@@ -78,38 +77,19 @@ export default defineConfig({
                     items: [
                         'external-api',
                         {
-                            label: 'Zenith',
-                            items: [
-                                'external-api/zenith',
-                                {
-                                    label: 'Websocket',
-                                    autogenerate: { directory: 'external-api/zenith/websocket', collapsed: true },
-                                },
-                                {
-                                    label: 'IQ',
-                                    autogenerate: { directory: 'external-api/zenith/iq', collapsed: true },
-                                },
-                                {
-                                    label: 'Fix',
-                                    items: ['external-api/zenith/fix'],
-                                },
-                            ],
+                            label: 'Data and Trading',
+                            autogenerate: { directory: 'external-api/backend-data'},
+                            collapsed: true
                         },
                         {
-                            label: 'Vetting',
-                            items: [],
+                            label: 'Exchange APIs',
+                            autogenerate: { directory: 'external-api/backend-exchange'},
+                            collapsed: true
                         },
                         {
-                            label: 'Herald',
-                            items: [],
-                        },
-                        {
-                            label: 'Scanning',
-                            items: [],
-                        },
-                        {
-                            label: 'Prodigy',
-                            items: ['external-api/prodigy', 'external-api/prodigy/fix', 'external-api/prodigy/rest'],
+                            label: 'Front-End APIs',
+                            autogenerate: { directory: 'external-api/frontend'},
+                            collapsed: true
                         },
                     ],
                 },
