@@ -1,5 +1,5 @@
 ---
-title: Digital Exchange Services
+title: Market Operations
 ---
 
 Plxtra includes a number of technologies to support running a digital exchange, and providing it to third-parties.

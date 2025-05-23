@@ -7,13 +7,13 @@ title: Architecture overview
 Plxtra offers technologies to support multiple scenarios, such as running a self-hosted digital exchange, offering brokerage operations over external third-party exchanges, or any combination of both.
 
 This includes:
-* An exchange with realtime order execution and matching.
-* A registry with accounting of cash and holdings.
-* An order management system for routing and vetting.
-* A realtime data distribution platform for both market and trading data.
-* Three web-facing client applications to build upon.
+* An [exchange](./backend-market/prodigy/) with realtime order execution and matching.
+* A [registry](./backend-market/registry/) with accounting of cash and holdings.
+* An [order management system](./backend-data/order-management/) for routing and vetting.
+* A [realtime data distribution platform](./backend-data/zenith-proxy/) for both market and trading data.
+* Three [web-facing client applications](./frontend/) to build upon.
 
-These are supported by a suite of systems such as cross-application watchlists, auditing and session reporting, holiday tracking, news feeds, and realtime market scanning.
+These are supported by a suite of systems such as cross-application watchlists, [auditing and session reporting](./backend-support/session-management/), holiday tracking, news feeds, and realtime market scanning.
 
 ## Principles
 

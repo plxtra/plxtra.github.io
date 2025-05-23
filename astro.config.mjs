@@ -56,8 +56,8 @@ export default defineConfig({
                             collapsed: true
                         },
                         {
-                            label: 'Exchange',
-                            autogenerate: { directory: 'architecture/backend-exchange'},
+                            label: 'Market Operations',
+                            autogenerate: { directory: 'architecture/backend-market'},
                             collapsed: true
                         },
                         {
@@ -73,29 +73,25 @@ export default defineConfig({
                     ],
                 },
                 {
-                    label: 'External APIs',
+                    label: 'APIs',
                     items: [
-                        'external-api',
+                        'api',
                         {
-                            label: 'Data and Trading',
-                            autogenerate: { directory: 'external-api/backend-data'},
+                            label: 'Front-End',
+                            autogenerate: { directory: 'api/frontend'},
                             collapsed: true
                         },
                         {
-                            label: 'Exchange APIs',
-                            autogenerate: { directory: 'external-api/backend-exchange'},
+                            label: 'Operator',
+                            autogenerate: { directory: 'api/operator'},
                             collapsed: true
                         },
                         {
-                            label: 'Front-End APIs',
-                            autogenerate: { directory: 'external-api/frontend'},
+                            label: 'Enterprise',
+                            autogenerate: { directory: 'api/enterprise'},
                             collapsed: true
                         },
                     ],
-                },
-                {
-                    label: 'Extension API',
-                    items: ['extensibility'],
                 },
                 {
                     label: 'Working with source',

@@ -14,6 +14,6 @@ OMS is built to manage this order lifecycle, from placement through amendment or
 
 ## APIs
 
-* REST API for querying current and historical state (balances, holdings, orders, etc), submit transactions, etc
-* Streaming WebSocket API for receiving realtime OMS data, and for submitting events into OMS.
-* CLI interface for performing administrative tasks such as registering account metadata
+* [REST API](/oms-api/rest/) for querying current and historical state (balances, holdings, orders, etc), submit transactions, etc
+* [Streaming WebSocket API](/oms-api/ws/) for receiving realtime OMS data, and for submitting events into OMS.
+* [CLI tools](/oms-api/cli/) for performing administrative tasks such as registering account metadata
