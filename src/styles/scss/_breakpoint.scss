@@ -90,6 +90,28 @@ $_definitions: (
 	}
 }
 
+@mixin createWiderOrEqual($name) {
+	$media: null;
+
+    $definition: _find-definition($name);
+    @if $definition != null {
+        $prev-max: map.get($definition, $_prev-max-key);
+        @if $prev-max == null {
+            $media: 'screen';
+        } @else {
+            $media: 'screen and (width > #{$prev-max}px)';
+        }
+    }
+
+	@if ($media == null) {
+		@error 'No createWiderOrEqual breakpoint definition has name: #{$name}';
+	} @else {
+		@media #{$media} {
+			@content;
+		}
+	}
+}
+
 @mixin createMainMenuConfigNarrowBreakpoint {
     @media screen and ((hover: none) or (width < main-menu-config.$narrow-breakpoint)) {
         @content;

@@ -47,36 +47,34 @@ let left = true;
 ---
 
 <BaseLayout pageTitle="Features">
-	<main>
-        <div class="left-right-alternating-iconed-summaries">
-            <div class="grid" style="grid-template-columns: repeat(2, 1fr)">
-                {sortedFeatureDetails.map(featureDetail => (
-                    <>
-                        {left ?
-                            <>
-                                <IconedSummary
-                                    entry={featureDetail.entry}
-                                    title={featureDetail.title}
-                                    iconName={featureDetail.iconName}
-                                    readMoreUrl={featureDetail.readMoreUrl}
-                                ></IconedSummary>
-                                <div></div>
-                            </>
-                            :
-                                <div></div>
-                                <IconedSummary
-                                    entry={featureDetail.entry}
-                                    title={featureDetail.title}
-                                    iconName={featureDetail.iconName}
-                                    readMoreUrl={featureDetail.readMoreUrl}
-                                ></IconedSummary>
-                        }
-                        {(left = !left) && ""}
-                    </>
-                ))}
-            </div>
+    <div class="left-right-alternating-iconed-summaries">
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr)">
+            {sortedFeatureDetails.map(featureDetail => (
+                <>
+                    {left ?
+                        <>
+                            <IconedSummary
+                                entry={featureDetail.entry}
+                                title={featureDetail.title}
+                                iconName={featureDetail.iconName}
+                                readMoreUrl={featureDetail.readMoreUrl}
+                            ></IconedSummary>
+                            <div></div>
+                        </>
+                        :
+                            <div></div>
+                            <IconedSummary
+                                entry={featureDetail.entry}
+                                title={featureDetail.title}
+                                iconName={featureDetail.iconName}
+                                readMoreUrl={featureDetail.readMoreUrl}
+                            ></IconedSummary>
+                    }
+                    {(left = !left) && ""}
+                </>
+            ))}
         </div>
-	</main>
+    </div>
 </BaseLayout>
 
 <style lang="scss">

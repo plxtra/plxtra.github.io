@@ -8,19 +8,19 @@ import PlxtraAsExchange from './_plxtra-as-exchange.excalidraw.svg';
 
 Plxtra consists of a set of services which can be configured for different use cases.  The main use cases are as a platform for a retail Exchange or for a Brokerage operation.
 
-## Brokerage operation
+# Brokerage operation
 
 The diagram below shows the main elements of Plxtra when configured as a brokerage platform.  The blue box contains the Plxtra server components (yellow). The green 'Exchanges' box represent the exchanges a broker connects to (eg. Australian Stock Exchange). The purple box on the right represents the broker and the broker's systems.  This diagram shows the main interactions between Plxtra and the exchanges and the broker's systems.
 
 <PlxtraAsBrokerage style="max-width: 100%; margin: 2em"/>
 
-## Retail exchange
+# Retail exchange
 
 A typical retail exchange configuration is shown below.  The diagram is colored the same as the above diagram except this time there is no external exchange.  The external exchange is replaced by Plxtra's own matching engine and registry components which are accessed by the other Plxtra components in a similar way as external exchanges.  The exchange operator (purple, right) now also needs to connect to the matching engine and registry APIs to manage these services.
 
 <PlxtraAsExchange style="max-width: 100%; margin: 2em"/>
 
-## Other configurations
+# Other configurations
 
 Plxtra can also be configured to support other use cases.  For example, you may wish to implement an exchange but use an external registry.
 

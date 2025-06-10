@@ -11,7 +11,9 @@
       "@layouts/*": ["./src/layouts/*"],
       "@scss/*": ["./src/styles/scss/*"],
       "@adornments/*": ["./src/styles/scss/adornments/*"],
+      "@architecture/*": ["./src/content/docs/architecture/*"],
       "@deploy/*": ["./src/content/docs/deploy/*"],
+      "@shared": ["./src/ts/shared"],
     }
   },
   "include": [".astro/types.d.ts", "**/*"],

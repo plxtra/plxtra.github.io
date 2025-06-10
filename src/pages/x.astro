@@ -1,11 +1,14 @@
 ---
 import MoreListItem from '@components/MoreListItem.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { Content as Introduction } from './_home-introduction.mdx';
 import { Content } from './_home-content.mdx';
 ---
 
 <BaseLayout pageTitle="Plxtra" mainHeading="Open source retail trading platform">
 	<main>
+        <Introduction />
+
         <ul id="home-main-list">
             <MoreListItem href='./overviews/exchange-or-brokerage/'>For retail focused Exchange or Brokerage operations</MoreListItem>
             <MoreListItem href='./overviews/features/'>Feature rich, full solution</MoreListItem>

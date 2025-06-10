@@ -1,7 +1,5 @@
 ---
-title: Zenith Feed Server
-sidebar:
-  label: Feed Server
+title: Feed Server
 ---
 
 The Zenith Feed Server provides streaming market data to other Zenith services.

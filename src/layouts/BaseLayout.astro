@@ -28,12 +28,14 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
     </head>
     <body>
         <Header>
-            <span class="narrow-heading" slot="narrow-heading">{pageTitle}</span>
+            <span slot="heading">{resolvedMainHeading}</span>
         </Header>
 
         <div id="mainHeadingAndContent">
-            <h1 id="mainHeading">{resolvedMainHeading}</h1>
-            <slot />
+            <p id="mainHeading">{resolvedMainHeading}</p>
+            <main>
+                <slot />
+            </main>
         </div>
         <Footer />
     </body>
@@ -50,6 +52,7 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
     @use '@scss/adornments/captioned-large-icon-strip';
     @use '@scss/adornments/light-bordered-table';
     @use '@scss/adornments/gridded-photoswipe-pages';
+    @use '@adornments/unordered-list';
 
     h1 {
         margin: 1rem 0;
@@ -64,6 +67,9 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         color: color.get(color.$h2-heading);
     }
 
+    main {
+        @include unordered-list.collapse-narrow;
+    }
 
     @include breakpoint.create(breakpoint.$infinite) {
         // @include tags.infinite;
@@ -225,7 +231,16 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         }
 
         #mainHeading {
+            font-weight: bolder;
+            font-size: 2.5rem;
+            margin: 0;
+            padding: .5rem 0;
+            color: color.get(color.$main-heading);
+
             @include breakpoint.createMainMenuConfigNarrowBreakpoint {
+                display: none;
+            }
+            @include breakpoint.createWiderOrEqual(breakpoint.$wide) {
                 display: none;
             }
         }
@@ -245,7 +260,4 @@ const resolvedMainHeading = mainHeading ?? pageTitle;
         }
     }
 
-    .narrow-heading {
-        font-size: small;
-    }
 </style>

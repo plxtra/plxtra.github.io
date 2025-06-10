@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 633 508">
+    <style type="text/css"><![CDATA[
+.st1 {fill:#303030;font-family:Arial;font-size:10pt;font-weight:bold}
+.st2 {fill:#303030;font-family:Arial;font-size:10pt}
+.st3 {fill:#303030;font-family:Arial;font-size:6pt}
+.st4 {fill:#303030;font-family:Arial;font-size:8pt}
+]]></style>
+    <defs/>
+    <g transform="translate(-67.5,-111)">
+        <g id="shape1" transform="translate(265,265)">
+            <path d="M0,0L264,0L264,75L0,75L0,0z" fill="#ffffff" stroke="#000000"/>
+            <text class="st1">
+                <tspan x="208.7" y="41.8">Foundry</tspan>
+            </text>
+        </g>
+        <g transform="translate(289,272)">
+            <path id="shape2" transform="translate(9,8)" d="M0,0L80,0L80,57L0,57L0,0z" fill="#ffffff" stroke="#000000"/>
+            <path id="shape3" transform="translate(5,4)" d="M0,0L80,0L80,57L0,57L0,0z" fill="#ffffff" stroke="#000000"/>
+            <g id="shape4">
+                <path d="M0,0L80,0L80,57L0,57L0,0z" fill="#ffffff" stroke="#000000"/>
+                <text class="st2">
+                    <tspan x="2.7" y="15.3">Account</tspan>
+                    <tspan x="2.7" y="31.3">* Holdings</tspan>
+                    <tspan x="2.7" y="47.3">* Cash</tspan>
+                </text>
+            </g>
+        </g>
+        <g id="shape5" transform="translate(68.5,434)">
+            <path d="M0,0L113,0L113,38L0,38L0,0z" fill="#ffffff" stroke="#000000"/>
+            <text class="st2">
+                <tspan x="4.7" y="15.7">Vetting / Business </tspan>
+                <tspan x="40" y="31.7">Rules</tspan>
+            </text>
+        </g>
+        <g transform="translate(542,112)">
+            <path id="shape6" transform="translate(10,10)" d="M0,0L147,0L147,66L0,66L0,0z" fill="#ffffff" stroke="#000000"/>
+            <path id="shape7" transform="translate(5,5)" d="M0,0L147,0L147,66L0,66L0,0z" fill="#ffffff" stroke="#000000"/>
+            <g id="shape8">
+                <path d="M0,0L147,0L147,66L0,66L0,0z" fill="#ffffff" stroke="#000000"/>
+                <text class="st1">
+                    <tspan x="112" y="37.3">Bank</tspan>
+                </text>
+            </g>
+            <g transform="translate(6,9)">
+                <path id="shape9" transform="translate(10,10)" d="M0,0L64,0L64,38L0,38L0,0z" fill="#ffffff" stroke="#000000"/>
+                <path id="shape10" transform="translate(5,5)" d="M0,0L64,0L64,38L0,38L0,0z" fill="#ffffff" stroke="#000000"/>
+                <g id="shape11">
+                    <path d="M0,0L64,0L64,38L0,38L0,0z" fill="#ffffff" stroke="#000000"/>
+                    <text class="st2">
+                        <tspan x="2.7" y="15.3">Account</tspan>
+                        <tspan x="2.7" y="31.3">* Cash</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+        <g transform="translate(322.5,112)">
+            <path id="shape12" transform="translate(10,10)" d="M0,0L147,0L147,66L0,66L0,0z" fill="#ffffff" stroke="#000000"/>
+            <path id="shape13" transform="translate(5,5)" d="M0,0L147,0L147,66L0,66L0,0z" fill="#ffffff" stroke="#000000"/>
+            <g id="shape14">
+                <path d="M0,0L147,0L147,66L0,66L0,0z" fill="#ffffff" stroke="#000000"/>
+                <text class="st1">
+                    <tspan x="83.3" y="29">Upstream</tspan>
+                    <tspan x="91.3" y="45.7">Registry</tspan>
+                </text>
+            </g>
+            <g transform="translate(6,9)">
+                <path id="shape15" transform="translate(10,10)" d="M0,0L64,0L64,38L0,38L0,0z" fill="#ffffff" stroke="#000000"/>
+                <path id="shape16" transform="translate(5,5)" d="M0,0L64,0L64,38L0,38L0,0z" fill="#ffffff" stroke="#000000"/>
+                <g id="shape17">
+                    <path d="M0,0L64,0L64,38L0,38L0,0z" fill="#ffffff" stroke="#000000"/>
+                    <text class="st2">
+                        <tspan x="2.7" y="15.3">Account</tspan>
+                        <tspan x="2.7" y="31.3">* Holdings</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+        <g transform="translate(95,112)">
+            <path id="shape18" transform="translate(10,10)" d="M0,0L147,0L147,66L0,66L0,0z" fill="#ffffff" stroke="#000000"/>
+            <path id="shape19" transform="translate(5,5)" d="M0,0L147,0L147,66L0,66L0,0z" fill="#ffffff" stroke="#000000"/>
+            <g id="shape20">
+                <path d="M0,0L147,0L147,66L0,66L0,0z" fill="#ffffff" stroke="#000000"/>
+                <text class="st1">
+                    <tspan x="92" y="29">Clearing</tspan>
+                    <tspan x="104" y="45.7">House</tspan>
+                </text>
+            </g>
+            <g transform="translate(6,9)">
+                <path id="shape21" transform="translate(10,10)" d="M0,0L64,0L64,38L0,38L0,0z" fill="#ffffff" stroke="#000000"/>
+                <path id="shape22" transform="translate(5,5)" d="M0,0L64,0L64,38L0,38L0,0z" fill="#ffffff" stroke="#000000"/>
+                <g id="shape23">
+                    <path d="M0,0L64,0L64,38L0,38L0,0z" fill="#ffffff" stroke="#000000"/>
+                    <text class="st2">
+                        <tspan x="2.7" y="15.3">Account</tspan>
+                        <tspan x="2.7" y="31.3">* Holdings</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+        <g transform="translate(265,416.5)">
+            <g id="shape24">
+                <path d="M0,0L264,0L264,75L0,75L0,0z" fill="#ffffff" stroke="#000000"/>
+                <text class="st1">
+                    <tspan x="230.7" y="41.8">OMS</tspan>
+                </text>
+            </g>
+            <g transform="translate(24,7)">
+                <path id="shape25" transform="translate(9,8)" d="M0,0L80,0L80,57L0,57L0,0z" fill="#ffffff" stroke="#000000"/>
+                <path id="shape26" transform="translate(5,4)" d="M0,0L80,0L80,57L0,57L0,0z" fill="#ffffff" stroke="#000000"/>
+                <g id="shape27">
+                    <path d="M0,0L80,0L80,57L0,57L0,0z" fill="#ffffff" stroke="#000000"/>
+                    <text class="st2">
+                        <tspan x="2.7" y="15.3">Account</tspan>
+                        <tspan x="2.7" y="31.3">* Holdings</tspan>
+                        <tspan x="2.7" y="47.3">* Cash</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+        <g id="shape28" transform="translate(181.5,453.44)">
+            <path d="M0,0L51.5,0L83.5,.9" fill="none" stroke="#000000"/>
+            <rect x="24" y="-10" height="10" width="41.6" fill="#ffffff"/>
+            <rect x="28.1" y="-0" height="10" width="33.4" fill="#ffffff"/>
+            <text class="st3">
+                <tspan x="23.9" y="-2.7">Withdrawal</tspan>
+                <tspan x="27.9" y="7.3">requests</tspan>
+            </text>
+        </g>
+        <g id="shape29" transform="translate(345,571)">
+            <path d="M0,0L104,0L104,47L0,47L0,0z" fill="#ffffff" stroke="#000000"/>
+            <text class="st2">
+                <tspan x="35.3" y="28.2">Users</tspan>
+            </text>
+        </g>
+        <g id="shape30" transform="translate(397,571)">
+            <path d="M0,0L0,-79.5" fill="none" stroke="#000000"/>
+            <path stroke-linejoin="round" stroke-linecap="round" d="M-3,-73.5L0,-79.5L3,-73.5" stroke-width="1" fill="none" stroke="#000000"/>
+            <rect x="-54.5" y="-47.8" height="16" width="115.8" fill="#ffffff"/>
+            <text class="st2">
+                <tspan x="-54.7" y="-35.1">Withdrawal request</tspan>
+            </text>
+        </g>
+        <path id="shape31" transform="translate(397,265)" d="M0,0L219.2,-87" fill="none" stroke="#000000"/>
+        <path id="shape32" transform="translate(169.24,178)" d="M0,0L227.8,87" fill="none" stroke="#000000"/>
+        <path id="shape33" transform="translate(396.74,178)" d="M0,0L0,55L.3,87" fill="none" stroke="#000000"/>
+        <g id="shape34" transform="translate(301.5,189)">
+            <text class="st2">
+                <tspan x="14.7" y="20.7">Deposits (Upstream initiated)</tspan>
+                <tspan x="18.7" y="36.7">Withdrawals (User initiated)</tspan>
+            </text>
+        </g>
+        <g id="shape35" transform="translate(454,340)">
+            <path d="M0,0L0,76" fill="none" stroke="#000000"/>
+            <path stroke-linejoin="round" stroke-linecap="round" d="M3,70L0,76L-3,70" stroke-width="1" fill="none" stroke="#000000"/>
+        </g>
+        <g id="shape36" transform="translate(340,340)">
+            <path d="M0,0L0,76" fill="none" stroke="#000000"/>
+            <path stroke-linejoin="round" stroke-linecap="round" d="M-3,6L0,0L3,6" stroke-width="1" fill="none" stroke="#000000"/>
+        </g>
+        <g id="shape37" transform="translate(464,355)">
+            <text class="st2">
+                <tspan x="2.7" y="15.7">Transactions</tspan>
+                <tspan x="2.7" y="31.7">Transformations</tspan>
+            </text>
+        </g>
+        <g id="shape38" transform="translate(183,355)">
+            <text class="st2">
+                <tspan x="106.7" y="15.7">Trades</tspan>
+                <tspan x="75.3" y="31.7">Withdrawals</tspan>
+            </text>
+        </g>
+        <path id="shape39" transform="translate(529,430)" d="M0,0C21.8,0,43.6,0,60,-31.5C76.3,-63,87.2,-126,87.2,-252" fill="none" stroke="#000000"/>
+        <path id="shape40" transform="translate(266,430)" d="M0,0C-24.2,0,-48.4,0,-66.5,-31.5C-84.7,-63,-96.8,-126,-96.8,-252" fill="none" stroke="#000000"/>
+        <g id="shape41" transform="translate(601.5,287)">
+            <text class="st4">
+                <tspan x="11.3" y="15.2">Reservations</tspan>
+            </text>
+        </g>
+        <g id="shape42" transform="translate(98.5,287)">
+            <text class="st4">
+                <tspan x="11.3" y="15.2">Reservations</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

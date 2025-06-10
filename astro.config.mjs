@@ -49,28 +49,46 @@ export default defineConfig({
                 {
                     label: 'Architecture',
                     items: [
-                        'architecture',
+                        { label: 'Overview', slug: 'architecture' },
                         {
-                            label: 'Data and Trading',
-                            autogenerate: { directory: 'architecture/backend-data'},
+                            label: 'Components',
+                            items: [
+                                { label: 'Overview', slug: 'architecture/components' },
+                                { label: 'Registry', slug: 'architecture/components/backend/registry' },
+                                { label: 'Exchange Engine', slug: 'architecture/components/backend/exchange-engine' },
+                                { label: 'FIX Server', slug: 'architecture/components/backend/fix-server' },
+                                { label: 'Order Management', slug: 'architecture/components/backend/order-management' },
+                                { label: 'Trading Agent', slug: 'architecture/components/backend/trading-agent' },
+                                { label: 'User Authorisation', slug: 'architecture/components/backend/user-authorisation' },
+                                { label: 'Caching Proxy', slug: 'architecture/components/backend/caching-proxy' },
+                                { label: 'Feed Server', slug: 'architecture/components/backend/feed-server' },
+                                { label: 'Trading Adapter', slug: 'architecture/components/backend/trading-adapter' },
+                                { label: 'Trade Feed Adapter', slug: 'architecture/components/backend/trade-feed-adapter' },
+                                { label: 'Alerting/Scanning', slug: 'architecture/components/backend/alerting-scanning' },
+                                { label: 'Session Management', slug: 'architecture/components/backend/session-management' },
+                                { label: 'Motif', slug: 'architecture/components/frontend/motif' },
+                                { label: 'Arclight', slug: 'architecture/components/frontend/arclight' },
+                                { label: 'MotifXL', slug: 'architecture/components/frontend/motif-xl' },
+                                {
+                                    label: 'Other',
+                                    items: [
+                                        { label: 'Audit History', slug: 'architecture/components/support/audit-history' },
+                                        { label: 'Push Notification', slug: 'architecture/components/support/push-notification' },
+                                        { label: 'Market Holiday', slug: 'architecture/components/support/market-holiday' },
+                                        { label: 'Watchlist Manager', slug: 'architecture/components/support/watchlist-manager' },
+                                        { label: 'Interlink', slug: 'architecture/components/support/interlink' },
+                                    ],
+                                    collapsed: true
+                                }
+                            ],
                             collapsed: true
                         },
-                        {
-                            label: 'Market Operations',
-                            autogenerate: { directory: 'architecture/backend-market'},
-                            collapsed: true
-                        },
-                        {
-                            label: 'Front-Ends',
-                            autogenerate: { directory: 'architecture/frontend'},
-                            collapsed: true
-                        },
-                        {
-                            label: 'Support Services',
-                            autogenerate: { directory: 'architecture/backend-support'},
-                            collapsed: true
-                        },
+                        { label: 'Banks / Registries', slug: 'architecture/connecting-banks-and-registries' },
+                        { label: 'Redundancy', slug: 'architecture/redundancy' },
+                        { label: 'Monitoring', slug: 'architecture/monitoring' },
+                        { label: 'Protection', slug: 'architecture/protection' },
                     ],
+                    collapsed: true
                 },
                 {
                     label: 'APIs',
@@ -103,6 +121,23 @@ export default defineConfig({
                         'deploy',
                         'deploy/images'
                     ],
+                },
+                {
+                    label: 'Contract Templates',
+                    items: [
+                        'contract-templates',
+                        {
+                            label: 'API Client',
+                            items: ['contract-templates/api-client'],
+                            collapsed: true
+                        },
+                        {
+                            label: 'Broker Minimum Terms',
+                            items: ['contract-templates/broker-minimum-terms'],
+                            collapsed: true
+                        },
+                    ],
+                    collapsed: true
                 },
             ],
         }),
