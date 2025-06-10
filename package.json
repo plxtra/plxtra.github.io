@@ -15,7 +15,7 @@
     "@astrojs/mdx": "^4.2.6",
     "@astrojs/sitemap": "^3.3.1",
     "@astrojs/starlight": "^0.34.2",
-    "@pbkware/astro-main-menu": "^2.0.0",
+    "@pbkware/astro-main-menu": "^3.0.0",
     "astro": "^5.7.10",
     "astro-icon": "^1.1.5",
     "sass": "^1.87.0",

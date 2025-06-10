@@ -40,11 +40,13 @@ export default defineConfig({
                 },
                 {
                     label: 'Using',
-                    autogenerate: { directory: 'using', collapsed: true}
+                    autogenerate: { directory: 'using', collapsed: true },
+                    collapsed: true,
                 },
                 {
                     label: 'Configuration',
                     items: ['configuration'],
+                    collapsed: true,
                 },
                 {
                     label: 'Architecture',
@@ -78,42 +80,48 @@ export default defineConfig({
                                         { label: 'Watchlist Manager', slug: 'architecture/components/support/watchlist-manager' },
                                         { label: 'Interlink', slug: 'architecture/components/support/interlink' },
                                     ],
-                                    collapsed: true
+                                    collapsed: true,
                                 }
                             ],
-                            collapsed: true
+                            collapsed: true,
                         },
                         { label: 'Banks / Registries', slug: 'architecture/connecting-banks-and-registries' },
                         { label: 'Redundancy', slug: 'architecture/redundancy' },
                         { label: 'Monitoring', slug: 'architecture/monitoring' },
                         { label: 'Protection', slug: 'architecture/protection' },
                     ],
-                    collapsed: true
+                    collapsed: true,
                 },
                 {
                     label: 'APIs',
                     items: [
-                        'api',
+                        { label: 'Overview', slug: 'api' },
+                        { label: 'Registry', link: '/registry-api/' },
+                        { label: 'Exchange Engine', link: '/prodigy-api/' },
+                        { label: 'Order Management', link: '/oms-api/' },
+                        { label: 'Session Management', link: '/session-management-api/' },
+                        { label: 'Exchange Engine (public)', link: '/prodigy-public-api/' },
+                        { label: 'FIX', link: '/fix-api/' },
+                        { label: 'Websocket', link: '/front-end-api/websocket' },
+                        { label: 'IQ', link: '/front-end-api/iq' },
+                        { label: 'Motif Services', link: '/motif-services-api/' },
                         {
-                            label: 'Front-End',
-                            autogenerate: { directory: 'api/frontend'},
-                            collapsed: true
-                        },
-                        {
-                            label: 'Operator',
-                            autogenerate: { directory: 'api/operator'},
-                            collapsed: true
-                        },
-                        {
-                            label: 'Enterprise',
-                            autogenerate: { directory: 'api/enterprise'},
-                            collapsed: true
+                            label: 'Extensibility',
+                            items: [
+                                { label: 'Zenith Plug-in', link: '/zenith-plug-in-api/' },
+                                { label: 'Order Management Feed Adapter', link: '/order-management-feed-adapter-api/' },
+                                { label: 'Registry Feed Adapter', link: '/registry-feed-adapter-api/' },
+                                { label: 'Motif Extension', link: '/motif-extension-api/' },
+                            ],
+                            collapsed: true,
                         },
                     ],
+                    collapsed: true,
                 },
                 {
                     label: 'Working with source',
                     items: ['source'],
+                    collapsed: true,
                 },
                 {
                     label: 'Deploy',
@@ -121,6 +129,7 @@ export default defineConfig({
                         'deploy',
                         'deploy/images'
                     ],
+                    collapsed: true,
                 },
                 {
                     label: 'Contract Templates',
@@ -129,15 +138,15 @@ export default defineConfig({
                         {
                             label: 'API Client',
                             items: ['contract-templates/api-client'],
-                            collapsed: true
+                            collapsed: true,
                         },
                         {
                             label: 'Broker Minimum Terms',
                             items: ['contract-templates/broker-minimum-terms'],
-                            collapsed: true
+                            collapsed: true,
                         },
                     ],
-                    collapsed: true
+                    collapsed: true,
                 },
             ],
         }),

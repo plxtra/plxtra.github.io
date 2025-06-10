@@ -21,6 +21,8 @@ const { Content } = await render(entry);
         { readMoreUrl &&
             <a class="read-more" title="more" href={ readMoreUrl }>...</a>
         }
+
+        <div></div>
     </div>
 
     <div class="titled-summary">
@@ -83,8 +85,8 @@ const { Content } = await render(entry);
             }
             .summary {
                 line-height: 1.2;
-                margin-block-start: -1em; // work around for <p>
-                margin-block-end: -1em; // work around for <p>
+                // margin-block-start: -1em; // work around for <p>
+                // margin-block-end: -1em; // work around for <p>
                 font-size: smaller;
             }
         }
