@@ -26,6 +26,11 @@ $main-heading: 'main-heading';
 $h1-heading: 'h1-heading';
 $h2-heading: 'h2-heading';
 
+$separator: 'separator';
+
+$hero-background: 'hero-background';
+$hero-border: 'hero-border';
+
 $ammWideMainMenuBackground: 'amm-wideMainMenuBackgroundColor';
 $ammNarrowMainMenuBackground: 'amm-narrowMainMenuBackgroundColor';
 $ammExpandControlBackground: 'amm-expandControlBackgroundColor';
@@ -37,8 +42,6 @@ $ammMenuItem: 'amm-menuItemColor';
 $ammMenuItemHoverBackground: 'amm-menuItemHoverBackgroundColor';
 $ammHamburgerTopLineBackground: 'amm-hamburgerTopLineBackgroundColor';
 $ammHamburgerBottomLineBackground: 'amm-hamburgerBottomLineBackgroundColor';
-
-
 
 $anchor-foreground: 'anchor-foreground';
 $anchor-hover-foreground: 'anchor-hover-foreground';
@@ -97,6 +100,11 @@ $_all: (
     $main-heading,
     $h1-heading,
     $h2-heading,
+
+    $separator,
+
+    $hero-background,
+    $hero-border,
 
     $ammWideMainMenuBackground,
     $ammNarrowMainMenuBackground,
@@ -170,6 +178,9 @@ $_dark-scheme: (
     $main-heading: #afd846,
     $h1-heading: #bfd255,
     $h2-heading: #bcc19e,
+    $separator: #3c3c3c,
+    $hero-background: rgb(32, 72, 34),
+    $hero-border: green,
 
     $ammWideMainMenuBackground: 'transparent',
     $ammNarrowMainMenuBackground: #020107,
@@ -267,5 +278,13 @@ $_light-scheme: (
         @error "Color not found: #{$key}";
     } @else {
         @return var(--#{$key});
+    }
+}
+
+@function get-main-background($alt) {
+    @if $alt {
+        @return var(--#{$alt-main-background});
+    } @else {
+        @return var(--#{$main-background});
     }
 }

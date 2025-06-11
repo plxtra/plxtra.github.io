@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.2.6",
+    "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.3.1",
     "@astrojs/starlight": "^0.34.2",
     "@pbkware/astro-main-menu": "^3.0.0",

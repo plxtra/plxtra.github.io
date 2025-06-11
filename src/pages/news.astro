@@ -1,7 +1,103 @@
 ---
+import NewsItem from '@components/NewsItem.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import AltMainBackground from '../components/AltMainBackground.astro';
+
+const entries = await getCollection('newsItems');
+
+interface NewsItem {
+    entry: CollectionEntry<'newsItems'>;
+    id: string;
+    title: string;
+    description: string;
+    pubDate: Date;
+};
+
+const newsItems = entries.map(entry => {
+    const data = entry.data;
+    // const filePath = entry.filePath;
+    // let iconPath: string | undefined;
+    // if (filePath === undefined) {
+    //     iconPath = undefined
+    // } else {
+    //     const filePathParts = filePath.split('/');
+    //     if (filePathParts.length <= 1) {
+    //         iconPath = undefined;
+    //     } else {
+    //         filePathParts.pop();
+    //         iconPath = `/${filePathParts.join('/')}/${daiconNameath}`;
+    //     }
+    // }
+    const newsItem: NewsItem = {
+        entry,
+        id: entry.id,
+        title: data.title,
+        description: data.description,
+        pubDate: data.pubDate,
+    };
+    return newsItem;
+});
+
+const sortedNewsItems = newsItems.sort((left, right) => left.pubDate.getTime() - right.pubDate.getTime()).reverse();
+
+let alt = false;
 ---
 
 <BaseLayout pageTitle="News">
-    ToDo
+    <div class="news-items">
+        {sortedNewsItems.map(featureDetail => (
+            <>
+                {alt ?
+                    <AltMainBackground>
+                        <NewsItem
+                            entry={featureDetail.entry}
+                            title={featureDetail.title}
+                            description={featureDetail.description}
+                            pubDate={featureDetail.pubDate}
+                        />
+                    </AltMainBackground>
+                    :
+                    <NewsItem
+                        entry={featureDetail.entry}
+                        title={featureDetail.title}
+                        description={featureDetail.description}
+                        pubDate={featureDetail.pubDate}
+                    />
+                }
+                {(alt = !alt) && ""}
+            </>
+        ))}
+    </div>
 </BaseLayout>
+
+<style lang="scss">
+    @use '@scss/breakpoint';
+
+
+    .left-right-alternating-iconed-summaries {
+        margin-top: 2em;
+        margin-bottom: 2em;
+
+        @include breakpoint.createNarrowerOrEqual(breakpoint.$narrower) {
+            margin-top: 0;
+        }
+
+        .grid {
+            display: grid;
+            margin-top: 0.7em;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 3em;
+            row-gap: 0.7em;
+            font-size: 90%;
+
+            @include breakpoint.createNarrowerOrEqual(breakpoint.$narrower) {
+                display: block;
+                font-size: 90%;
+            }
+
+        }
+    }
+
+</style>
