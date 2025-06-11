@@ -1,8 +1,8 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import MarkdownIt from 'markdown-it';
-import sanitizeHtml from 'sanitize-html';
-const parser = new MarkdownIt();
+// import MarkdownIt from 'markdown-it';
+// import sanitizeHtml from 'sanitize-html';
+// const parser = new MarkdownIt();
 
 
 export async function GET(context) {
@@ -18,9 +18,9 @@ export async function GET(context) {
             // Compute RSS link from post `id`
             // This example assumes all posts are rendered as `/blog/[id]` routes
             // link: `/news/${post.id}/`,
-            content: sanitizeHtml(parser.render(post.body), {
-                allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
-            }),
+            // content: sanitizeHtml(parser.render(post.body), {
+            //     allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
+            // }),
         })),
     });
 }
