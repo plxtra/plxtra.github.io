@@ -31,8 +31,8 @@ export namespace ComponentShort {
         label: 'Trading Agent',
         description: '',
     };
-    export const userAuthorisation: ComponentShort = {
-        label: 'User Authorisation',
+    export const authority: ComponentShort = {
+        label: 'Authority',
         description: '',
     };
     export const cachingProxy: ComponentShort = {

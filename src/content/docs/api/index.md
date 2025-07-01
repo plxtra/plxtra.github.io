@@ -31,6 +31,7 @@ Used to create data and trading applications.
 
 Used to extend the capabilities of Plxtra.
 
+* **[Overview](./extensibility/)**: Introduction to extending Plxtra
 * [Zenith Plugin](/zenith-plug-in-api/): Used to connect to external services and provide market data into the data distribution infrastructure.
 * **[Order Management Feed Adapter](/oms-api/ws/feed/)**: Used to feed order executions from external exchanges or execution locations into the OMS.
 * [Registry Feed Adapter](/registry-feed-adapter-api/): Used to feed cash and asset movements to and from the registry.

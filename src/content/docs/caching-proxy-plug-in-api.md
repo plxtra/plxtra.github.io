@@ -1,5 +1,5 @@
 ---
-title: Zenith Plug-in API
+title: Caching Proxy Plug-in API
 ---
 
 Documentation under development

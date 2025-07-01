@@ -4,24 +4,18 @@ title: Architecture overview
 
 import { ComponentShort } from '@shared';
 
-## Principles
+Plxtra has been architected around these [principles](./principles/).
 
-Plxtra has been architected around the following principles:
+It can be configured in meet various trading platform use cases.  For example:
 
-* **Modular**: Components have clearly defined roles and APIs, each focused on its area of expertise.
-* **Customisable**: APIs and plugins enable extensibility and integration at both server and client.
-* **Available**: Designed for both scalability and redundancy, from single instances up to large clusters, to support any amount of load and reliability requirements.
-* **Realtime**: Create markets, issue symbols, add accounts and users, trade, and settle, all in realtime. Batch processing is also supported.
-* **Full stack retail-focused**: From registry to phone and desktop, Plxtra provides a full suite of trading components needed for retail trading.
-* **Broker support**: Providing trading infrastructure to brokers to run their operations and meet their market participation obligations.
-* **Not high-frequency**: It is intended for retail systems (supported by brokers), optimised for throughput with a large number of customers.
-* **CRM via integration**: Allows each customer to use business management systems that suit their own operations.
+* A full retail exchange platform with registry, exchange engine, FIX server, and brokerage platform,
+* A retail exchange platform using an external registry,
+* An exchange platform with multiple brokers,
+* A brokerage platform connecting to one or more external exchanges.
 
-## Block overview
+The following 2 use cases provide a good summary of Plstra's top level architecture.
 
-The following diagrams provide a high level overview of Plxtra.
-
-### Exchange Platform
+## Full Exchange Platform
 
 At the highest level, Plxtra is a full exchange as shown below:
 
@@ -34,7 +28,7 @@ The main components are:
 * **[{ ComponentShort.fixServer.label }](./backend/fix-server/)**: { ComponentShort.fixServer.description }
 * **Brokerage Platform**: Implements services typically operated by a broker 
 
-### Brokerage Platform
+## Brokerage Platform
 
 The diagram below is an overview of the Brokerage Platform as typically used by a broker.
 
@@ -44,17 +38,17 @@ Note that when used as part of the Plxtra exchange platform (above), this does n
 
 The main components are:
 
-* **[{ ComponentShort.feedServer.label }](./backend/feed-server/)**: { ComponentShort.feedServer.description }
-* **[{ ComponentShort.tradingAdapter.label }](./backend/trading-adapter/)**: { ComponentShort.tradingAdapter.description }
-* **[{ ComponentShort.tradeFeedAdapter.label }](./backend/trade-feed-adapter/)**: { ComponentShort.tradeFeedAdapter.description }
-* **[{ ComponentShort.orderManagementSystem.label }](./backend/order-management/)**: { ComponentShort.orderManagementSystem.description }
-* **[{ ComponentShort.tradingAgent.label }](./backend/trading-agent/)**: { ComponentShort.tradingAgent.description }
-* **[{ ComponentShort.userAuthorisation.label }](./backend/user-authorisation/)**: { ComponentShort.userAuthorisation.description }
-* **[{ ComponentShort.cachingProxy.label }](./backend/caching-proxy/)**: { ComponentShort.cachingProxy.description }
-* **[{ ComponentShort.alertingScanning.label }](./backend/alerting-scanning/)**: { ComponentShort.alertingScanning.description }
-* **[{ ComponentShort.motif.label }](./frontend/motif/)**: { ComponentShort.motif.description }
-* **[{ ComponentShort.arclight.label }](./frontend/arclight/)**: { ComponentShort.arclight.description }
-* **[{ ComponentShort.motifXL.label }](./frontend/motif-xl/)**: { ComponentShort.motifXL.description }
+* **[{ ComponentShort.feedServer.label }](./components/backend/feed-server/)**: { ComponentShort.feedServer.description }
+* **[{ ComponentShort.tradingAdapter.label }](./components/backend/trading-adapter/)**: { ComponentShort.tradingAdapter.description }
+* **[{ ComponentShort.tradeFeedAdapter.label }](./components/backend/trade-feed-adapter/)**: { ComponentShort.tradeFeedAdapter.description }
+* **[{ ComponentShort.orderManagementSystem.label }](./components/backend/order-management/)**: { ComponentShort.orderManagementSystem.description }
+* **[{ ComponentShort.tradingAgent.label }](./components/backend/trading-agent/)**: { ComponentShort.tradingAgent.description }
+* **[{ ComponentShort.authority.label }](./components/backend/authority/)**: { ComponentShort.authority.description }
+* **[{ ComponentShort.cachingProxy.label }](./components/backend/caching-proxy/)**: { ComponentShort.cachingProxy.description }
+* **[{ ComponentShort.alertingScanning.label }](./components/backend/alerting-scanning/)**: { ComponentShort.alertingScanning.description }
+* **[{ ComponentShort.motif.label }](./components/frontend/motif/)**: { ComponentShort.motif.description }
+* **[{ ComponentShort.arclight.label }](./components/frontend/arclight/)**: { ComponentShort.arclight.description }
+* **[{ ComponentShort.motifXL.label }](./components/frontend/motif-xl/)**: { ComponentShort.motifXL.description }
 
 See [Components](./components/) for a complete list of all Plxtra components.
 

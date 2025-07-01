@@ -32,6 +32,7 @@ export default defineConfig({
 
         starlight({
             title: 'Plxtra',
+            favicon: 'src/icons/plxtra-logo.svg',
 
             sidebar: [
                 {
@@ -40,12 +41,13 @@ export default defineConfig({
                 },
                 {
                     label: 'Using',
-                    autogenerate: { directory: 'using', collapsed: true },
-                    collapsed: true,
-                },
-                {
-                    label: 'Configuration',
-                    items: ['configuration'],
+                    items: [
+                        { label: 'Overview', slug: 'using' },
+                        { label: 'CLI', slug: 'using/cli-tools' },
+                        { label: 'Configuration', slug: 'using/configuration' },
+                        { label: 'Deploy', slug: 'using/deploy' },
+                        { label: 'XOSP', slug: 'using/xosp' },
+                    ],
                     collapsed: true,
                 },
                 {
@@ -109,7 +111,8 @@ export default defineConfig({
                         {
                             label: 'Extensibility',
                             items: [
-                                { label: 'Zenith Plug-in', slug: 'zenith-plug-in-api', attrs: { style: 'font-weight: 100;' } },
+                                { label: 'Overview', slug: 'api/extensibility' },
+                                { label: 'Caching Proxy Plug-in', slug: 'caching-proxy-plug-in-api', attrs: { style: 'font-weight: 100;' } },
                                 { label: 'Order Management Feed Adapter', link: '/oms-api/ws/feed/', attrs: { style: 'font-weight: 100;' } },
                                 { label: 'Registry Feed Adapter', slug: 'registry-feed-adapter-api', attrs: { style: 'font-weight: 100;' } },
                                 { label: 'Motif Extension', link: '/motif-api/' },
@@ -124,14 +127,6 @@ export default defineConfig({
                     items: [
                         'source',
                         'source/repositories',
-                    ],
-                    collapsed: true,
-                },
-                {
-                    label: 'Deploy',
-                    items: [
-                        'deploy',
-                        'deploy/images'
                     ],
                     collapsed: true,
                 },
