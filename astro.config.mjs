@@ -34,10 +34,10 @@ export default defineConfig({
         starlight({
             title: 'Plxtra',
             favicon: 'src/icons/plxtra-logo.svg',
-            // plugins: process.env.CHECK_LINKS ? [starlightLinksValidator()] : [],
-            plugins: [
-                starlightLinksValidator()
-            ],
+            plugins: process.env.CHECK_LINKS ? [starlightLinksValidator()] : [],
+            // plugins: [
+            //     starlightLinksValidator()
+            // ],
 
             sidebar: [
                 {
