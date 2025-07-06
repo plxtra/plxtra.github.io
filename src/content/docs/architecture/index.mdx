@@ -2,7 +2,8 @@
 title: Architecture overview
 ---
 
-import { ComponentShort } from '@shared';
+import FunctionalityShortItem from '@components/FunctionalityShortItem.astro';
+import { FunctionalityShort } from '@shared';
 
 Plxtra has been architected around these [principles](./principles/).
 
@@ -13,47 +14,49 @@ It can be configured in meet various trading platform use cases.  For example:
 * An exchange platform with multiple brokers,
 * A brokerage platform connecting to one or more external exchanges.
 
-The following 2 use cases provide a good summary of Plstra's top level architecture.
-
 ## Full Exchange Platform
 
 At the highest level, Plxtra is a full exchange as shown below:
 
 ![Exchange platform block overview](./exchange-platform-top-level-block.excalidraw.svg)
 
-The main components are:
+The main functionalities are:
 
-* **[{ ComponentShort.registry.label }](./backend/registry/)**: { ComponentShort.registry.description }
-* **[{ ComponentShort.exchangeEngine.label }](./backend/exchange-engine/)**: { ComponentShort.exchangeEngine.description }
-* **[{ ComponentShort.fixServer.label }](./backend/fix-server/)**: { ComponentShort.fixServer.description }
+* <FunctionalityShortItem short={FunctionalityShort.registry}/>
+* <FunctionalityShortItem short={FunctionalityShort.exchangeEngine}/>
+* <FunctionalityShortItem short={FunctionalityShort.fixServer}/>
 * **Brokerage Platform**: Implements services typically operated by a broker 
 
-## Brokerage Platform
+## Brokerage Platform Functionalities
 
-The diagram below is an overview of the Brokerage Platform as typically used by a broker.
+The diagram below shows a top level view of the functionality within the Brokerage Platform.
 
-Note that when used as part of the Plxtra exchange platform (above), this does not imply that an exchange needs to have a broker.  In this case, the exchange itself essentially carries out the brokerage operations.  Also, note that this diagram shows an external registry/settlement (as would typically be the case with brokers) whereas the Plxtra exchange platform itself already contains a registry.
+![Brokerage platform block overview](./brokerage-platform-top-level-functionality.excalidraw.svg)
 
-![Brokerage platform block overview](./brokerage-platform-top-level-block.excalidraw.svg)
+Note that when used as part of the Plxtra exchange platform (above), this does not imply that an exchange needs to have a broker.  The exchange itself can carry out the brokerage operations.  Also, note that this diagram shows an external registry/settlement (as would typically be the case with brokers) whereas the Plxtra exchange platform itself already contains a registry.
 
-The main components are:
+The functionalities are:
 
-* **[{ ComponentShort.feedServer.label }](./components/backend/feed-server/)**: { ComponentShort.feedServer.description }
-* **[{ ComponentShort.tradingAdapter.label }](./components/backend/trading-adapter/)**: { ComponentShort.tradingAdapter.description }
-* **[{ ComponentShort.tradeFeedAdapter.label }](./components/backend/trade-feed-adapter/)**: { ComponentShort.tradeFeedAdapter.description }
-* **[{ ComponentShort.orderManagementSystem.label }](./components/backend/order-management/)**: { ComponentShort.orderManagementSystem.description }
-* **[{ ComponentShort.tradingAgent.label }](./components/backend/trading-agent/)**: { ComponentShort.tradingAgent.description }
-* **[{ ComponentShort.authority.label }](./components/backend/authority/)**: { ComponentShort.authority.description }
-* **[{ ComponentShort.cachingProxy.label }](./components/backend/caching-proxy/)**: { ComponentShort.cachingProxy.description }
-* **[{ ComponentShort.alertingScanning.label }](./components/backend/alerting-scanning/)**: { ComponentShort.alertingScanning.description }
-* **[{ ComponentShort.motif.label }](./components/frontend/motif/)**: { ComponentShort.motif.description }
-* **[{ ComponentShort.arclight.label }](./components/frontend/arclight/)**: { ComponentShort.arclight.description }
-* **[{ ComponentShort.motifXL.label }](./components/frontend/motif-xl/)**: { ComponentShort.motifXL.description }
+* <FunctionalityShortItem short={FunctionalityShort.feedServer} />
+* <FunctionalityShortItem short={FunctionalityShort.tradingAdapter} />
+* <FunctionalityShortItem short={FunctionalityShort.tradeFeedAdapter} />
+* <FunctionalityShortItem short={FunctionalityShort.orderManagement} />
+* <FunctionalityShortItem short={FunctionalityShort.tradingAgent} />
+* <FunctionalityShortItem short={FunctionalityShort.vetting} />
+* <FunctionalityShortItem short={FunctionalityShort.authority} />
+* <FunctionalityShortItem short={FunctionalityShort.cachingProxy} />
+* <FunctionalityShortItem short={FunctionalityShort.alertingScanning} />
+* <FunctionalityShortItem short={FunctionalityShort.motif} />
+* <FunctionalityShortItem short={FunctionalityShort.arclight} />
+* <FunctionalityShortItem short={FunctionalityShort.motifXL} />
 
-See [Components](./components/) for a complete list of all Plxtra components.
+## Components
+
+The above functionalities are implemented in various Plxtra components. The full list of components can be accessed [here](./components/).
 
 ## Other information
 
+* **[Databases](./databases/)**
 * **[Connecting banks and registries](./connecting-banks-and-registries/)**
 * **[Redundancy](./redundancy)**
 * **[Monitoring](./monitoring)**

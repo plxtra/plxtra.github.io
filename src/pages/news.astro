@@ -1,9 +1,9 @@
 ---
+import AltMainBackground from '@components/AltMainBackground.astro';
 import NewsItem from '@components/NewsItem.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
-import AltMainBackground from '../components/AltMainBackground.astro';
 
 const entries = await getCollection('newsItems');
 

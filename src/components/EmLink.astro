@@ -1,0 +1,26 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+    href: string;
+    preText?: string;
+    fontSize?: string;
+}
+
+const { href, preText, fontSize, ...attrs } = Astro.props;
+---
+
+<em>
+    { preText }
+    <a href={href} {...attrs}>
+        <slot />
+    </a>
+</em>
+
+<style define:vars={{
+    "a-font-size": fontSize,
+}}>
+    em {
+        font-size: var(--a-font-size);
+    }
+</style>

@@ -1,6 +1,8 @@
 ---
-title: Overview
+title: APIs Overview
 ---
+
+Plxtra provides the following APIs to enable access, integrations and extensions:
 
 ## Business Systems Integration
 
@@ -14,7 +16,7 @@ Used by broker/exchange operators to integrate their business systems with Plxtr
 
 ## Enterprise Partners
 
-Used by enterprise partners to access data and trading. They differ from the [Front end](#front-end) APIs in bypassing [User Authorisation](/architecture/components/backend/user-authorisation/).
+Used by enterprise partners to access data and trading. They differ from the [Front end](#front-end) APIs in bypassing [User Authorisation](/architecture/functionalities/back-end/user-authorisation/).
 
 * [Market Reports](/market-reports-api/): Used for retrieving market reference data, such as trade history, charting records, and news bodies.
 * [FIX](/fix-api/): FIX protocol connectivity for both market data feeds and order and execution feeds.
@@ -32,7 +34,7 @@ Used to create data and trading applications.
 Used to extend the capabilities of Plxtra.
 
 * **[Overview](./extensibility/)**: Introduction to extending Plxtra
-* [Zenith Plugin](/zenith-plug-in-api/): Used to connect to external services and provide market data into the data distribution infrastructure.
+* [Zenith Plugin](/zenith-plugin-api/): Used to connect to external services and provide market data into the data distribution infrastructure.
 * **[Order Management Feed Adapter](/oms-api/ws/feed/)**: Used to feed order executions from external exchanges or execution locations into the OMS.
 * [Registry Feed Adapter](/registry-feed-adapter-api/): Used to feed cash and asset movements to and from the registry.
 * **[Motif Extension](/motif-api/)**: Used for creating extensions to the Motif trading application.

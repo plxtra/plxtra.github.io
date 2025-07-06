@@ -1,0 +1,24 @@
+---
+
+import type { FunctionalityShort } from '../ts/shared';
+import EmLink from './EmLink.astro';
+
+interface Props {
+    functionalityShort: FunctionalityShort
+    label: string;
+    link: string;
+    parentCount?: number;
+}
+
+const { functionalityShort, label, link, parentCount, ...attrs } = Astro.props;
+let parentString: string;
+if (parentCount === undefined || parentCount === 0) {
+    parentString = './';
+} else {
+    parentString = '../'.repeat(parentCount);
+}
+const parentedLink = parentString + functionalityShort.componentLink;
+---
+<EmLink href={parentedLink} preText='Implemented in ' fontSize="small" {...attrs}>
+    {functionalityShort.componentShort}
+</EmLink>

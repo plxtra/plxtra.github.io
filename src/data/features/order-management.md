@@ -1,8 +1,8 @@
 ---
 title: Order Management
 weight: 30
-readMoreUrl: /architecture/components/order-management-system/
+readMoreUrl: /architecture/functionalities/back-end/order-management/
 iconName: noun_customer service_2645571
 ---
 
-Order management manages the life cycle of all orders and tracks holdings and balances.  It provides real time tracking of order, holdings and balances at account and user levels.  User's can be linked to any number of accounts, including at advisor and broker level.
+Order management manages the life cycle of all orders and tracks account holdings, balances and orders.  It can connect to multiple exchanges and route order requests to the appropriate exchange.  It also can route order requests to DTRs for review when they fail vetting.
