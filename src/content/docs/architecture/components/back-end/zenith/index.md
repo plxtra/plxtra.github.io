@@ -4,20 +4,20 @@ title: Zenith
 
 The Zenith Feed Proxy collects streaming market and trading data, along with other related information, and exposes public-facing APIs for access.
 
-* Functionalities - [Caching Proxy](../../../functionalities/back-end/caching-proxy/) [Feed Server](../../../functionalities/back-end/feed-server/) [Trading Agent](../../../functionalities/back-end/trading-agent/) [Vetting](../../../functionalities/back-end/vetting/) [Alerting/Scanning](../../../functionalities/back-end/alerting-scanning/)
-* API
-    * **Front-end [websocket](/front-end-api/)**: A streaming API for real-time market and trading data, scanning, notification and submitting order requests.
-    * **Front-end [IQ](/front-end-api/)**: A SQL-style query interface for retrieving market and trading data, scanning, notification and submitting order requests.
-* Extensibility:
-    * **Market Data Adapters**: Consume data from upstream exchanges and feed them into the Zenith infrastructure.
-    * **Historical Data Adapters**: Pull historical data like trade history and charts from databases or external services.
-    * **Server Endpoint plugins**: Add additional public-facing APIs by writing a server plugin.
-    * **Authentication plugins**: Support additional authentication methods beyond OAuth Bearer tokens, such as SAML.
-    * **Extended Data plugins**: Attach additional data to securities from external sources.
-    * **Account Source Adapters**: Directly retrieve account data from a CRM or existing back-office system.
-    * **Data Sources**: Integrate an existing order management system to provide balances, holdings, orders, and submit order instructions.
-    * **Vetting Engine**: Customise vetting with your own rules engine.
-    * **Vetting Sources**: Supply data directly to the vetting engine from external services.
+* *Functionalities - [Caching Proxy](../../../functionalities/back-end/caching-proxy/) [Feed Server](../../../functionalities/back-end/feed-server/) [Trading Agent](../../../functionalities/back-end/trading-agent/) [Vetting](../../../functionalities/back-end/vetting/) [Alerting/Scanning](../../../functionalities/back-end/alerting-scanning/)*
+* *API*
+    * *Front-end [websocket](/front-end-api/) - A streaming API for real-time market and trading data, scanning, notification and submitting order requests.*
+    * *Front-end [IQ](/front-end-api/) - A SQL-style query interface for retrieving market and trading data, scanning, notification and submitting order requests.*
+* *Extensibility*
+    * *Market Data Adapters - Consume data from upstream exchanges and feed them into the Zenith infrastructure.*
+    * *Historical Data Adapters - Pull historical data like trade history and charts from databases or external services.*
+    * *Server Endpoint plugins - Add additional public-facing APIs by writing a server plugin.*
+    * *Authentication plugins - Support additional authentication methods beyond OAuth Bearer tokens, such as SAML.*
+    * *Extended Data plugins - Attach additional data to securities from external sources.*
+    * *Account Source Adapters - Directly retrieve account data from a CRM or existing back-office system.*
+    * *Data Sources - Integrate an existing order management system to provide balances, holdings, orders, and submit order instructions.*
+    * *Vetting Engine - Customise vetting with your own rules engine.*
+    * *Vetting Sources - Supply data directly to the vetting engine from external services.*
 
 
 Zenith components consist of the Zenith Proxy component (called “proxy” in the above diagram) and its backend plugins (“Feed Server” and “Trading Agent” in the above diagram)
@@ -45,60 +45,11 @@ For redundancy purposes, you will typically have at least 2 Zenith Proxies runni
 
 If you have an extremely large number of clients connecting, you can install multiple Zenith Proxies.  You can even cascade Zenith Proxies to ensure that loads on backend plugins are not impacted by this scaling.
 
-## Backend plugin {#backendplugin}
-
-We have already written several back-end plugins to connect to exchanges.  These include:
-
-1. Prodigy
-1. ASX OMNET
-1. NZX Genium FIX
-1. Bursa Genium FIX
-1. Refinitiv Elektron
+## Backend plugin
 
 A backend plugin must maintain the complete picture of an exchange.  When the backend plugin starts, it must subscribe to all relevant data from the exchange and keeps all the pictures updated.  Historical data (eg. Course of Sales) is written to the PostgreSQL database.
 
-Our back-end plugins are all designed to be able to be restarted during the day (can be necessary if, for example, an exchange needs to restart its services during the day).  In order to make a restart as quick as possible, we also cache the entire picture (excluding commited historical data) in a local SQLite database.  With this cache, we do not have to reload the entire data (for example, all the course of sales data).  We can load the picture cached in the SQLite database and simply update it from the last message committed to this cache.  Most exchanges have the capability to initiate a reload from a particular message number.  For some exchanges like Chi-X (which we previously connected to before getting this data from Elektron), this is vital as this exchange feed works on first principles.
+Our back-end plugins are all designed to be able to be restarted during the day (can be necessary if, for example, an exchange needs to restart its services during the day).  In order to make a restart as quick as possible, we also cache the entire picture (excluding committed historical data) in a local SQLite database.  With this cache, we do not have to reload the entire data (for example, all the course of sales data).  We can load the picture cached in the SQLite database and simply update it from the last message committed to this cache.  Most exchanges have the capability to initiate a reload from a particular message number.  For some exchanges like Chi-X (which we previously connected to before getting this data from Elektron), this is vital as this exchange feed works on first principles.
 
 Also, by having the picture cached in SQLite, we can safely restart a backend plugin (or its server) on (say) the weekend when the exchange is offline and still be able to retrieve the exchange picture from the end of the previous trading day (in this case, normally Friday).
 Zenith Trading Agent back end plugin
-
-The trading agent orchestrates the placement of orders and retrieves trading data from the OMS hub.  Like a Feed Server, it will maintain a full picture of all OMS data.  That is, it will subscribe to all accounts’ holdings and orders information and keep this ‘picture’ updated. 
-When the Zenith Proxy receives an order request, it passes the request to the trading agent.  The trading agent is responsible for organising the vetting of an order and then forwarding it to the OMS.
-
-The first step of the trading agent is to collect all the data required to vet an order.  Data can be required from multiple sources.  These are:
-
-1.	Security, Price and Depth feed (obtained from Feed Server)
-1.	Association data (obtained from Vault)
-1.	Vetting rules (obtained from MView)
-1.	Balances, orders and holdings (obtained from OMS)
-
-Once the trading agent has collected all the required data, it sends a message to the “Vetting” Component containing the order request and the collected information.  This component contains the algorithms for vetting.  It will determine whether the order is acceptable or rejected and advises the Trading Agent accordingly.  If it is accepted, the Trading Agent forwards the request to the OMS Hub which then further processes the order request.  If it is rejected, it advises the proxy accordingly which responds back to the client which originally placed the request.
-
-
-## Concepts
-
-Data comes in many forms and from multiple locations. It becomes necessary to aggregate these different sources into a consolidated view for front-end applications.
-
-The Zenith Feed Proxy acts a like a reverse proxy for these internal sources, presenting them in a common format, enforcing data access security, and allowing for horizontal scaling.
-
-## Concepts
-
-Data comes in many forms and from multiple locations. It becomes necessary to aggregate these different sources into a consolidated view for front-end applications.
-
-The Zenith Feed Proxy acts a like a reverse proxy for these internal sources, presenting them in a common format, enforcing data access security, and allowing for horizontal scaling.
-
-## Extensibility
-
-* Server Endpoint plugins.\
-  Add additional public-facing APIs by writing a server plugin.
-* Authentication plugins.\
-  Support additional authentication methods beyond OAuth Bearer tokens, such as SAML.
-* Extended Data plugins.\
-  Attach additional data to securities from external sources.
-
-## APIs
-
-* IQ API.\
-  A HTTP API accepting both text-based SQL-style queries, and JSON-based queries.
-* WebSocket API.\
-  A WebSocket API providing streaming data and inline data queries.

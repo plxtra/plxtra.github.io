@@ -2,9 +2,9 @@
 title: Feed Server
 ---
 
-*Component: [Zenith](../../components/back-end/zenith/index.md)*
+*Component: [Zenith](../../../components/back-end/zenith/)*
 
-A Feed Server is a [Zenith](../../components/back-end/zenith/index.md) plugin which provides streaming and/or historical market data to other Zenith services.
+A Feed Server is a [Zenith](../../../components/back-end/zenith/) data plugin which provides streaming and/or historical market data to other Zenith services.
 
 ## In-memory picture
 

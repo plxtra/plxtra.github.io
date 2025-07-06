@@ -1,34 +1,18 @@
 ---
-title: Prodigy Digital Exchange
-sidebar:
-  label: Exchange
+title: Exchange Engine
 ---
 
-The Prodigy exchange provides symbology, order execution, trade matching, news feeds, and supporting exchange services.
+*Component: [Prodigy](../../../components/back-end/prodigy/)*
 
-## Concepts
+Exchange Engine lists symbols, provides trading books for listed symbols and matches orders to generate trades.  In addition, it provides news feeds and supporting exchange services. It can be accessed either via industry standard [FIX protocol](/architecture/functionalities/back-end/fix-server/) and managed via its [market control API](/market-control-api/).
 
-The process of creating a market for tradeable assets and matching their potential buyers with sellers is a complex task.
+Its matching engine has 2 parts:
 
-Prodigy provides a self-contained platform for this purpose, able to be used in conjunction with the Plxtra infrastructure, or offered directly to partners over industry standard protocols.
+1. **Core** - This contains the general matching engine functionality.
+1. **Plugins** - A plugin implements a markets rules and behaviour.
 
-* Scalable, to handle markets both big and small.
-* High availability, to ensure minimal service disruption when problems occur.
-* Flexible, able to represent whatever tradeable assets and rules you might require.
-* Performant, optimised for high throughput to handle the busiest markets.
+Multiple plugins can be installed to run multiple markets concurrently.
 
-## Extensibility
+By implementing market rules and behaviour in a plugin, it makes supporting new markets or adding functionality to existing markets far easier. Supporting a new market only requires developing a plugin - not implementing a completely new matching engine. Adding new capabilities to a market only requires testing its plugin. In both cases, the core is not modified.
 
-* Market Model plugins.\
-  Extend the basic model of a Symbol, Order, or Trade with additional business information.
-* Execution Engine plugins.\
-  Add new logic for matching orders, and new market operations to manipulate the state of the market.
-* FIX application plugins.\
-  Customise the FIX protocol spoken by the server.
-
-## APIs
-
-* Internal REST API for market control operations.
-* Public REST API for reference and historical data access.
-* FIX API for order requests, execution reports, and market data
-* CLI API for operations and querying
+In addition, plugins allow hosting of different versions of the same plugin. This can facilitate upgrading and allow other systems to incremental move from one version to the next. Upgrades can be smoother and risks reduced. This is further discussed in [market development](/industry/market-development/).

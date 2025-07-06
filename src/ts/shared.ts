@@ -20,10 +20,6 @@ export namespace ComponentShort {
         label: 'Prodigy',
         description: '',
     };
-    export const fix: ComponentShort = {
-        label: 'Fix',
-        description: 'Industry standard FIX server (data and trading).',
-    };
     export const authority: ComponentShort = {
         label: 'Authority',
         description: '',
@@ -64,10 +60,6 @@ export namespace ComponentShort {
         label: 'Watchlist Manager',
         description: 'Stores user-created and system-managed watchlists.',
     };
-    export const interlink: ComponentShort = {
-        label: 'Interlink',
-        description: 'Communications between internal components.',
-    };
     export const motif: ComponentShort = {
         label: 'Motif',
         description: 'A web-based desktop trading application designed for professional traders and DTRs.',
@@ -93,7 +85,7 @@ export namespace FunctionalityShort {
     export const exchangeEngine: FunctionalityShort = {
         functionalityLabel: 'Exchange Engine',
         functionalityLink: './functionalities/back-end/exchange-engine/',
-        functionalityDescription: '',
+        functionalityDescription: 'Lists symbols, provides trading books and matches orders to generate trades.  In addition, it provides news feeds and supporting exchange services.',
         componentShort: ComponentShort.prodigy,
         componentLink: './components/back-end/prodigy/',
     };
@@ -101,8 +93,8 @@ export namespace FunctionalityShort {
         functionalityLabel: 'Fix Server',
         functionalityLink: './functionalities/back-end/fix-server/',
         functionalityDescription: 'Industry standard FIX server (data and trading).',
-        componentShort: ComponentShort.fix,
-        componentLink: './components/back-end/fix/',
+        componentShort: ComponentShort.prodigy,
+        componentLink: './components/back-end/prodigy/',
     };
     export const feedServer: FunctionalityShort = {
         functionalityLabel: 'Feed Server',
@@ -222,13 +214,6 @@ export namespace FunctionalityShort {
         functionalityDescription: 'Stores user-created and system-managed watchlists.',
         componentShort: ComponentShort.watchlistManager,
         componentLink: './components/back-end/watchlist-manager/',
-    };
-    export const interlink: FunctionalityShort = {
-        functionalityLabel: 'Interlink',
-        functionalityLink: './functionalities/back-end/interlink/',
-        functionalityDescription: 'Communications between internal components.',
-        componentShort: ComponentShort.interlink,
-        componentLink: './components/back-end/interlink/',
     };
 }
 
