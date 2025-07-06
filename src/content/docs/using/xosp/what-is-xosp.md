@@ -2,7 +2,7 @@
 title: What is XOSP
 ---
 
-Plxtra XOSP (EXchange Open Source Platform) is a complete distribution of the Plxtra software suite, configured and ready to start using.
+Plxtra XOSP is a complete distribution of the Plxtra software suite, configured and ready to start using.
 
 The [XOSP repository](https://github.com/plxtra/xosp) contains the distribution's installation scripts and configuration.
 
@@ -37,7 +37,7 @@ XOSP includes a rudimentary OAuth and OIDC-compliant authentication server throu
 
 Plxtra follows the philosophy of minimum opinionation in regards to customer data. There are users who login, there are accounts that can be traded, and outside of those concepts Plxtra doesn't get involved. How logins are registered, what information they hold, how permissions are decided upon, and what support tasks are required, is too specific to any one business.
 
-Rather than try to provide a one-size-fits-all solution, which is a vast undertaking that would take away from the focus of Plxtra, it offers a suite of APIs with REST, GraphQL, and WebSocket streaming for feeding this data into and out of the system, and to allow easy realtime manipulation.
+Rather than try to provide a one-size-fits-all solution, which is a vast undertaking that would take away from the focus of Plxtra, it offers a suite of APIs with REST, GraphQL, and WebSocket streaming for feeding this data into and out of the system, and to allow easy real-time manipulation.
 
 ### Back Office
 

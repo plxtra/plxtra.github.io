@@ -2,9 +2,9 @@
 title: Exchange Engine
 ---
 
-*Component: [Prodigy](../../../components/back-end/prodigy/)*
+*Component: [Prodigy](../../components/prodigy/)*
 
-Exchange Engine lists symbols, provides trading books for listed symbols and matches orders to generate trades.  In addition, it provides news feeds and supporting exchange services. It can be accessed either via industry standard [FIX protocol](/architecture/functionalities/back-end/fix-server/) and managed via its [market control API](/market-control-api/).
+Exchange Engine lists symbols, provides trading books for listed symbols and matches orders to generate trades.  In addition, it provides news feeds and supporting exchange services. It can be accessed either via industry standard [FIX protocol](/architecture/functionalities/fix-server/) and managed via its [market control API](/market-control-api/).
 
 Its matching engine has 2 parts:
 

@@ -4,7 +4,7 @@ title: Extensibility Overview
 
 Plxtra can be extended in the following ways:
 1. Adding extensions or plugins using the extensibility APIs,
-1. Submitting feature Pull requests to the Plxtra [source code repositories](../source/repositories/),
+1. Submitting feature Pull requests to the Plxtra [source code repositories](../../source/repositories/),
 1. Forking the Plxtra source code repositories and adding features independently of Plxtra
 
 The advantage of using the extensibility APIs is that you have full control over the new capability, are not dependent on Plxtra developers and can take advantage of other capabilities added to the Plxtra system.

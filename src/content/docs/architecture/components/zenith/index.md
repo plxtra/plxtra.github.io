@@ -4,7 +4,7 @@ title: Zenith
 
 The Zenith Feed Proxy collects streaming market and trading data, along with other related information, and exposes public-facing APIs for access.
 
-* *Functionalities - [Caching Proxy](../../../functionalities/back-end/caching-proxy/) [Feed Server](../../../functionalities/back-end/feed-server/) [Trading Agent](../../../functionalities/back-end/trading-agent/) [Vetting](../../../functionalities/back-end/vetting/) [Alerting/Scanning](../../../functionalities/back-end/alerting-scanning/)*
+* *Functionalities - [Caching Proxy](../../functionalities/caching-proxy/) [Feed Server](../../functionalities/feed-server/) [Trading Agent](../../functionalities/trading-agent/) [Vetting](../../functionalities/vetting/) [Alerting/Scanning](../../functionalities/alerting-scanning/)*
 * *API*
     * *Front-end [websocket](/front-end-api/) - A streaming API for real-time market and trading data, scanning, notification and submitting order requests.*
     * *Front-end [IQ](/front-end-api/) - A SQL-style query interface for retrieving market and trading data, scanning, notification and submitting order requests.*

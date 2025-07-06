@@ -2,7 +2,7 @@
 title: Install XOSP
 ---
 
-This page provides a detailed description of how to install the [Plxtra XOSP release](/deploy/what-is-xosp/) onto your local computer. See the [Quick start](../quick-start/) page for a more streamlined description to get you up and running quickly.
+This page provides a detailed description of how to install the [Plxtra XOSP release](../../using/xosp/what-is-xosp/) onto your local computer. See the [Quick start](../quick-start/) page for a more streamlined description to get you up and running quickly.
 
 ## Overview
 
@@ -78,7 +78,7 @@ Once you have a PowerShell terminal, navigate to the folder you downloaded XOSP 
 1. `.\XOSP-Clear.ps1` (optional)\
 This script removes all XOSP-related Docker containers, along with the database and any other files used by the Plxtra installation. This script is useful if you want to start with a fresh installation.
 1. `.\XOSP-Configure.ps1`\
-This script generates the installation configuration. This includes user and database credentials, certificates, as well as applying any [configuration settings](../../configuration/) to customise the installation to your needs.
+This script generates the installation configuration. This includes user and database credentials, certificates, as well as applying any [configuration settings](../../using/configuration/) to customise the installation to your needs.
 1. `.\XOSP-Install.ps1`\
 This script creates the Docker containers, and exercises various system APIs to populate it with initial data. This script can take several minutes to run, depending on your computer's performance.
 
@@ -118,7 +118,7 @@ To install the aliases, simply copy the contents of this file into your `hosts` 
 * **Windows**: Can be found at `C:\Windows\System32\drivers\etc\hosts`. You will need an editor such as Notepad in Administrator mode.
 * **Linux** and **MacOS**: Can be found at `/etc/hosts`.
 
-The specific domain (and SSL port if required) can be overridden with the [configuration settings](../../configuration/) for XOSP.
+The specific domain (and SSL port if required) can be overridden with the [configuration settings](../../using/configuration/) for XOSP.
 
 ## Next Steps
 

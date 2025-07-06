@@ -1,7 +1,7 @@
 ---
 title: Order Management
 weight: 30
-readMoreUrl: /architecture/functionalities/back-end/order-management/
+readMoreUrl: /architecture/functionalities/order-management/
 iconName: noun_customer service_2645571
 ---
 

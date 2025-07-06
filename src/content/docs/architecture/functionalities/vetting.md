@@ -18,7 +18,7 @@ Order requests are passed to vetting from the [Trading Agent](../trading-agent/)
 
 ## Rules
 
-Vetting rules are specified with the [Vortex](../../../components/back-end/zenith/vortex/) vetting language. It features:
+Vetting rules are specified with the [Vortex](../../components/zenith/vortex/) vetting language. It features:
 * A powerful scripting engine which supports conditional evaluation,
 * Rules can be specified at different levels of the account hierarchy,
 * Exchange rules are separated from business rules,

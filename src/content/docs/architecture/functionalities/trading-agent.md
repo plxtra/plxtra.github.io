@@ -2,7 +2,7 @@
 title: Trading Agent
 ---
 
-*Component: [Zenith](../../../components/back-end/zenith/)*
+*Component: [Zenith](../../components/zenith/)*
 
 The Trading Agent maintains an in-memory picture of [Order Management](../order-management/) data (accounts, holdings, balances, orders) which is used by [Caching Proxy](../caching-proxy/) to satisfy subscriptions and queries for this data.  It also orchestrates vetting of order requests.
 
@@ -10,7 +10,7 @@ The Trading Agent maintains an in-memory picture of [Order Management](../order-
 
 In regards to the in-memory picture, it is similar to a [Feed Server](../feed-server/) however it sources its data from [Order Management](../order-management/).
 
-Like [Feed Servers](../feed-server/) the Trading Agent will periodically take a snapshot of this its in-memory database and save the latest into an SqlLite database.  This allows it to quickly rebuild the in-memory picture if the Exchange or [OMS](../../../components/back-end/oms/) are restarted.  Without this snapshot, the Trading Agent would need to replay the entire days feed from the exchange to ensure that all the structures are correct.  This potentially can take a long time towards the end of the day.
+Like [Feed Servers](../feed-server/) the Trading Agent will periodically take a snapshot of this its in-memory database and save the latest into an SqlLite database.  This allows it to quickly rebuild the in-memory picture if the Exchange or [OMS](../../components/oms/) are restarted.  Without this snapshot, the Trading Agent would need to replay the entire days feed from the exchange to ensure that all the structures are correct.  This potentially can take a long time towards the end of the day.
 
 # Vetting
 

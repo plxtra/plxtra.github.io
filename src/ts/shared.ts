@@ -77,143 +77,143 @@ export namespace ComponentShort {
 export namespace FunctionalityShort {
     export const registry: FunctionalityShort = {
         functionalityLabel: 'Registry',
-        functionalityLink: './functionalities/back-end/registry/',
+        functionalityLink: './functionalities/registry/',
         functionalityDescription: '',
         componentShort: ComponentShort.foundry,
-        componentLink: './components/back-end/foundry/',
+        componentLink: './components/foundry/',
     };
     export const exchangeEngine: FunctionalityShort = {
         functionalityLabel: 'Exchange Engine',
-        functionalityLink: './functionalities/back-end/exchange-engine/',
+        functionalityLink: './functionalities/exchange-engine/',
         functionalityDescription: 'Lists symbols, provides trading books and matches orders to generate trades.  In addition, it provides news feeds and supporting exchange services.',
         componentShort: ComponentShort.prodigy,
-        componentLink: './components/back-end/prodigy/',
+        componentLink: './components/prodigy/',
     };
     export const fixServer: FunctionalityShort = {
         functionalityLabel: 'Fix Server',
-        functionalityLink: './functionalities/back-end/fix-server/',
+        functionalityLink: './functionalities/fix-server/',
         functionalityDescription: 'Industry standard FIX server (data and trading).',
         componentShort: ComponentShort.prodigy,
-        componentLink: './components/back-end/prodigy/',
+        componentLink: './components/prodigy/',
     };
     export const feedServer: FunctionalityShort = {
         functionalityLabel: 'Feed Server',
-        functionalityLink: './functionalities/back-end/feed-server/',
-        functionalityDescription: 'A [Zenith](./components/back-end/zenith/) plugin which connects to an exchange and provides streaming and/or historical market data to other Zenith services.',
+        functionalityLink: './functionalities/feed-server/',
+        functionalityDescription: 'A [Zenith](./components/zenith/) plugin which connects to an exchange and provides streaming and/or historical market data to other Zenith services.',
         componentShort: ComponentShort.zenith,
-        componentLink: './components/back-end/zenith/',
+        componentLink: './components/zenith/',
     };
     export const tradingAdapter: FunctionalityShort = {
         functionalityLabel: 'Trading Adapter',
-        functionalityLink: './functionalities/back-end/trading-adapter/',
-        functionalityDescription: 'An [OMS](./components/back-end/oms/) plugin which connects [Order Management](./functionalities/back-end/order-management/) to a trading feed for an exchange',
+        functionalityLink: './functionalities/trading-adapter/',
+        functionalityDescription: 'An [OMS](./components/oms/) plugin which connects [Order Management](./functionalities/order-management/) to a trading feed for an exchange',
         componentShort: ComponentShort.oms,
-        componentLink: './components/back-end/oms/',
+        componentLink: './components/oms/',
     };
     export const tradeFeedAdapter: FunctionalityShort = {
         functionalityLabel: 'Trade Feed Adapter',
-        functionalityLink: './functionalities/back-end/trade-feed-adapter/',
+        functionalityLink: './functionalities/trade-feed-adapter/',
         functionalityDescription: 'Generates a specialised feed which assists settlement and registries from booking trades to accounts and generating contract notes.',
         componentShort: ComponentShort.oms,
-        componentLink: './components/back-end/oms/',
+        componentLink: './components/oms/',
     };
     export const orderManagement: FunctionalityShort = {
         functionalityLabel: 'Order Management',
-        functionalityLink: './functionalities/back-end/order-management/',
+        functionalityLink: './functionalities/order-management/',
         functionalityDescription: 'Manages the life cycle of all orders and maintains account holdings, balances, orders and reservations.',
         componentShort: ComponentShort.oms,
-        componentLink: './components/back-end/oms/',
+        componentLink: './components/oms/',
     };
     export const tradingAgent: FunctionalityShort = {
         functionalityLabel: 'Trading Agent',
-        functionalityLink: './functionalities/back-end/trading-agent/',
-        functionalityDescription: 'Maintains an in-memory picture of [Order Management](./functionalities/back-end/order-management/) data for caching proxy and orchestrates [vetting](./functionalities/back-end/vetting/) of order requests.',
+        functionalityLink: './functionalities/trading-agent/',
+        functionalityDescription: 'Maintains an in-memory picture of [Order Management](./functionalities/order-management/) data for caching proxy and orchestrates [vetting](./functionalities/vetting/) of order requests.',
         componentShort: ComponentShort.zenith,
-        componentLink: './components/back-end/zenith/',
+        componentLink: './components/zenith/',
     };
     export const vetting: FunctionalityShort = {
         functionalityLabel: 'Vetting',
-        functionalityLink: './functionalities/back-end/vetting/',
+        functionalityLink: './functionalities/vetting/',
         functionalityDescription: 'Check each order request against a rule set to reject order requests that do not meet the required criteria.',
         componentShort: ComponentShort.zenith,
-        componentLink: './components/back-end/zenith/',
+        componentLink: './components/zenith/',
     };
     export const authority: FunctionalityShort = {
         functionalityLabel: 'Authority',
-        functionalityLink: './functionalities/back-end/authority/',
+        functionalityLink: './functionalities/authority/',
         functionalityDescription: '',
         componentShort: ComponentShort.authority,
-        componentLink: './components/back-end/authority/',
+        componentLink: './components/authority/',
     };
     export const cachingProxy: FunctionalityShort = {
         functionalityLabel: 'Caching Proxy',
-        functionalityLink: './functionalities/back-end/caching-proxy/',
-        functionalityDescription: 'Fulfills subscriptions and data requests from APIs using either cached data or obtaining the data from a [Feed Server](./functionalities/back-end/feed-server/) or the [Trading Agent](./functionalities/back-end/trading-agent/).',
+        functionalityLink: './functionalities/caching-proxy/',
+        functionalityDescription: 'Fulfills subscriptions and data requests from APIs using either cached data or obtaining the data from a [Feed Server](./functionalities/feed-server/) or the [Trading Agent](./functionalities/trading-agent/).',
         componentShort: ComponentShort.zenith,
-        componentLink: './components/back-end/zenith/',
+        componentLink: './components/zenith/',
     };
     export const alertingScanning: FunctionalityShort = {
         functionalityLabel: 'Alerting / Scanning',
-        functionalityLink: './functionalities/back-end/alerting-scanning/',
+        functionalityLink: './functionalities/alerting-scanning/',
         functionalityDescription: '',
         componentShort: ComponentShort.zenith,
-        componentLink: './components/back-end/zenith/',
+        componentLink: './components/zenith/',
     };
     export const sessionManagement: FunctionalityShort = {
         functionalityLabel: 'Session Management',
-        functionalityLink: './functionalities/back-end/session-management/',
+        functionalityLink: './functionalities/session-management/',
         functionalityDescription: '',
         componentShort: ComponentShort.sessionManagement,
-        componentLink: './components/back-end/session-management/',
+        componentLink: './components/session-management/',
     };
     export const motif: FunctionalityShort = {
         functionalityLabel: 'Motif',
-        functionalityLink: './functionalities/front-end/motif/',
+        functionalityLink: './functionalities/motif/',
         functionalityDescription: 'A web-based desktop trading application designed for professional traders and DTRs.',
         componentShort: ComponentShort.motif,
-        componentLink: './components/front-end/motif/',
+        componentLink: './components/motif/',
     };
     export const arclight: FunctionalityShort = {
         functionalityLabel: 'Arclight',
-        functionalityLink: './functionalities/front-end/arclight/',
+        functionalityLink: './functionalities/arclight/',
         functionalityDescription: '',
         componentShort: ComponentShort.arclight,
-        componentLink: './components/front-end/arclight/',
+        componentLink: './components/arclight/',
     };
     export const motifXL: FunctionalityShort = {
         functionalityLabel: 'MotifXL',
-        functionalityLink: './functionalities/front-end/motif-xl/',
+        functionalityLink: './functionalities/motif-xl/',
         functionalityDescription: 'Microsoft Excel add-in making data and trading available from within Excel.',
         componentShort: ComponentShort.motifXL,
-        componentLink: './components/front-end/motif-xl/',
+        componentLink: './components/motif-xl/',
     };
     export const auditHistory: FunctionalityShort = {
         functionalityLabel: 'Audit History',
-        functionalityLink: './functionalities/back-end/audit-history/',
+        functionalityLink: './functionalities/audit-history/',
         functionalityDescription: 'Stores API activity and login sessions.',
         componentShort: ComponentShort.auditHistory,
-        componentLink: './components/back-end/audit-history/',
+        componentLink: './components/audit-history/',
     };
     export const pushNotification: FunctionalityShort = {
         functionalityLabel: 'Push Notification',
-        functionalityLink: './functionalities/back-end/zenith/',
+        functionalityLink: './functionalities/zenith/',
         functionalityDescription: 'Track data permissions for authenticated users and client applications.',
         componentShort: ComponentShort.zenith,
-        componentLink: './components/back-end/zenith/',
+        componentLink: './components/zenith/',
     };
     export const marketHoliday: FunctionalityShort = {
         functionalityLabel: 'Market Holiday',
-        functionalityLink: './functionalities/back-end/market-holiday/',
+        functionalityLink: './functionalities/market-holiday/',
         functionalityDescription: 'Track trading days and non-trading days.',
         componentShort: ComponentShort.marketHoliday,
-        componentLink: './components/back-end/market-holiday/',
+        componentLink: './components/market-holiday/',
     };
     export const watchlistManager: FunctionalityShort = {
         functionalityLabel: 'Watchlist Manager',
-        functionalityLink: './functionalities/back-end/watchlist-manager/',
+        functionalityLink: './functionalities/watchlist-manager/',
         functionalityDescription: 'Stores user-created and system-managed watchlists.',
         componentShort: ComponentShort.watchlistManager,
-        componentLink: './components/back-end/watchlist-manager/',
+        componentLink: './components/watchlist-manager/',
     };
 }
 

@@ -2,7 +2,7 @@
 title: Order Management
 ---
 
-*Component: [OMS](../../../components/back-end/oms/)*
+*Component: [OMS](../../components/oms/)*
 
 Order Management has two main tasks:
 1. Maintain a real-time in-memory picture of all the trading accounts and their orders, holdings, cash balances and reservations.

@@ -8,7 +8,7 @@ To overcome this hurdle, Plxtra uses scripts and docker to allow it to be config
 
 Existing docker containers are publicly available which allow you to install Plxtra without access to source code.  Alternatively, you can install the Plxtra source code and build the docker containers directly from the source and then deploy these containers. This greatly reduces the develop/debug/test cycle and allows new developers to work on parts of Plxtra without having to fully understand it first.
 
-Plxtra aims to improve its configuration and deployment mechanisms to support more deployment environments (demo/test/staging/production etc) and more use cases.  See the [documentation](/deploy/) for more details.
+Plxtra aims to improve its configuration and deployment mechanisms to support more deployment environments (demo/test/staging/production etc) and more use cases.  
 
 * XOSP\
 A sample exchange that can be used for demonstration or application development/debugging

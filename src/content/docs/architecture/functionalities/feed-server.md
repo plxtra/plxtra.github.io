@@ -2,9 +2,9 @@
 title: Feed Server
 ---
 
-*Component: [Zenith](../../../components/back-end/zenith/)*
+*Component: [Zenith](../../components/zenith/)*
 
-A Feed Server is a [Zenith](../../../components/back-end/zenith/) data plugin which provides streaming and/or historical market data to other Zenith services.
+A Feed Server is a [Zenith](../../components/zenith/) data plugin which provides streaming and/or historical market data to other Zenith services.
 
 ## In-memory picture
 
@@ -21,7 +21,7 @@ To facilitate restarts, Feed Servers will periodically take a snapshot of this i
 ## Existing plugins
 
 Feed Servers allow Plxtra to easily connect to data services from different exchanges and financial data sources.  The following feed servers plugins have been developed and used in production:
-* Plxtra [Prodigy](../../../components/back-end/prodigy/)
+* Plxtra [Prodigy](../../components/prodigy/)
 * ASX OMNET
 * NZX Genium FIX (no longer in use)
 * Bursa Genium FIX

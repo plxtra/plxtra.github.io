@@ -4,7 +4,7 @@ title: Prodigy
 
 Prodigy is a trading exchange matching engine which has been built with a plug-in and extensible architecture that allows different types of markets to be hosted in the one exchange. Plugins can be easily added or removed facilitating the development of markets and allowing easy transitioning to new releases with new capabilities.
 
-* *Functionalities - [Exchange Engine](../../../functionalities/back-end/exchange-engine/) [Fix Server](../../../functionalities/back-end/fix-server/)*
+* *Functionalities - [Exchange Engine](../../functionalities/exchange-engine/) [Fix Server](../../functionalities/fix-server/)*
 * *APIs*
     * *Market Control - Add and remove listings on markets. Also publish news items.*
     * *Market Reports - Obtain reference and historical data.*

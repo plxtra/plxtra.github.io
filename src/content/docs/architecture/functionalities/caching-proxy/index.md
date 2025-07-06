@@ -2,7 +2,7 @@
 title: Caching proxy
 ---
 
-*Component: [Zenith](../../../components/back-end/zenith/)*
+*Component: [Zenith](../../components/zenith/)*
 
 Fulfills subscriptions and data requests from APIs using either cached data or obtaining the data from a [Feed Server](../feed-server/) or the [Trading Agent](../trading-agent/).
 
@@ -24,4 +24,4 @@ To support scaling of users and API connections, a caching proxy supports unlimi
 
 ## Redundancy
 
-However, for redundancy purposes, you would typically have at least 2 Zenith Proxies running.  These will be active/active.  That is, a client application can connect to either of these to access the APIs.  In the unlikely event that one fails (eg server failure), the client can simply connect to the other.  In a cloud environment, you would typically place one Zenith Proxy in each zone (ie, different hosting site) and provide access to each via a load balancer which supports the websocket and webservices protocols.  See [redundancy](../../../redundancy/) for more details.
+However, for redundancy purposes, you would typically have at least 2 Zenith Proxies running.  These will be active/active.  That is, a client application can connect to either of these to access the APIs.  In the unlikely event that one fails (eg server failure), the client can simply connect to the other.  In a cloud environment, you would typically place one Zenith Proxy in each zone (ie, different hosting site) and provide access to each via a load balancer which supports the websocket and webservices protocols.  See [redundancy](../../redundancy/) for more details.

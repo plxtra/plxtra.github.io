@@ -2,9 +2,9 @@
 title: Trading Adapter
 ---
 
-*Component: [OMS](../../../components/back-end/oms/)*
+*Component: [OMS](../../components/oms/)*
 
-A Trading Adapter is an [OMS](../../../components/back-end/oms/) plugin which connects [Order Management](./order-management/) to a trading feed for an exchange.  Its role is to adapt data from the feed to Order Management internal messaging.
+A Trading Adapter is an [OMS](../../components/oms/) plugin which connects [Order Management](../order-management/) to a trading feed for an exchange.  Its role is to adapt data from the feed to Order Management internal messaging.
 
 ## Protocols
 
@@ -17,7 +17,7 @@ To facilitate restarts, Feed Servers will periodically take a snapshot of this i
 ## Existing plugins
 
 Trading adapter plugins allow Plxtra to easily connect to trading services at different exchanges.  The following trading adapter plugins have been developed and used in production:
-* Plxtra [Prodigy](../../../components/back-end/prodigy/)
+* Plxtra [Prodigy](../../components/prodigy/)
 * ASX FIX
 * ASX OMNET (test only)
 * Bursa Genium FIX

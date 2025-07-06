@@ -4,7 +4,8 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
-import icon from "astro-icon";
+import icon from 'astro-icon';
+import starlightLinksValidator from 'starlight-links-validator';
 
 const canonicalHost = 'plxtra.org'; // Put into environmental variable for BaseLayout
 
@@ -33,6 +34,10 @@ export default defineConfig({
         starlight({
             title: 'Plxtra',
             favicon: 'src/icons/plxtra-logo.svg',
+            // plugins: process.env.CHECK_LINKS ? [starlightLinksValidator()] : [],
+            plugins: [
+                starlightLinksValidator()
+            ],
 
             sidebar: [
                 {
@@ -58,22 +63,22 @@ export default defineConfig({
                             label: 'Functionalities',
                             items: [
                                 { label: 'Overview', slug: 'architecture/functionalities' },
-                                { label: 'Registry', slug: 'architecture/functionalities/back-end/registry' },
-                                { label: 'Exchange Engine', slug: 'architecture/functionalities/back-end/exchange-engine' },
-                                { label: 'FIX Server', slug: 'architecture/functionalities/back-end/fix-server' },
-                                { label: 'Authority', slug: 'architecture/functionalities/back-end/authority' },
-                                { label: 'Order Management', slug: 'architecture/functionalities/back-end/order-management' },
-                                { label: 'Trading Agent', slug: 'architecture/functionalities/back-end/trading-agent' },
-                                { label: 'Vetting', slug: 'architecture/functionalities/back-end/vetting' },
-                                { label: 'Caching Proxy', slug: 'architecture/functionalities/back-end/caching-proxy' },
-                                { label: 'Feed Server', slug: 'architecture/functionalities/back-end/feed-server' },
-                                { label: 'Trading Adapter', slug: 'architecture/functionalities/back-end/trading-adapter' },
-                                { label: 'Trade Feed Adapter', slug: 'architecture/functionalities/back-end/trade-feed-adapter' },
-                                { label: 'Alerting/Scanning', slug: 'architecture/functionalities/back-end/alerting-scanning' },
-                                { label: 'Session Management', slug: 'architecture/functionalities/back-end/session-management' },
-                                { label: 'Motif', slug: 'architecture/functionalities/front-end/motif' },
-                                { label: 'Arclight', slug: 'architecture/functionalities/front-end/arclight' },
-                                { label: 'MotifXL', slug: 'architecture/functionalities/front-end/motif-xl' },
+                                { label: 'Registry', slug: 'architecture/functionalities/registry' },
+                                { label: 'Exchange Engine', slug: 'architecture/functionalities/exchange-engine' },
+                                { label: 'FIX Server', slug: 'architecture/functionalities/fix-server' },
+                                { label: 'Authority', slug: 'architecture/functionalities/authority' },
+                                { label: 'Order Management', slug: 'architecture/functionalities/order-management' },
+                                { label: 'Trading Agent', slug: 'architecture/functionalities/trading-agent' },
+                                { label: 'Vetting', slug: 'architecture/functionalities/vetting' },
+                                { label: 'Caching Proxy', slug: 'architecture/functionalities/caching-proxy' },
+                                { label: 'Feed Server', slug: 'architecture/functionalities/feed-server' },
+                                { label: 'Trading Adapter', slug: 'architecture/functionalities/trading-adapter' },
+                                { label: 'Trade Feed Adapter', slug: 'architecture/functionalities/trade-feed-adapter' },
+                                { label: 'Alerting/Scanning', slug: 'architecture/functionalities/alerting-scanning' },
+                                { label: 'Session Management', slug: 'architecture/functionalities/session-management' },
+                                { label: 'Motif', slug: 'architecture/functionalities/motif' },
+                                { label: 'Arclight', slug: 'architecture/functionalities/arclight' },
+                                { label: 'MotifXL', slug: 'architecture/functionalities/motif-xl' },
                             ],
                             collapsed: true,
                         },
@@ -81,29 +86,29 @@ export default defineConfig({
                             label: 'Components',
                             items: [
                                 { label: 'Overview', slug: 'architecture/components' },
-                                { label: 'Foundry', slug: 'architecture/components/back-end/foundry' },
-                                { label: 'Prodigy', slug: 'architecture/components/back-end/prodigy' },
-                                { label: 'Authority', slug: 'architecture/components/back-end/authority' },
-                                { label: 'OMS', slug: 'architecture/components/back-end/oms' },
+                                { label: 'Foundry', slug: 'architecture/components/foundry' },
+                                { label: 'Prodigy', slug: 'architecture/components/prodigy' },
+                                { label: 'Authority', slug: 'architecture/components/authority' },
+                                { label: 'OMS', slug: 'architecture/components/oms' },
                                 {
                                     label: 'Zenith',
                                     items: [
-                                        { label: 'Overview', slug: 'architecture/components/back-end/zenith' },
-                                        { label: 'Interlink', slug: 'architecture/components/back-end/zenith/interlink' },
-                                        { label: 'Vortex', slug: 'architecture/components/back-end/zenith/vortex' },
+                                        { label: 'Overview', slug: 'architecture/components/zenith' },
+                                        { label: 'Interlink', slug: 'architecture/components/zenith/interlink' },
+                                        { label: 'Vortex', slug: 'architecture/components/zenith/vortex' },
                                     ],
                                     collapsed: true,
                                 },
-                                { label: 'Session Management', slug: 'architecture/components/back-end/session-management' },
-                                { label: 'Herald', slug: 'architecture/components/back-end/herald' },
-                                { label: 'Doppler', slug: 'architecture/components/back-end/doppler' },
-                                { label: 'Motif Services', slug: 'architecture/components/support/motif-services' },
-                                { label: 'Audit History', slug: 'architecture/components/support/audit-history' },
-                                { label: 'Market Holiday', slug: 'architecture/components/support/market-holiday' },
-                                { label: 'Watchlist Manager', slug: 'architecture/components/support/watchlist-manager' },
-                                { label: 'Motif', slug: 'architecture/components/front-end/motif' },
-                                { label: 'Arclight', slug: 'architecture/components/front-end/arclight' },
-                                { label: 'MotifXL', slug: 'architecture/components/front-end/motif-xl' },
+                                { label: 'Session Management', slug: 'architecture/components/session-management' },
+                                { label: 'Herald', slug: 'architecture/components/herald' },
+                                { label: 'Doppler', slug: 'architecture/components/doppler' },
+                                { label: 'Motif Services', slug: 'architecture/components/motif-services' },
+                                { label: 'Audit History', slug: 'architecture/components/audit-history' },
+                                { label: 'Market Holiday', slug: 'architecture/components/market-holiday' },
+                                { label: 'Watchlist Manager', slug: 'architecture/components/watchlist-manager' },
+                                { label: 'Motif', slug: 'architecture/components/motif' },
+                                { label: 'Arclight', slug: 'architecture/components/arclight' },
+                                { label: 'MotifXL', slug: 'architecture/components/motif-xl' },
                             ],
                             collapsed: true,
                         },
