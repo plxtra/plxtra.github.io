@@ -1,48 +1,124 @@
 ---
-title: Deploy
+title: Deploy Scripts
 ---
 
-One of the largest challenges in working with a system like Plxtra is configuring and installing/deploying it.  Plxtra has many moving parts: components and services; there are many configurable items to support different Plxtra use cases and solutions.  Configuring and assembling a system from scratch can take a long time even for an Plxtra experienced developer.  For someone new to Plxtra, the challenge of getting a Plxtra exchange up and running from scratch would be very daunting.
+One of the largest challenges in working with a system like Plxtra is configuring and installing/deploying it.  There are numerous components/services to install and lots to configure. Configuring and assembling a system from scratch can take a significant amount of time even for an experienced Plxtra developer - it would be daunting for someone new to Plxtra.
 
-To overcome this hurdle, Plxtra uses scripts and docker to allow it to be configured and installed very quickly - even for a first time user.
+To reduce this barrier, Plxtra is deployed via Docker containers and has several scripts to automate this:
 
-Existing docker containers are publicly available which allow you to install Plxtra without access to source code.  Alternatively, you can install the Plxtra source code and build the docker containers directly from the source and then deploy these containers. This greatly reduces the develop/debug/test cycle and allows new developers to work on parts of Plxtra without having to fully understand it first.
+* **[`XOSP-Publish.ps1`](#xosp-publish)** - Build a docker image for a Plxtra component and push it to Docker Desktop and the upstream registry. 
+* **[`XOSP-Configure.ps1`](#xosp-configure)** - Generates a configuration for a Plxtra installation.
+* **[`XOSP-install.ps1`](#xosp-install)** - Install Plxtra on the local computer.
+* **[`XOSP-clear.ps1`](#xosp-clear)** - Removes the Plxtra installation from the computer.
 
-Plxtra aims to improve its configuration and deployment mechanisms to support more deployment environments (demo/test/staging/production etc) and more use cases.  
+These scripts allow Plxtra to be quickly deployed to most environments - including on local computers (using Docker Desktop) where it can be used for testing or evaluation.
 
-* XOSP\
-A sample exchange that can be used for demonstration or application development/debugging
+## XOSP-Publish
 
+Each [component's](/architecture/components/) [source repository](/source/repository/) includes a `XOSP-Publish.ps1` script. When run, it will generate a Docker image for that component (from source) and push it to both Docker engine and a Docker registry.  Currently only private AWS registries are supported however we plan to broaden this to support other registries.
 
-* .\XOSP-Clear.ps1
-Removes container, volumes and shared data folder (eg. localuser/appdata/Xosp)
-Does not remove Docker folder
+This enables changes to components to be easily tested in a full Plxtra environment.
 
-* .\XOSP-Configure.ps1 <profile>
-Creates Docker Directory from repository.
-Will not overwrite parameters file unless profile is specified
-   * Downloading recordings
+This script resides in the root folder of the source for each component and is run with no parameters:
 
-Configure populates the Docker folder, with the following steps:
+```
+./XOSP-Publish.ps1
+```
 
+## XOSP-Configure
+
+`XOSP-Configure` (like `XOSP-Install` and `XOSP-Clear`) is included in the root folder of the XOSP folder.
+
+When run, it will create a Plxtra configuration from the information inside the XOSP folder.  All this information is placed in a `Docker` folder under root of the XOSP folder.
+
+Populating this Docker folder includes the following steps:
 * Creating a self-signed SSL certificate
-* Generating a partial hosts file to be merged with the system hosts file
+* Generating a partial hosts file that needs to be manually merged with the system hosts file
 * Generating secrets for the database and OAuth client applications
 * Prepares service configuration files (inserting secrets, DNS, etc)
 * Initialises extensions (such as downloading market recordings)
-* Creates your XOSP-Params.json if none exists
 
-<profile> Dev
+### Profiles
 
-* .\XOSP-Install.ps1 -AlwaysPull -SkipInit
-   * Creates containers
-   * Runs setup process for containers
-       * Database setup
-       * Create users
-       * Create accounts
+`XOSP-Configure` can create a Plxtra configuration according to a `profile`.  The profile specifies some high level configuration parameters and whether extensions are to be included.  To use a particular profile, include its name as a parameter when `XOSP-Configure` is run.  The details of the last configured profile are saved to the file `XOSP-Params.json` in the root of the XOSP folder.
 
--AlwaysPull - check if new version is on registry
--SkipInit - does not do setup for containers - just installs them
+`XOSP-Configure` looks for [named profiles](./profiles/) in the `Profiles` folder in the root `XOSP` folder. The profile name command line parameter needs to match a file name (excluding extension) in this `Profiles` folder.
 
-* XOSP-Publish.ps1
-Will create Docker image from source and push to both Docker Engine and registry
+```
+./XOSP-Configure.ps1 <profile name>
+```
+
+If `XOSP-Configure` is run without a profile specified, it will use the profile specified in `XOSP-Params.json`.  If `XOSP-Params.json` does not exist, then `XOSP-Configure` will use the `Default` profile.
+
+```
+./XOSP-Configure.ps1
+```
+
+### Recordings
+
+One type of extension in profiles is `Recordings`.  When a recording is specified, [`XOSP-Install`](#xosp-install) will download a recording of one or more days of market data from an exchange.  This is the same data as received by a [Feed Server](/architecture/functionalities/feed-server).  `XOSP-Install` will then set up a corresponding exchange which replays the recorded market data.  It is not possible to trade on this `Sample` exchange however data can be viewed and accessed in the same way as on the real exchange.
+
+These `Sample` exchanges are ideal for developing and testing applications which use Plxtra [APIs](/api/) to access exchange data.
+
+The `Samples` profile included in the `Profiles` folder includes sample ASX recorded data. Its configuration can be set up with:
+
+```
+./XOSP-Configure.ps1 Samples
+```
+
+## XOSP-Install
+
+`XOSP-Install` installs Plxtra on the local computer with the configuration specified in the `Docker` folder (set up with [XOSP-Configure](#xosp-configure)).  The script will:
+    * Download the required images from the Docker registry - currently [AWS public and private ECR registries](../registries/aws/) are supported,
+    * Download recordings specified by the configuration,
+    * Create the Docker containers,
+    * Creates a shared folder for files shared by Docker and the local computer (Docker host). The location of this shared folder is at:
+        * Windows: \<localuser>/appdata/Xosp 
+        * Linux: 
+        * Mac: 
+    * Run the setup process for each container. This can include actions such as:
+        * Database setup
+        * Create users
+        * Create accounts
+
+At the end of the installation process, the script will display instructions for a [couple of steps that need to be carried out manually](../../getting-started/install/#manual-installation-steps) (installing certificate file and updating host file).  It will also display the URLs to use to access the front-end applications ([Motif](/architecture/functionalities/motif/), [Arclight](/architecture/functionalities/arclight/)) and the username/password to login to Plxtra.
+
+Note that `XOSP-Install` only gets configuration information from the `Docker` folder under the `XOSP` folder.
+
+The `XOSP-Install.ps1` script resides in the root folder of the XOSP folder and can be run with:
+
+```
+.\XOSP-Install.ps1
+```
+
+### Parameters
+
+`XOSP-Install` has 2 optional parameters:
+
+* -AlwaysPull - will pull down the latest version of a container image from the registry if this version is not already installed locally
+* -SkipInit - only installs containers - does not do setup for them
+
+```
+.\XOSP-Install.ps1 -AlwaysPull -SkipInit
+```
+
+If the Docker is logged into AWS, the scripts will download container images from your private AWS ECR registry.  Otherwise it will download the images from the public AWS ECR registry.
+
+## XOSP-Clear
+
+Removes the installation from the computer.  This includes:
+* Removing containers from Docker Engine
+* Any Docker volumes created
+* The shared data folder (eg. <localuser>/appdata/Xosp)
+
+It does NOT remove Docker folder under the XOSP root containing the configuration created with [XOSP-Configure](#xosp-configure).  It also does not remove the `XOSP-Params.json` file.  This allows the last used configuration to be re-installed with [XOSP-Install](#xosp-install)
+
+This script resides in the root folder of the XOSP folder and is run without any parameters:
+
+```
+.\XOSP-Clear.ps1
+```
+
+## Deployment bound to XOSP
+
+Currently this deployment mechanism is tightly bound to XOSP - a sample exchange that can be used for demonstration or application development/debugging.  Our plan is to make these independent.  However for the foreseeable future, we expect XOSP to be used as a base for the development of a new exchange or brokerage platform.

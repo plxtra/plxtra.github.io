@@ -50,7 +50,16 @@ export default defineConfig({
                         { label: 'Overview', slug: 'using' },
                         { label: 'CLI', slug: 'using/cli-tools' },
                         { label: 'Configuration', slug: 'using/configuration' },
-                        { label: 'Deploy', slug: 'using/deploy' },
+                        {
+                            label: 'Deploy',
+                            items: [
+                                { label: 'Scripts', slug: 'using/deploy' },
+                                { label: 'Profiles', slug: 'using/deploy/profiles' },
+                                { label: 'Registries', slug: 'using/deploy/registries' },
+                                { label: 'Images', slug: 'using/deploy/images' },
+                            ],
+                            collapsed: true,
+                        },
                         { label: 'XOSP', slug: 'using/xosp' },
                     ],
                     collapsed: true,

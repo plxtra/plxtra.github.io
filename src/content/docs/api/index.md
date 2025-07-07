@@ -16,7 +16,7 @@ Used by broker/exchange operators to integrate their business systems with Plxtr
 
 ## Enterprise Partners
 
-Used by enterprise partners to access data and trading. They differ from the [Front end](#front-end) APIs in bypassing [User Authorisation](/architecture/functionalities/user-authorisation/).
+Used by enterprise partners to access data and trading. They differ from the [Front end](#front-end) APIs in bypassing [authority](/architecture/functionalities/authority/) checks.
 
 * [Market Reports](/market-reports-api/): Used for retrieving market reference data, such as trade history, charting records, and news bodies.
 * [FIX](/fix-api/): FIX protocol connectivity for both market data feeds and order and execution feeds.
