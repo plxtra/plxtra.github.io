@@ -2,6 +2,6 @@
 title: Docker registries
 ---
 
-At this point in time, the deploy scripts only support AWS public and private ECR registries.
+The [deploy scripts](../) support any docker registry.  However the scripts will analyse the registry name to determine who is providing the registry.  It will provide special handling for the registries provided by the organisations below:
 
-* [AWS](./aws/)
+* [AWS ECR](./aws/)

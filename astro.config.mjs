@@ -161,6 +161,7 @@ export default defineConfig({
                     label: 'Source',
                     items: [
                         { label: 'Overview', slug: 'source' },
+                        { label: 'Publish', slug: 'source/publish' },
                         { label: 'Repositories', slug: 'source/repositories' },
                     ],
                     collapsed: true,

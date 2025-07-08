@@ -15,7 +15,7 @@ Installing Plxtra XOSP involves:
 1. [Installing prerequisites](#prerequisites)
 1. [Downloading an XOSP release](#download-xosp)
 1. [Preparing your environment](#preparation)
-1. [Running the XOSP installation scripts](#install-xosp)
+1. [Running the XOSP installation scripts](#configure-and-install-xosp)
 1. [Perform the final manual steps](#manual-installation-steps)
 	1. [Installing the SSL certificate](#enable-ssl-and-https)
 	1. [Installing DNS aliases into your hosts file](#enable-dns-resolution)
@@ -65,9 +65,15 @@ Make sure your environment is ready to begin.
 1. PowerShell needs permission to run the scripts. If you extracted XOSP from an archive, you may encounter security issues attempting to run untrusted scripts.\
    The easiest way to fix this is with PowerShell, by running the command `Get-ChildItem *.ps1 | Unblock-File` in the XOSP folder.
 
-## Install XOSP
+## Configure and Install XOSP
 
 An XOSP release provides a number of scripts for installing and manipulating your Plxtra installation. These scripts are written in PowerShell and need to be run from a PowerShell terminal.
+
+Note that by default, Windows restricts the running of PowerShell scripts downloaded from the internet. You can use the `Unblock-File` command in PowerShell to remove this restriction.  For example, from within XOSP folder:
+
+```
+Get-ChildItem *.ps1 -Recurse | Unblock-File
+```
 
 Once you have a PowerShell terminal, navigate to the folder you downloaded XOSP to, and use the following commands
 1. `.\XOSP-Clear.ps1` (optional)\
