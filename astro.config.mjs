@@ -53,10 +53,19 @@ export default defineConfig({
                         {
                             label: 'Deploy',
                             items: [
-                                { label: 'Scripts', slug: 'using/deploy' },
+                                { label: 'Overview', slug: 'using/deploy' },
+                                { label: 'Scripts', slug: 'using/deploy/scripts' },
                                 { label: 'Profiles', slug: 'using/deploy/profiles' },
                                 { label: 'Registries', slug: 'using/deploy/registries' },
                                 { label: 'Images', slug: 'using/deploy/images' },
+                                {
+                                    label: 'Guides',
+                                    items: [
+                                        { label: 'Overview', slug: 'using/deploy/guides' },
+                                        { label: 'Linux VPS', slug: 'using/deploy/guides/linux-vps' },
+                                    ],
+                                    collapsed: true,
+                                },
                             ],
                             collapsed: true,
                         },
