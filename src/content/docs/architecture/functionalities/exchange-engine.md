@@ -2,6 +2,8 @@
 title: Exchange Engine
 ---
 
+**Important note: Exchange engine is not a part of Plxtra. This page is provided for information purposes only.**
+
 *Component: [Prodigy](../../components/prodigy/)*
 
 Exchange Engine lists symbols, provides trading books for listed symbols and matches orders to generate trades.  In addition, it provides news feeds and supporting exchange services. It can be accessed either via industry standard [FIX protocol](/architecture/functionalities/fix-server/) and managed via its [market control API](/market-control-api/).

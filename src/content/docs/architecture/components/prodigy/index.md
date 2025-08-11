@@ -2,6 +2,8 @@
 title: Prodigy
 ---
 
+**Important note: Prodigy is not a part of Plxtra. This page is provided for information purposes only.**
+
 Prodigy is a trading exchange matching engine which has been built with a plug-in and extensible architecture that allows different types of markets to be hosted in the one exchange. Plugins can be easily added or removed facilitating the development of markets and allowing easy transitioning to new releases with new capabilities.
 
 * *Functionalities - [Exchange Engine](../../functionalities/exchange-engine/) [Fix Server](../../functionalities/fix-server/)*

@@ -3,18 +3,7 @@ import { type MenuItemDefinition, Hamburger, MainMenu, DefaultSettings, type Mai
 import { Icon } from 'astro-icon/components';
 
 const menuItemDefinitions: MenuItemDefinition[] = [
-    {
-        text: 'Solutions',
-        url: '/solutions/',
-        children: [
-            { text: 'Retail exchange', url: '/solutions/retail-exchange/' },
-            { text: 'Brokerage trading', url: '/solutions/brokerage-trading/' },
-            { text: 'Specialised exchange', url: '/solutions/specialised-exchange/' },
-            { text: 'Market development', url: '/industry/market-development/' },
-            { text: 'Trading componentry', url: '/solutions/trading-componentry/' },
-            { text: 'Commercial Support', url: '/solutions/commercial-support/' },
-        ],
-    },
+    { text: 'Features', url: '/overviews/features/', title: 'Summary of Plxtra features' },
     {
         text: 'Documentation',
         url: '/getting-started/',
@@ -33,7 +22,6 @@ const menuItemDefinitions: MenuItemDefinition[] = [
         title: 'About',
         children: [
             { text: 'Home', url: '/' },
-            { text: 'Features', url: '/overviews/features/', title: 'Summary of Plxtra features' },
             { text: 'History', url: '/about/history/' },
             { text: 'Contact', url: '/about/contact/', title: 'Start a discussion, open an issue or engage with commercial support' },
         ],

@@ -81,9 +81,6 @@ export default defineConfig({
                             label: 'Functionalities',
                             items: [
                                 { label: 'Overview', slug: 'architecture/functionalities' },
-                                { label: 'Registry', slug: 'architecture/functionalities/registry' },
-                                { label: 'Exchange Engine', slug: 'architecture/functionalities/exchange-engine' },
-                                { label: 'FIX Server', slug: 'architecture/functionalities/fix-server' },
                                 { label: 'Authority', slug: 'architecture/functionalities/authority' },
                                 { label: 'Order Management', slug: 'architecture/functionalities/order-management' },
                                 { label: 'Trading Agent', slug: 'architecture/functionalities/trading-agent' },
@@ -104,8 +101,6 @@ export default defineConfig({
                             label: 'Components',
                             items: [
                                 { label: 'Overview', slug: 'architecture/components' },
-                                { label: 'Foundry', slug: 'architecture/components/foundry' },
-                                { label: 'Prodigy', slug: 'architecture/components/prodigy' },
                                 { label: 'Authority', slug: 'architecture/components/authority' },
                                 { label: 'OMS', slug: 'architecture/components/oms' },
                                 {
@@ -142,13 +137,9 @@ export default defineConfig({
                     label: 'APIs',
                     items: [
                         { label: 'Overview', slug: 'api' },
-                        { label: 'Registry', slug: 'registry-api', attrs: { style: 'font-weight: 100;' } },
-                        { label: 'Market Control', slug: 'market-control-api', attrs: { style: 'font-weight: 100;' } },
                         { label: 'Order Management', link: '/oms-api/' },
                         { label: 'Authority', link: '/authority-api/' },
                         { label: 'Session Management', slug: 'session-management-api', attrs: { style: 'font-weight: 100;' } },
-                        { label: 'Market Reports', slug: 'market-reports-api', attrs: { style: 'font-weight: 100;' } },
-                        { label: 'FIX', slug: 'fix-api', attrs: { style: 'font-weight: 100;' } },
                         { label: 'Websocket', link: '/front-end-api/' },
                         { label: 'IQ', slug: 'iq-api', attrs: { style: 'font-weight: 100;' } },
                         { label: 'Motif Services', slug: 'motif-services-api', attrs: { style: 'font-weight: 100;' } },
