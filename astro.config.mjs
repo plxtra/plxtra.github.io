@@ -62,7 +62,7 @@ export default defineConfig({
                                     label: 'Guides',
                                     items: [
                                         { label: 'Overview', slug: 'using/deploy/guides' },
-                                        { label: 'Linux VPS', slug: 'using/deploy/guides/linux-vps' },
+                                        { label: 'Docker Standalone', slug: 'using/deploy/guides/docker-standalone' },
                                     ],
                                     collapsed: true,
                                 },

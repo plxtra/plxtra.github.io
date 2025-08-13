@@ -1,5 +1,5 @@
 ---
-title: "Deploy Guide: Linux VPS"
+title: "Deploy Guide: Docker Standalone"
 ---
 
 A Linux Virtual Private Server (VPS) is an ideal environment in which to host a standalone installation of Plxtra.  There are many suppliers to choose from with a large range of options and quick access.  Suitable instances are priced from approximately $20 (USD) per month depending on your location.
@@ -55,7 +55,7 @@ In this guide we will install on a Linux VPS with the specifications below.  The
 
 1. Extract the contents (one folder) of the downloaded release into the current directory. As per the above example:
     ```
-    tar -xf tar -xf v0.91b.tar.gz
+    tar -xf v0.91b.tar.gz
     ```
     The extracted folder will be named with the format `xosp-<release version>` - so for the above example: `xosp-0.91b`
 

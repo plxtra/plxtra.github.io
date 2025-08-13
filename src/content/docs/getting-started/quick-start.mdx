@@ -1,0 +1,97 @@
+---
+title: Quick Start
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+This guide quickly steps you through a private installation of Plxtra XOSP. See [Install](../install/) for more detailed instructions.
+
+## Prerequisites
+
+To get started, you will need a host machine with:
+
+1. A recent version of [Docker](https://docs.docker.com/get-started/get-docker/) installed and running.
+1. [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell) installed on the machine for installation.
+1. (Windows only) An installation of [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) on Windows 10 (22H2) or 11.
+
+## Installation
+
+1. Start with a PowerShell terminal.
+2. Create a folder that will contain your XOSP installation and configuration scripts.
+
+```powershell
+mkdir $HOME\xosp
+cd $HOME\xosp
+```
+
+3. Download an XOSP release from the [GitHub repository](https://github.com/plxtra/xosp/releases) and extract it locally.
+
+```powershell title="Get and extract latest release"
+iwr (iwr https://api.github.com/repos/plxtra/xosp/releases/latest | ConvertFrom-Json | select -ExpandProperty tarball_url) -OutFile xosp.tar.gz
+tar -xf xosp.tar.gz --strip-components=1
+```
+
+4. Configure XOSP and verify your environment configuration. If you encounter any problems, follow the instructions on-screen.
+
+```powershell
+./XOSP-Configure.ps1
+```
+
+5. Install XOSP. This will install the containers and configure the services. If you encounter any problems, follow the instructions on-screen.
+
+```powershell
+./XOSP-Install.ps1
+```
+
+# Finishing Installation
+
+A successful installation will finish with a set of manual steps, along with some links and login credentials to use the system.
+
+:::note
+All manual steps must be performed before your installation will be available from a web browser.
+:::
+
+<Tabs>
+<TabItem label="Windows">
+1. Install the generated SSL certificate `Docker\xosp.crt` into your operating system's certificate store and/or your browser.
+
+For Chrome/Edge, the certificate can be installed from PowerShell:
+
+```powershell title="Install for Chrome/Edge"
+Import-Certificate -FilePath Docker\xosp.crt -CertStoreLocation Cert:\CurrentUser\Root
+```
+
+For [Firefox](https://support.mozilla.org/en-US/questions/1059377) or Safari, you will need to install the certificate directly into the browser.
+
+:::note
+Make sure to restart your browser after this step!
+:::
+
+2. Create DNS aliases for the Plxtra installation, by copying the contents of the `Docker\hosts` file into your operating systems `hosts` file.
+
+```powershell
+start notepad "Docker\hosts"
+start -Verb RunAs notepad C:\Windows\System32\drivers\etc\hosts
+```
+</TabItem>
+<TabItem label="Linux">
+1. Install the generated SSL certificate `Docker/xosp.crt` into your browser certificate store.\
+Instructions are available for [Firefox](https://support.mozilla.org/en-US/questions/1059377).
+
+2. Create DNS aliases for the Plxtra installation, by copying the contents of the `Docker/hosts` file into your operating systems `/etc/hosts` file.
+
+```bash
+cat Docker/hosts | sudo tee -a /etc/hosts
+```
+</TabItem>
+</Tabs>
+
+## Using
+
+Plxtra XOSP is now ready to use. You can explore it using the links provided at the end of the install script output, using the provided credentials.
+
+Continue to [learn what XOSP can do](../../using/).
+
+## Troubleshooting
+
+If you encounter any errors or issues in the above steps, please refer to the more detailed [Install Instructions](../install/).
