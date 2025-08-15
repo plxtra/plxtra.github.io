@@ -125,6 +125,7 @@ curl -s https://api.github.com/repos/plxtra/xosp/releases/latest | grep '"tarbal
     ```
 
     ```json
+    // XOSP-Params.json
     {
         "RootDomainName":"<Your Root Domain Here>"
         ...
@@ -156,6 +157,22 @@ curl -s https://api.github.com/repos/plxtra/xosp/releases/latest | grep '"tarbal
     ```
 
 If all went well, your Plxtra XOSP installation should now be complete and accessible from the internet.
+
+## Finishing up
+
+There is one final step required, which is to schedule the LetsEncrypt certificate renewal. The `XOSP-Renew.ps1` script is used to perform this task.
+
+You can either schedule it manually to run every 90 days, or if your distribution is using `systemd`, scheduling can be performed automatically with the following command:
+
+```powershell frame="none"
+./XOSP-Renew.ps1 install
+```
+
+The automated scheduling runs as the current user, rather than system-wide, so you will also need the `lingering` option enabled for your user.
+
+```powershell frame="none"
+loginctl enable-linger $(whoami)
+```
 
 ## Next Steps
 

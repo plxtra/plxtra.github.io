@@ -3,6 +3,6 @@ title: Deploy Guides
 ---
 
 * **[Local Only](../../../getting-started/install/)**\
-Install the XOSP exchange on your local computer for testing or evaluation.
+Install Plxtra XOSP on your local computer for testing or evaluation.
 * **[Docker Standalone](./linux-vps/)**
-Install the XOSP exchange on a standlone machine, such as a Linux VPS (Virtual Private Server).
+Install Plxtra XOSP on a standalone Linux host with LetsEncrypt SSL certificates.
