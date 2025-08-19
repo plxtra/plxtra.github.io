@@ -1,7 +1,8 @@
 ---
-title: Test/Demo Exchange
-weight: 20
+title: Demo/Test
+weight: 210
+readMoreUrl: /using/xosp/
 iconName: noun_Compare_1514788
 ---
 
-Test and demo environment's include sample exchanges and Motif Market's `Prodigy Exchange` to provide a full exchange environment. This allows easy testing and demonstration. Note that the `Prodigy Exchange` components are only licensed for
+A Demo/Test distribution of Plxtra called [XOSP](/using/xosp/) is available [online](/getting-started/#online) or to [install](/getting-started/#install) on your local computer for review and evaluation of Plxtra. It can also be used to test applications' use of the Plxtra API.

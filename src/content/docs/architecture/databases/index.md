@@ -6,10 +6,6 @@ Plxtra uses [PostgreSQL](https://www.postgresql.org/) and [SQLite](https://sqlit
 
 | Name 	| Type 	| Content 	|
 |---	|---	|---	|
-| Foundry 	| PostgreSQL 	| Foundry events 	|
-| Prodigy - Market 	| PostgreSQL 	| Market activity 	|
-| Prodigy - Fix 	| PostgreSQL 	| Fix session tracking 	|
-| Prodigy - History 	| PostgreSQL 	| Historical data warehouse 	|
 | Authority 	| PostgreSQL 	| User Authorisation 	|
 | OMS 	| PostgreSQL 	| OMS Events 	|
 | Zenith - COS 	| PostgreSQL 	| Trade history 	|

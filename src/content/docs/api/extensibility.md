@@ -16,5 +16,4 @@ Currently Plxtra supports the following extensibility APIs:
     * Extended Data plugins: Attach additional data to securities from external sources,
     * Authentication plugins: Support additional authentication methods beyond OAuth Bearer tokens (eg SAML),
 * [Order Management Feed Adapter](/oms-api/ws/feed/)
-* [Registry Feed Adapter](/registry-feed-adapter-api/)
 * [Motif Extension](/motif-api/)

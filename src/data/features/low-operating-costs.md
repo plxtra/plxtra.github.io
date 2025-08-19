@@ -1,6 +1,6 @@
 ---
 title: Low operating costs
-weight: 200
+weight: 190
 iconName: noun_affordability_3451798
 ---
 

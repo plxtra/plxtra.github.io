@@ -12,14 +12,6 @@ export interface FunctionalityShort {
 }
 
 export namespace ComponentShort {
-    export const foundry: ComponentShort = {
-        label: 'Foundry',
-        description: '',
-    };
-    export const prodigy: ComponentShort = {
-        label: 'Prodigy',
-        description: '',
-    };
     export const authority: ComponentShort = {
         label: 'Authority',
         description: '',
@@ -75,27 +67,6 @@ export namespace ComponentShort {
 }
 
 export namespace FunctionalityShort {
-    export const registry: FunctionalityShort = {
-        functionalityLabel: 'Registry',
-        functionalityLink: './functionalities/registry/',
-        functionalityDescription: '',
-        componentShort: ComponentShort.foundry,
-        componentLink: './components/foundry/',
-    };
-    export const exchangeEngine: FunctionalityShort = {
-        functionalityLabel: 'Exchange Engine',
-        functionalityLink: './functionalities/exchange-engine/',
-        functionalityDescription: 'Lists symbols, provides trading books and matches orders to generate trades.  In addition, it provides news feeds and supporting exchange services.',
-        componentShort: ComponentShort.prodigy,
-        componentLink: './components/prodigy/',
-    };
-    export const fixServer: FunctionalityShort = {
-        functionalityLabel: 'Fix Server',
-        functionalityLink: './functionalities/fix-server/',
-        functionalityDescription: 'Industry standard FIX server (data and trading).',
-        componentShort: ComponentShort.prodigy,
-        componentLink: './components/prodigy/',
-    };
     export const feedServer: FunctionalityShort = {
         functionalityLabel: 'Feed Server',
         functionalityLink: './functionalities/feed-server/',

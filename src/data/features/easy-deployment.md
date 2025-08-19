@@ -1,6 +1,6 @@
 ---
 title: Easy deployment
-weight: 190
+weight: 200
 readMoreUrl: /using/deploy/
 iconName: noun_cloud hosting_2015932
 ---
