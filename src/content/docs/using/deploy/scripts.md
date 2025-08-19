@@ -60,12 +60,6 @@ One type of extension in profiles is `Recordings`.  When a recording is specifie
 
 These `Sample` exchanges are ideal for developing and testing applications which use Plxtra [APIs](/api/) to access exchange data.
 
-The `Samples` profile included in the `Profiles` folder includes sample ASX recorded data. Its configuration can be set up with:
-
-```
-./XOSP-Configure.ps1 Samples
-```
-
 ## XOSP-Install
 
 `XOSP-Install` installs Plxtra on the local computer with the configuration specified in the `Docker` folder (set up with [XOSP-Configure](#xosp-configure)).  The script will:
