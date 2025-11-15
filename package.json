@@ -13,15 +13,17 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.2.6",
+    "@astrojs/mdx": "^4.3.7",
     "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.3.1",
+    "@astrojs/sitemap": "^3.6.0",
     "@astrojs/starlight": "^0.34.2",
-    "@pbkware/astro-main-menu": "^3.0.0",
-    "astro": "^5.7.10",
+    "@pbkware/astro-main-menu": "^3.0.1",
     "astro-icon": "^1.1.5",
-    "sass": "^1.87.0",
+    "sass": "^1.93.2",
     "starlight-links-validator": "^0.17.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "astro": "^5.14.5"
   }
 }
