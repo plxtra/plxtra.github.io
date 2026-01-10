@@ -1,25 +1,26 @@
 ---
+
 ---
 
 <div class="alt-main-background">
-    <slot />
+  <slot />
 </div>
 
 <style lang="scss">
-    @use '@scss/color';
+  @use '@scss/color';
 
-    .alt-main-background {
-        background-color: color.get(color.$alt-main-background);
-        margin-left: calc(-50vw + 50% + 0.5rem);
-        margin-right: calc(-50vw + 50% + 0.5rem);
-        padding-left: calc(50vw - 50% - 0.5rem);
-        padding-right: calc(50vw - 50% - 0.5rem);
-    }
+  .alt-main-background {
+    background-color: color.get(color.$alt-main-background);
+    margin-left: calc(-50vw + 50% + 0.5rem);
+    margin-right: calc(-50vw + 50% + 0.5rem);
+    padding-left: calc(50vw - 50% - 0.5rem);
+    padding-right: calc(50vw - 50% - 0.5rem);
+  }
 
-    :global(p) {
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-    }
+  :global(p) {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
 </style>

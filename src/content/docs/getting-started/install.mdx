@@ -4,7 +4,7 @@ title: Install XOSP
 
 import { TabItem, Tabs } from '@astrojs/starlight/components';
 
-This page provides a detailed description of how to install the [Plxtra XOSP release](../../using/xosp/) onto your local computer. See the [Quick start](../quick-start/) page for a more streamlined description to get you up and running quickly.  See [Deploy Scripts](/using/deploy/scripts/) for a description of the XOSP scripts used to install Plxtra XOSP.
+This page provides a detailed description of how to install the [Plxtra XOSP release](../../using/xosp/) onto your local computer. See the [Quick start](../quick-start/) page for a more streamlined description to get you up and running quickly. See [Deploy Scripts](/using/deploy/scripts/) for a description of the XOSP scripts used to install Plxtra XOSP.
 
 ## Overview
 
@@ -13,25 +13,28 @@ XOSP is a distribution of the [Plxtra](https://plxtra.org) software suite, provi
 XOSP is not intended for a production retail trading environment.
 
 Installing Plxtra XOSP involves:
+
 1. [Check you meet the system requirements](#system-requirements)
 1. [Installing prerequisites](#prerequisites)
 1. [Downloading an XOSP release](#download-xosp)
 1. [Preparing your environment](#preparation)
 1. [Running the XOSP installation scripts](#configure-and-install-xosp)
 1. [Perform the final manual steps](#manual-installation-steps)
-	1. [Installing the SSL certificate](#enable-ssl-and-https)
-	1. [Installing DNS aliases into your hosts file](#enable-dns-resolution)
+   1. [Installing the SSL certificate](#enable-ssl-and-https)
+   1. [Installing DNS aliases into your hosts file](#enable-dns-resolution)
 
 After the installation is complete, you can begin [using Plxtra](#next-steps).
 
 ## System Requirements
 
 Plxtra XOSP has the following physical requirements for installation:
+
 1. An x86-64 processor. Arm is not currently supported by Plxtra.
 1. 4GB of storage for the database and container images
 1. 1GB of RAM for container services
 
 Plxtra XOSP supports the following operating systems:
+
 1. Windows 10 (22H2) or 11, with WSL2 support.
 1. Linux distributions such as Alpine, Debian, RHEL, and Ubuntu. (See the supported platforms for [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.5))
 
@@ -42,15 +45,16 @@ XOSP has been tested on Windows 10 22H2 and Windows 11. (Testing on Linux distri
 ## Prerequisites
 
 The following prerequisites need to be installed beforehand:
+
 1. **PowerShell**\
-The installation scripts for XOSP require PowerShell 7.5+\
-[https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
+   The installation scripts for XOSP require PowerShell 7.5+\
+   [https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
 1. **(Windows only) WSL2**\
-Docker on Windows requires either WSL2 or Hyper-V to run Linux containers. XOSP has not been tested in the Hyper-V scenario.\
-[https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
+   Docker on Windows requires either WSL2 or Hyper-V to run Linux containers. XOSP has not been tested in the Hyper-V scenario.\
+   [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
 1. **Docker**\
-XOSP utilises Docker to manage the containers running the Plxtra services. [Docker Desktop](https://www.docker.com/products/docker-desktop/) can be used to view and manipulate these containers.\
-[https://docs.docker.com/get-started/get-docker/](https://docs.docker.com/get-started/get-docker/)
+   XOSP utilises Docker to manage the containers running the Plxtra services. [Docker Desktop](https://www.docker.com/products/docker-desktop/) can be used to view and manipulate these containers.\
+   [https://docs.docker.com/get-started/get-docker/](https://docs.docker.com/get-started/get-docker/)
 
 ## Download XOSP
 
@@ -63,6 +67,7 @@ XOSP releases are available from [GitHub](https://github.com/plxtra/xosp/release
 ## Preparation
 
 Make sure your environment is ready to begin.
+
 1. Docker needs to be started and accessible. If you're using Docker Desktop, ensure the engine is running. You should see 'Engine running' in the bottom left corner of the Docker Desktop application.
 1. PowerShell needs permission to run the scripts. If you extracted XOSP from an archive, you may encounter security issues attempting to run untrusted scripts.\
    The easiest way to fix this is with PowerShell, by running the command `Get-ChildItem *.ps1 | Unblock-File` in the XOSP folder.
@@ -71,19 +76,20 @@ Make sure your environment is ready to begin.
 
 An XOSP release provides a number of scripts for installing and manipulating your Plxtra installation. These scripts are written in PowerShell and need to be run from a PowerShell terminal.
 
-Note that by default, Windows restricts the running of PowerShell scripts downloaded from the internet. You can use the `Unblock-File` command in PowerShell to remove this restriction.  For example, from within XOSP folder:
+Note that by default, Windows restricts the running of PowerShell scripts downloaded from the internet. You can use the `Unblock-File` command in PowerShell to remove this restriction. For example, from within XOSP folder:
 
 ```
 Get-ChildItem *.ps1 -Recurse | Unblock-File
 ```
 
 Once you have a PowerShell terminal, navigate to the folder you downloaded XOSP to, and use the following commands
+
 1. `.\XOSP-Clear.ps1` (optional)\
-This script removes all XOSP-related Docker containers, along with the database and any other files used by the Plxtra installation. This script is useful if you want to start with a fresh installation.
+   This script removes all XOSP-related Docker containers, along with the database and any other files used by the Plxtra installation. This script is useful if you want to start with a fresh installation.
 1. `.\XOSP-Configure.ps1`\
-This script generates the installation configuration. This includes user and database credentials, certificates, as well as applying any [configuration settings](../../using/configuration/) to customise the installation to your needs.
+   This script generates the installation configuration. This includes user and database credentials, certificates, as well as applying any [configuration settings](../../using/configuration/) to customise the installation to your needs.
 1. `.\XOSP-Install.ps1`\
-This script creates the Docker containers, and exercises various system APIs to populate it with initial data. This script can take several minutes to run, depending on your computer's performance.
+   This script creates the Docker containers, and exercises various system APIs to populate it with initial data. This script can take several minutes to run, depending on your computer's performance.
 
 Once installed, you will be presented with a list of manual steps to perform to make the installation accessible from a local browser, along with links to the Plxtra web front-ends, and some default credentials to access them.
 
@@ -100,9 +106,9 @@ The generated certificate is named `xosp.crt`, located in the `Docker` folder wi
 
 Installation of the certificate depends on your specific operating system and browser.
 
-* **Windows with Chrome or Edge**: Use the `certmgr` command to install it into the `Trusted Root Certification Authorities`. Make sure to restart your browser if it's running.
-* **Windows with Firefox**: Firefox requires a self-signed root, and is not currently supported. You can, however, skip this step and accept the certificate manually for each domain.
-* **Linux**: This process is distribution-specific, but generally involves placing the certificate into `/etc/certificates` and running `update-ca-certificates`.
+- **Windows with Chrome or Edge**: Use the `certmgr` command to install it into the `Trusted Root Certification Authorities`. Make sure to restart your browser if it's running.
+- **Windows with Firefox**: Firefox requires a self-signed root, and is not currently supported. You can, however, skip this step and accept the certificate manually for each domain.
+- **Linux**: This process is distribution-specific, but generally involves placing the certificate into `/etc/certificates` and running `update-ca-certificates`.
 
 Note that this certificate is self-signed and should only be used for testing and development purposes. It is not suitable for a production environment.
 
@@ -111,29 +117,31 @@ Note that this certificate is self-signed and should only be used for testing an
 XOSP's default configuration sets up Plxtra to utilise subdomains of `xosp.localhost` to access the services.
 This removes the need to expose multiple ports for each service, and instead requires some DNS aliasing.
 
-For a purely local installation, we recommend doing this through a simple addition to your operating system's `hosts` file. 
+For a purely local installation, we recommend doing this through a simple addition to your operating system's `hosts` file.
 
 The Install step will generate an example `hosts` file under the `Docker` folder within XOSP, which will have the correct aliases for your configuration to apply:
 **Windows**: This file will reference 127.0.0.1, and require a port override on URLs to access, which by default is 8043.
 **Linux**: Containers can be directly accessed by IP, so the file will reference the appropriate container's IP, and will not require a port override.
 
 To install the aliases, simply copy the contents of this file into your `hosts` file as appropriate for your operating system:
-* **Windows**: Can be found at `C:\Windows\System32\drivers\etc\hosts`. You will need an editor such as Notepad in Administrator mode.
-* **Linux** and **MacOS**: Can be found at `/etc/hosts`.
+
+- **Windows**: Can be found at `C:\Windows\System32\drivers\etc\hosts`. You will need an editor such as Notepad in Administrator mode.
+- **Linux** and **MacOS**: Can be found at `/etc/hosts`.
 
 The specific domain (and SSL port if required) can be overridden with the [configuration settings](../../using/configuration/) for XOSP.
 
 ## Next Steps
 
 Once installation is complete, you should be able to access your Plxtra installation whenever Docker is running.
-* **Web Browser**\
-Plxtra front-ends can be viewed with a web browser. The full URLs for these applications will be shown at the end of the Install step, together with the username and password for an administrative account. We recommend changing the password and recording it somewhere for reference.
-* **Public APIs**\
-The Plxtra public APIs can be accessed by getting an Access Token from the authentication server.
-* **XOSP-Control**\
-To perform administrative tasks like registering new Markets, Symbols, Users, or Trading Accounts, the Control terminal can be used.
-* **Development**\
-To start customising 
+
+- **Web Browser**\
+  Plxtra front-ends can be viewed with a web browser. The full URLs for these applications will be shown at the end of the Install step, together with the username and password for an administrative account. We recommend changing the password and recording it somewhere for reference.
+- **Public APIs**\
+  The Plxtra public APIs can be accessed by getting an Access Token from the authentication server.
+- **XOSP-Control**\
+  To perform administrative tasks like registering new Markets, Symbols, Users, or Trading Accounts, the Control terminal can be used.
+- **Development**\
+  To start customising
 
 ### Development
 

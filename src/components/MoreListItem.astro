@@ -1,41 +1,45 @@
 ---
 import ForwardIcon from '@icons/ic--outline-forward.svg';
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<"li"> {
-    href?: string;
-    title?: string;
+interface Props extends HTMLAttributes<'li'> {
+  href?: string;
+  title?: string;
 }
 
 const { href, title } = Astro.props;
 ---
 
 <li>
-    <div id="list-content">
-        <div class="more-list-item-slot-div">
-            <slot />
-        </div>
-        <a href={href} title={title ?? 'more'}><ForwardIcon id="icon"/></a>
+  <div id="list-content">
+    <div class="more-list-item-slot-div">
+      <slot />
     </div>
+    <a
+      href={href}
+      title={title ?? 'more'}
+      ><ForwardIcon id="icon" /></a
+    >
+  </div>
 </li>
 
 <style lang="scss">
-    @use '@scss/color';
-    li {
-        #list-content {
-            display: inline-flex;
-            gap: 0.5em;
-            align-items: center;
+  @use '@scss/color';
+  li {
+    #list-content {
+      display: inline-flex;
+      gap: 0.5em;
+      align-items: center;
 
-            a {
-                display: inline-flex;
-                align-items: center;
+      a {
+        display: inline-flex;
+        align-items: center;
 
-                svg {
-                    height: .8em;
-                    color: color.get(color.$forward-icon);
-                }
-            }
+        svg {
+          height: 0.8em;
+          color: color.get(color.$forward-icon);
         }
+      }
     }
+  }
 </style>

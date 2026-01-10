@@ -23,160 +23,200 @@ $_prev-max-key: 'prev-max';
 $_abbreviation-key: 'abbreviation';
 
 $_definitions: (
-    ('name': $slim, 'prev-max': null, 'max': 330, 'abbreviation': sl),
-    ('name': $mobilep, 'prev-max': 330, 'max': 480, 'abbreviation': mp),
-    ('name': $mobile, 'prev-max': 480, 'max': 736, 'abbreviation': mb),
-    ('name': $narrower, 'prev-max': 736, 'max': 840, 'abbreviation': nr),
-    ('name': $narrow, 'prev-max': 840, 'max': 980, 'abbreviation': nw),
-    ('name': $normal, 'prev-max': 980, 'max': 1280, 'abbreviation': nm),
-    ('name': $wide, 'prev-max': 1280, 'max': 1680, 'abbreviation': wd),
-    ('name': $infinite, 'prev-max': 1680, 'max': null, 'abbreviation': in),
+  (
+    'name': $slim,
+    'prev-max': null,
+    'max': 330,
+    'abbreviation': sl,
+  ),
+  (
+    'name': $mobilep,
+    'prev-max': 330,
+    'max': 480,
+    'abbreviation': mp,
+  ),
+  (
+    'name': $mobile,
+    'prev-max': 480,
+    'max': 736,
+    'abbreviation': mb,
+  ),
+  (
+    'name': $narrower,
+    'prev-max': 736,
+    'max': 840,
+    'abbreviation': nr,
+  ),
+  (
+    'name': $narrow,
+    'prev-max': 840,
+    'max': 980,
+    'abbreviation': nw,
+  ),
+  (
+    'name': $normal,
+    'prev-max': 980,
+    'max': 1280,
+    'abbreviation': nm,
+  ),
+  (
+    'name': $wide,
+    'prev-max': 1280,
+    'max': 1680,
+    'abbreviation': wd,
+  ),
+  (
+    'name': $infinite,
+    'prev-max': 1680,
+    'max': null,
+    'abbreviation': in,
+  )
 );
 
 @mixin create($name) {
-	$media: null;
-	$abbreviation: null;
-	$min: null;
+  $media: null;
+  $abbreviation: null;
+  $min: null;
 
-    $definition: _find-definition($name);
-    @if $definition != null {
-		$max: map.get($definition, $_max-key);
-		$prev-max: map.get($definition, $_prev-max-key);
+  $definition: _find-definition($name);
+  @if $definition != null {
+    $max: map.get($definition, $_max-key);
+    $prev-max: map.get($definition, $_prev-max-key);
 
-        $abbreviation: map.get($definition, $_abbreviation-key);
-        @if ($prev-max == null) {
-            @if ($max == null) {
-                $media: 'screen';
-            } @else {
-                $media: 'screen and (width <= #{$max}px)';
-            }
-        } @else {
-            @if ($max == null) {
-                $media: 'screen and (#{$prev-max}px < width)';
-            } @else {
-                $media: 'screen and (#{$prev-max}px < width <= #{$max}px)';
-            }
-		}
-	}
+    $abbreviation: map.get($definition, $_abbreviation-key);
+    @if ($prev-max == null) {
+      @if ($max == null) {
+        $media: 'screen';
+      } @else {
+        $media: 'screen and (width <= #{$max}px)';
+      }
+    } @else {
+      @if ($max == null) {
+        $media: 'screen and (#{$prev-max}px < width)';
+      } @else {
+        $media: 'screen and (#{$prev-max}px < width <= #{$max}px)';
+      }
+    }
+  }
 
-	@if ($media == null) {
-		@error 'No breakpoint definition has name: #{$name}';
-	} @else {
-		@media #{$media} {
-			@content;
-		}
-	}
+  @if ($media == null) {
+    @error 'No breakpoint definition has name: #{$name}';
+  } @else {
+    @media #{$media} {
+      @content;
+    }
+  }
 }
 
 @mixin createNarrowerOrEqual($name) {
-	$media: null;
+  $media: null;
 
-    $definition: _find-definition($name);
-    @if $definition != null {
-        $max: map.get($definition, $_max-key);
-        @if $max == null {
-            $media: 'screen';
-        } @else {
-            $media: 'screen and (width <= #{$max}px)';
-        }
+  $definition: _find-definition($name);
+  @if $definition != null {
+    $max: map.get($definition, $_max-key);
+    @if $max == null {
+      $media: 'screen';
+    } @else {
+      $media: 'screen and (width <= #{$max}px)';
     }
+  }
 
-	@if ($media == null) {
-		@error 'No createNarrowerOrEqual breakpoint definition has name: #{$name}';
-	} @else {
-		@media #{$media} {
-			@content;
-		}
-	}
+  @if ($media == null) {
+    @error 'No createNarrowerOrEqual breakpoint definition has name: #{$name}';
+  } @else {
+    @media #{$media} {
+      @content;
+    }
+  }
 }
 
 @mixin createWiderOrEqual($name) {
-	$media: null;
+  $media: null;
 
-    $definition: _find-definition($name);
-    @if $definition != null {
-        $prev-max: map.get($definition, $_prev-max-key);
-        @if $prev-max == null {
-            $media: 'screen';
-        } @else {
-            $media: 'screen and (width > #{$prev-max}px)';
-        }
+  $definition: _find-definition($name);
+  @if $definition != null {
+    $prev-max: map.get($definition, $_prev-max-key);
+    @if $prev-max == null {
+      $media: 'screen';
+    } @else {
+      $media: 'screen and (width > #{$prev-max}px)';
     }
+  }
 
-	@if ($media == null) {
-		@error 'No createWiderOrEqual breakpoint definition has name: #{$name}';
-	} @else {
-		@media #{$media} {
-			@content;
-		}
-	}
+  @if ($media == null) {
+    @error 'No createWiderOrEqual breakpoint definition has name: #{$name}';
+  } @else {
+    @media #{$media} {
+      @content;
+    }
+  }
 }
 
 @mixin createMainMenuConfigNarrowBreakpoint {
-    @media screen and ((hover: none) or (width < main-menu-config.$narrow-breakpoint)) {
-        @content;
-    }
+  @media screen and ((hover: none) or (width < main-menu-config.$narrow-breakpoint)) {
+    @content;
+  }
 }
 
 @mixin createMainMenuConfigWideBreakpoint {
-    @media screen and ((not (hover: none)) and (width >= main-menu-config.$narrow-breakpoint)) {
-        @content;
-    }
+  @media screen and ((not (hover: none)) and (width >= main-menu-config.$narrow-breakpoint)) {
+    @content;
+  }
 }
 
 @function _find-definition($name) {
-	@each $definition in $_definitions {
-		$definition-name: map.get($definition, $_name-key);
+  @each $definition in $_definitions {
+    $definition-name: map.get($definition, $_name-key);
 
-		@if ($definition-name == $name) {
-            @return $definition;
-		}
-	}
+    @if ($definition-name == $name) {
+      @return $definition;
+    }
+  }
 
-    @return null;
+  @return null;
 }
 
 /// Wraps @content in a @media block targeting a specific orientation.
 /// @param {string} $orientation Orientation.
 @mixin orientation($orientation) {
-	@media screen and (orientation: #{$orientation}) {
-		@content;
-	}
+  @media screen and (orientation: #{$orientation}) {
+    @content;
+  }
 }
 
 /// Quick sort
 /// @author Sam Richards
 /// @param {List} $list - list to sort
 @function _quick-sort($list) {
-	$less: ();
-	$equal: ();
-	$large: ();
+  $less: ();
+  $equal: ();
+  $large: ();
 
-	@if list.length($list) > 1 {
-		$seed-item: list.nth($list, math.ceil(math.div(list.length($list), 2)));
-		$seed-max: map.get($seed-item, $_max-key);
+  @if list.length($list) > 1 {
+    $seed-item: list.nth($list, math.ceil(math.div(list.length($list), 2)));
+    $seed-max: map.get($seed-item, $_max-key);
 
-		@each $item in $list {
-			$max: map.get($item, $_max-key);
-			@if ($max == $seed-max) {
-				$equal: list.append($equal, $item);
-			} @else {
-				@if (($max == null)) {
-					$large: list.append($large, $item);
-				} @else {
-					@if ($max < $seed-max) {
-						$less: list.append($less, $item);
-					} @else {
-						@if (($max > $seed-max)) {
-							$large: list.append($large, $item);
-						}
-					}
-				}
-			}
-		}
+    @each $item in $list {
+      $max: map.get($item, $_max-key);
+      @if ($max == $seed-max) {
+        $equal: list.append($equal, $item);
+      } @else {
+        @if (($max == null)) {
+          $large: list.append($large, $item);
+        } @else {
+          @if ($max < $seed-max) {
+            $less: list.append($less, $item);
+          } @else {
+            @if (($max > $seed-max)) {
+              $large: list.append($large, $item);
+            }
+          }
+        }
+      }
+    }
 
-		@return list.join(list.join(_quick-sort($less), $equal), _quick-sort($large));
-	}
+    @return list.join(list.join(_quick-sort($less), $equal), _quick-sort($large));
+  }
 
-	@return $list;
+  @return $list;
 }

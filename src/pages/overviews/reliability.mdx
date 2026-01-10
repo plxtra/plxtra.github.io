@@ -7,28 +7,25 @@ import AltMainBackground from '@components/AltMainBackground.astro';
 
 Plxtra has been designed from the ground up to deliver the reliability needed for regulatory levels of up-time. The following techniques are used to achieve this level of reliability:
 
-* Wherever possible, sub-systems have been developed with active-active redundancy.  That is, the sub-system is deployed on more than one server, so that if one server fails, the other automatically and instantly takes up the load.
+- Wherever possible, sub-systems have been developed with active-active redundancy. That is, the sub-system is deployed on more than one server, so that if one server fails, the other automatically and instantly takes up the load.
 
-* Where active-passive redundancy can be set up for sub-systems which do not support active-active redundancy. In this case, a sub-system is installed on more than one server however it can only be active on one server. The sub-system is installed on other server(s) but it is in a passive state (normally not running).  If that active server fails, then one of the passive sub-systems on another server is activated and it becomes the active instance. This requires manual intervention but can be done quickly.
+- Where active-passive redundancy can be set up for sub-systems which do not support active-active redundancy. In this case, a sub-system is installed on more than one server however it can only be active on one server. The sub-system is installed on other server(s) but it is in a passive state (normally not running). If that active server fails, then one of the passive sub-systems on another server is activated and it becomes the active instance. This requires manual intervention but can be done quickly.
 
-* Databases can be configured for replication.  With replication, a passive, up to date, copy of the database is maintained in a separate location.  Switching to a replicated database is a quick configuration change and there is no data loss.
+- Databases can be configured for replication. With replication, a passive, up to date, copy of the database is maintained in a separate location. Switching to a replicated database is a quick configuration change and there is no data loss.
 
-* The [Order management system](/architecture/functionalities/order-management-system/) supports redundant connectivity to exchanges. This allows order processing to continue through a secondary connection or exchange if there are issues with the primary.
+- The [Order management system](/architecture/functionalities/order-management-system/) supports redundant connectivity to exchanges. This allows order processing to continue through a secondary connection or exchange if there are issues with the primary.
 
-* Built-in software sensors allow operational staff to monitor the health of software applications. They also enable [monitoring systems](../monitoring) to alert operational staff if warning or error conditions occur.  This enables operations to address the issues as quickly as possible.
+- Built-in software sensors allow operational staff to monitor the health of software applications. They also enable [monitoring systems](../monitoring) to alert operational staff if warning or error conditions occur. This enables operations to address the issues as quickly as possible.
 
-* Exchange servers and databases are hosted on cloud infrastructure. With this infrastructure Plxtra can:
+- Exchange servers and databases are hosted on cloud infrastructure. With this infrastructure Plxtra can:
+  - Host redundant servers and replicated databases in different zones. Cloud providers normally have more than one hosting site in a region. These hosting sites are termed regions. When you set up servers and databases in a region, you can spread these across the different zones. That way, if there is a problem with one of the hosting sites, the servers at other hosting sites will continue to run. Our cloud hosting is carefully configured so that redundant servers are hosted in different zones.
 
-    * Host redundant servers and replicated databases in different zones. Cloud providers normally have more than one hosting site in a region. These hosting sites are termed regions. When you set up servers and databases in a region, you can spread these across the different zones. That way, if there is a problem with one of the hosting sites, the servers at other hosting sites will continue to run. Our cloud hosting is carefully configured so that redundant servers are hosted in different zones.
+  - External and internal cloud load balancing is used to distribute load across all active servers. This enables systems to easily scale. It also allows automatic switching to another server if a fault occurs on a particular server.
 
-    * External and internal cloud load balancing is used to distribute load across all active servers. This enables systems to easily scale.  It also allows automatic switching to another server if a fault occurs on a particular server.
+  - Quickly spin up new servers and adjust their performance if changes are required.
 
-    * Quickly spin up new servers and adjust their performance if changes are required.
+  - Take advantage of the cloud providers ability and skills to keep servers running. Cloud providers are extremely knowledgeable with reliably provisioning servers. Not only can they expertly configure the hardware, they can also detect when failures are imminent and advise when they need to be re-provisioned. Re-provisioning normally just involves stopping and starting the server instance and it will automatically be re-provisioned.
 
-    * Take advantage of the cloud providers ability and skills to keep servers running. Cloud providers are extremely knowledgeable with reliably provisioning servers. Not only can they expertly configure the hardware, they can also detect when failures are imminent and advise when they need to be re-provisioned. Re-provisioning normally just involves stopping and starting the server instance and it will automatically be re-provisioned.
+- Reliability is very dependent on a system's ability to handle all loads. Plxtra has been designed to [scale](../scalability). It can be configured to handle almost any load. There should always be sufficient load capacity to handle peaks, growth, combined with a large margin for safety.
 
-* Reliability is very dependent on a system's ability to handle all loads. Plxtra has been designed to [scale](../scalability). It can be configured to handle almost any load. There should always be sufficient load capacity to handle peaks, growth, combined with a large margin for safety.
-
-<AltMainBackground>
-See also [Scalability](../scalability/)
-</AltMainBackground>
+<AltMainBackground>See also [Scalability](../scalability/)</AltMainBackground>

@@ -1,10 +1,10 @@
 ---
 import ForwardIcon from '@icons/ic--outline-forward.svg';
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<"a"> {
-    title?: string;
-    height?: string;
+interface Props extends HTMLAttributes<'a'> {
+  title?: string;
+  height?: string;
 }
 
 const { title, height, ...attrs } = Astro.props;
@@ -12,21 +12,28 @@ const resolvedTitle = title ?? 'more';
 const verticalAlign = height ? 'bottom' : 'initial';
 ---
 
-<a title={resolvedTitle} {...attrs}><ForwardIcon id="icon"/></a>
+<a
+  title={resolvedTitle}
+  {...attrs}
+  ><ForwardIcon id="icon" /></a
+>
 
-<style lang="scss" define:vars={{
-    "svg-height": height,
-    "a-vertical-align": verticalAlign,
-}}>
-    @use '@scss/color';
-    a {
-        display: inline-flex;
-        align-items: center;
-        vertical-align: var(--a-vertical-align);
+<style
+  lang="scss"
+  define:vars={{
+    'svg-height': height,
+    'a-vertical-align': verticalAlign,
+  }}
+>
+  @use '@scss/color';
+  a {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: var(--a-vertical-align);
 
-        svg {
-            height: var(--svg-height, 0.8em);
-            color: color.get(color.$forward-icon);
-        }
+    svg {
+      height: var(--svg-height, 0.8em);
+      color: color.get(color.$forward-icon);
     }
+  }
 </style>

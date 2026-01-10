@@ -7,25 +7,22 @@
       "request": "launch",
       "type": "node-terminal"
     },
-		{
-			"type": "chrome",
-			"request": "launch",
-			"name": "Launch Chrome against localhost",
-			"url": "http://localhost:4321",
-			"webRoot": "${workspaceFolder}/src",
-			"sourceMapPathOverrides": {
-				"vite:///src/*": "${webRoot}/*"
-			},
-			"skipFiles": ["**/node_modules/**"]
-		}
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:4321",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMapPathOverrides": {
+        "vite:///src/*": "${webRoot}/*"
+      },
+      "skipFiles": ["**/node_modules/**"]
+    }
   ],
-	"compounds": [
-		{
-			"name": "Launch Dev Server and Chrome",
-			"configurations": [
-				"Development server",
-				"Launch Chrome against localhost"
-			]
-		}
+  "compounds": [
+    {
+      "name": "Launch Dev Server and Chrome",
+      "configurations": ["Development server", "Launch Chrome against localhost"]
+    }
   ]
 }

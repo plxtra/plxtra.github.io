@@ -2,7 +2,7 @@
 title: Quick Start
 ---
 
-import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { TabItem, Tabs } from '@astrojs/starlight/components';
 
 This guide quickly steps you through a private installation of Plxtra XOSP. See [Install](../install/) for more detailed instructions.
 
@@ -18,26 +18,29 @@ To get started, you will need a host machine with:
 
 1. Start with a PowerShell terminal.
 2. Create a folder that will contain your XOSP installation and configuration scripts.
-    ```powershell frame="none"
-    mkdir $HOME\xosp
-    cd $HOME\xosp
-    ```
+
+   ```powershell frame="none"
+   mkdir $HOME\xosp
+   cd $HOME\xosp
+   ```
 
 3. Download an XOSP release from the [GitHub repository](https://github.com/plxtra/xosp/releases) and extract it locally.
-    ```powershell frame="none"
-    iwr (iwr https://api.github.com/repos/plxtra/xosp/releases/latest | ConvertFrom-Json | select -ExpandProperty tarball_url) -OutFile xosp.tar.gz
-    tar -xf xosp.tar.gz --strip-components=1
-    ```
+
+   ```powershell frame="none"
+   iwr (iwr https://api.github.com/repos/plxtra/xosp/releases/latest | ConvertFrom-Json | select -ExpandProperty tarball_url) -OutFile xosp.tar.gz
+   tar -xf xosp.tar.gz --strip-components=1
+   ```
 
 4. Configure XOSP and verify your environment configuration. If you encounter any problems, follow the instructions on-screen.
-    ```powershell frame="none"
-    ./XOSP-Configure.ps1
-    ```
+
+   ```powershell frame="none"
+   ./XOSP-Configure.ps1
+   ```
 
 5. Install XOSP. This will install the containers and configure the services. If you encounter any problems, follow the instructions on-screen.
-    ```powershell frame="none"
-    ./XOSP-Install.ps1
-    ```
+   ```powershell frame="none"
+   ./XOSP-Install.ps1
+   ```
 
 # Finishing Installation
 
@@ -63,22 +66,25 @@ All manual steps must be performed before your installation will be available fr
     Make sure to restart your browser after this step!
     :::
 
-2. Create DNS aliases for the Plxtra installation, by copying the contents of the `Docker\hosts` file into your operating systems `hosts` file.
+2.  Create DNS aliases for the Plxtra installation, by copying the contents of the `Docker\hosts` file into your operating systems `hosts` file.
 
-    ```powershell frame="none"
-    start notepad "Docker\hosts"
-    start -Verb RunAs notepad C:\Windows\System32\drivers\etc\hosts
-    ```
+        ```powershell frame="none"
+        start notepad "Docker\hosts"
+        start -Verb RunAs notepad C:\Windows\System32\drivers\etc\hosts
+        ```
+
 </TabItem>
 <TabItem label="Linux">
-1. Install the generated SSL certificate `Docker/xosp.crt` into your browser certificate store.\
+
+1.  Install the generated SSL certificate `Docker/xosp.crt` into your browser certificate store.\
     Instructions are available for [Firefox](https://support.mozilla.org/en-US/questions/1059377).
 
-2. Create DNS aliases for the Plxtra installation, by copying the contents of the `Docker/hosts` file into your operating systems `/etc/hosts` file.
+1.  Create DNS aliases for the Plxtra installation, by copying the contents of the `Docker/hosts` file into your operating systems `/etc/hosts` file.
 
-    ```bash frame="none"
-    cat Docker/hosts | sudo tee -a /etc/hosts
-    ```
+        ```bash frame="none"
+        cat Docker/hosts | sudo tee -a /etc/hosts
+        ```
+
 </TabItem>
 </Tabs>
 

@@ -4,10 +4,10 @@ title: Legacy notes
 
 # Market Holiday
 
-Use pgadmin to adjust market holidays.  Need to add one record for each day of holiday in MarketHoliday markets table at AWS.
+Use pgadmin to adjust market holidays. Need to add one record for each day of holiday in MarketHoliday markets table at AWS.
 
 For FNSX,
-You can see existing holidays with select * from public.allholidaysformarket('FNSX'). To add new dates with the addholiday function. E.g. select * from public.addholiday('FNSX', '2024-12-25').
+You can see existing holidays with select _ from public.allholidaysformarket('FNSX'). To add new dates with the addholiday function. E.g. select _ from public.addholiday('FNSX', '2024-12-25').
 
 # Adding new Motif website to server (Apache2)
 

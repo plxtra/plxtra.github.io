@@ -28,25 +28,53 @@
 @include hugo.initialize;
 @include color.initialize;
 @include spring.hamburger(
-    $hamburger-padding-x           : 0,
-    $hamburger-padding-y           : 0,
-    $hamburger-layer-width         : 1.2em,
-    $hamburger-layer-height        : .12em,
-    $hamburger-layer-spacing       : .18em,
-    $hamburger-layer-color         : color.get(color.$narrow-header-hamburger-layer),
-    $hamburger-layer-border-radius : 0,
-    $hamburger-hover-use-filter    : true,
-    $hamburger-hover-filter        : opacity(100%),
+  $hamburger-padding-x: 0,
+  $hamburger-padding-y: 0,
+  $hamburger-layer-width: 1.2em,
+  $hamburger-layer-height: 0.12em,
+  $hamburger-layer-spacing: 0.18em,
+  $hamburger-layer-color: color.get(color.$narrow-header-hamburger-layer),
+  $hamburger-layer-border-radius: 0,
+  $hamburger-hover-use-filter: true,
+  $hamburger-hover-filter: opacity(100%)
 );
 
 @include breakpoint.initialize(
-    ('name': breakpoint.$mobilep, 'max': 480, 'abbreviation': mp),
-    ('name': breakpoint.$mobile, 'max': 736, 'abbreviation': mb),
-    ('name': breakpoint.$narrower, 'max': 840, 'abbreviation': nr),
-    ('name': breakpoint.$narrow, 'max': 980, 'abbreviation': nw),
-    ('name': breakpoint.$normal, 'max': 1280, 'abbreviation': nm),
-    ('name': breakpoint.$wide, 'max': 1680, 'abbreviation': wd),
-    ('name': breakpoint.$infinite, 'max': null, 'abbreviation': in),
+  (
+    'name': breakpoint.$mobilep,
+    'max': 480,
+    'abbreviation': mp,
+  ),
+  (
+    'name': breakpoint.$mobile,
+    'max': 736,
+    'abbreviation': mb,
+  ),
+  (
+    'name': breakpoint.$narrower,
+    'max': 840,
+    'abbreviation': nr,
+  ),
+  (
+    'name': breakpoint.$narrow,
+    'max': 980,
+    'abbreviation': nw,
+  ),
+  (
+    'name': breakpoint.$normal,
+    'max': 1280,
+    'abbreviation': nm,
+  ),
+  (
+    'name': breakpoint.$wide,
+    'max': 1680,
+    'abbreviation': wd,
+  ),
+  (
+    'name': breakpoint.$infinite,
+    'max': null,
+    'abbreviation': in,
+  )
 );
 
 // Mixins which appy to all breakpoints
@@ -55,113 +83,113 @@
 
 // Breakpoints
 @include breakpoint.create(breakpoint.$infinite) {
-    @include tags.infinite;
-    @include classes-ids.infinite;
-    @include wide-header.infinite;
-    @include narrow-header.infinite;
-    @include footer.infinite;
-    @include imprint.infinite;
-    @include banner.infinite;
-    @include paginated-blog-entry-summaries.infinite;
-    @include image-text-grid.infinite;
-    @include captioned-large-icon-strip.infinite;
-    @include icon-bulleted-summaries.infinite;
-    @include gridded-iconed-summaries.infinite;
-    @include left-right-alternating-iconed-summaries.infinite;
+  @include tags.infinite;
+  @include classes-ids.infinite;
+  @include wide-header.infinite;
+  @include narrow-header.infinite;
+  @include footer.infinite;
+  @include imprint.infinite;
+  @include banner.infinite;
+  @include paginated-blog-entry-summaries.infinite;
+  @include image-text-grid.infinite;
+  @include captioned-large-icon-strip.infinite;
+  @include icon-bulleted-summaries.infinite;
+  @include gridded-iconed-summaries.infinite;
+  @include left-right-alternating-iconed-summaries.infinite;
 }
 
 @include breakpoint.create(breakpoint.$wide) {
-    @include tags.wide;
-    @include classes-ids.wide;
-    @include wide-header.wide;
-    @include narrow-header.wide;
-    @include footer.wide;
-    @include imprint.wide;
-    @include banner.wide;
-    @include paginated-blog-entry-summaries.wide;
-    @include image-text-grid.wide;
-    @include captioned-large-icon-strip.wide;
-    @include icon-bulleted-summaries.wide;
-    @include gridded-iconed-summaries.wide;
-    @include left-right-alternating-iconed-summaries.wide;
+  @include tags.wide;
+  @include classes-ids.wide;
+  @include wide-header.wide;
+  @include narrow-header.wide;
+  @include footer.wide;
+  @include imprint.wide;
+  @include banner.wide;
+  @include paginated-blog-entry-summaries.wide;
+  @include image-text-grid.wide;
+  @include captioned-large-icon-strip.wide;
+  @include icon-bulleted-summaries.wide;
+  @include gridded-iconed-summaries.wide;
+  @include left-right-alternating-iconed-summaries.wide;
 }
 
 @include breakpoint.create(breakpoint.$normal) {
-    @include tags.normal;
-    @include classes-ids.normal;
-    @include wide-header.normal;
-    @include narrow-header.normal;
-    @include footer.normal;
-    @include imprint.normal;
-    @include banner.normal;
-    @include paginated-blog-entry-summaries.normal;
-    @include image-text-grid.normal;
-    @include captioned-large-icon-strip.normal;
-    @include icon-bulleted-summaries.normal;
-    @include gridded-iconed-summaries.normal;
-    @include left-right-alternating-iconed-summaries.normal;
+  @include tags.normal;
+  @include classes-ids.normal;
+  @include wide-header.normal;
+  @include narrow-header.normal;
+  @include footer.normal;
+  @include imprint.normal;
+  @include banner.normal;
+  @include paginated-blog-entry-summaries.normal;
+  @include image-text-grid.normal;
+  @include captioned-large-icon-strip.normal;
+  @include icon-bulleted-summaries.normal;
+  @include gridded-iconed-summaries.normal;
+  @include left-right-alternating-iconed-summaries.normal;
 }
 
 @include breakpoint.create(breakpoint.$narrow) {
-    @include tags.narrow;
-    @include classes-ids.narrow;
-    @include wide-header.narrow;
-    @include narrow-header.narrow;
-    @include footer.narrow;
-    @include imprint.narrow;
-    @include banner.narrow;
-    @include paginated-blog-entry-summaries.narrow;
-    @include image-text-grid.narrow;
-    @include captioned-large-icon-strip.narrow;
-    @include icon-bulleted-summaries.narrow;
-    @include gridded-iconed-summaries.narrow;
-    @include left-right-alternating-iconed-summaries.narrow;
+  @include tags.narrow;
+  @include classes-ids.narrow;
+  @include wide-header.narrow;
+  @include narrow-header.narrow;
+  @include footer.narrow;
+  @include imprint.narrow;
+  @include banner.narrow;
+  @include paginated-blog-entry-summaries.narrow;
+  @include image-text-grid.narrow;
+  @include captioned-large-icon-strip.narrow;
+  @include icon-bulleted-summaries.narrow;
+  @include gridded-iconed-summaries.narrow;
+  @include left-right-alternating-iconed-summaries.narrow;
 }
 
 @include breakpoint.create(breakpoint.$narrower) {
-    @include tags.narrower;
-    @include classes-ids.narrower;
-    @include wide-header.narrower;
-    @include narrow-header.narrower;
-    @include footer.narrower;
-    @include imprint.narrower;
-    @include banner.narrower;
-    @include paginated-blog-entry-summaries.narrower;
-    @include image-text-grid.narrower;
-    @include captioned-large-icon-strip.narrower;
-    @include icon-bulleted-summaries.narrower;
-    @include gridded-iconed-summaries.narrower;
-    @include left-right-alternating-iconed-summaries.narrower;
+  @include tags.narrower;
+  @include classes-ids.narrower;
+  @include wide-header.narrower;
+  @include narrow-header.narrower;
+  @include footer.narrower;
+  @include imprint.narrower;
+  @include banner.narrower;
+  @include paginated-blog-entry-summaries.narrower;
+  @include image-text-grid.narrower;
+  @include captioned-large-icon-strip.narrower;
+  @include icon-bulleted-summaries.narrower;
+  @include gridded-iconed-summaries.narrower;
+  @include left-right-alternating-iconed-summaries.narrower;
 }
 
 @include breakpoint.create(breakpoint.$mobile) {
-    @include tags.mobile;
-    @include classes-ids.mobile;
-    @include wide-header.mobile;
-    @include narrow-header.mobile;
-    @include footer.mobile;
-    @include imprint.mobile;
-    @include banner.mobile;
-    @include paginated-blog-entry-summaries.mobile;
-    @include image-text-grid.mobile;
-    @include captioned-large-icon-strip.mobile;
-    @include icon-bulleted-summaries.mobile;
-    @include gridded-iconed-summaries.mobile;
-    @include left-right-alternating-iconed-summaries.mobile;
+  @include tags.mobile;
+  @include classes-ids.mobile;
+  @include wide-header.mobile;
+  @include narrow-header.mobile;
+  @include footer.mobile;
+  @include imprint.mobile;
+  @include banner.mobile;
+  @include paginated-blog-entry-summaries.mobile;
+  @include image-text-grid.mobile;
+  @include captioned-large-icon-strip.mobile;
+  @include icon-bulleted-summaries.mobile;
+  @include gridded-iconed-summaries.mobile;
+  @include left-right-alternating-iconed-summaries.mobile;
 }
 
 @include breakpoint.create(breakpoint.$mobilep) {
-    @include tags.mobilep;
-    @include classes-ids.mobilep;
-    @include wide-header.mobilep;
-    @include narrow-header.mobilep;
-    @include footer.mobilep;
-    @include imprint.mobilep;
-    @include banner.mobilep;
-    @include paginated-blog-entry-summaries.mobilep;
-    @include image-text-grid.mobilep;
-    @include captioned-large-icon-strip.mobilep;
-    @include icon-bulleted-summaries.mobilep;
-    @include gridded-iconed-summaries.mobilep;
-    @include left-right-alternating-iconed-summaries.mobilep;
+  @include tags.mobilep;
+  @include classes-ids.mobilep;
+  @include wide-header.mobilep;
+  @include narrow-header.mobilep;
+  @include footer.mobilep;
+  @include imprint.mobilep;
+  @include banner.mobilep;
+  @include paginated-blog-entry-summaries.mobilep;
+  @include image-text-grid.mobilep;
+  @include captioned-large-icon-strip.mobilep;
+  @include icon-bulleted-summaries.mobilep;
+  @include gridded-iconed-summaries.mobilep;
+  @include left-right-alternating-iconed-summaries.mobilep;
 }

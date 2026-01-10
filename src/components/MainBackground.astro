@@ -1,21 +1,22 @@
 ---
+
 ---
 
 <div class="main-background">
-    <slot />
+  <slot />
 </div>
 
 <style lang="scss">
-    @use '@scss/color';
+  @use '@scss/color';
 
-    .main-background {
-        background-color: color.get(color.$main-background);
-    }
+  .main-background {
+    background-color: color.get(color.$main-background);
+  }
 
-    :global(p) {
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-    }
+  :global(p) {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
 </style>

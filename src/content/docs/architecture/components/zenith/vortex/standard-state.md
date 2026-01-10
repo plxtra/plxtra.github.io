@@ -2,18 +2,17 @@
 title: Standard State Data
 ---
 
-
-| Name     | Type    | Purpose |
-| :------- | :------ | :-- |
-| account  | object  | Information on the target Trading Account. |
-| balance  | object  | The cash balance available to the Trading Account. |
-| details  | object  | Details of the incoming Order request. |
-| holding  | object  | Information on any Holdings for the target Symbol. |
-| market   | object  | Information relating to the target Symbol's market state. |
-| order    | object  | Information on the Order the request relates to. |
-| request  | object  | Information relating to the incoming request. |
-| symbol   | object  | Information relating to the target Symbol. |
-| user     | object  | Details of the user submitting the request. |
+| Name    | Type   | Purpose                                                   |
+| :------ | :----- | :-------------------------------------------------------- |
+| account | object | Information on the target Trading Account.                |
+| balance | object | The cash balance available to the Trading Account.        |
+| details | object | Details of the incoming Order request.                    |
+| holding | object | Information on any Holdings for the target Symbol.        |
+| market  | object | Information relating to the target Symbol's market state. |
+| order   | object | Information on the Order the request relates to.          |
+| request | object | Information relating to the incoming request.             |
+| symbol  | object | Information relating to the target Symbol.                |
+| user    | object | Details of the user submitting the request.               |
 
 ```
 {
@@ -29,16 +28,15 @@ title: Standard State Data
 }
 ```
 
-Account State Structure
----
+## Account State Structure
 
 Information on the target Trading Account.
 
 Included on all requests.
 
-| Name     | Type    | Purpose |
-| :------- | :------ | :-- |
-| id       | string  | The identifier of the Trading Account. |
+| Name | Type   | Purpose                                |
+| :--- | :----- | :------------------------------------- |
+| id   | string | The identifier of the Trading Account. |
 
 ```
 "account":
@@ -47,18 +45,16 @@ Included on all requests.
 }
 ```
 
-Balance State Structure
----
+## Balance State Structure
 
 The cash balance available to the Trading Account.
 
 Included on all requests.
 
-| Name     | Type    | Purpose |
-| :------- | :------ | :-- |
-| amount   | decimal | The available amount. |
+| Name     | Type    | Purpose                         |
+| :------- | :------ | :------------------------------ |
+| amount   | decimal | The available amount.           |
 | currency | string  | The currency code being traded. |
-
 
 ```
 "balance":
@@ -68,19 +64,18 @@ Included on all requests.
 }
 ```
 
-Details State Structure
----
+## Details State Structure
 
 Details of the incoming Order request.
 
 Included on Place and Amend requests.
 
-| Name     | Type    | Purpose |
-| :------- | :------ | :-- |
-| hidden   | integer | The hidden quantity. |
-| price    | decimal | The limit price. Can be null. |
-| type     | string  | The type of the Order. One of the following values: Market, MarketToLimit, Limit. |
-| visible  | integer | The visible quantity. |
+| Name    | Type    | Purpose                                                                           |
+| :------ | :------ | :-------------------------------------------------------------------------------- |
+| hidden  | integer | The hidden quantity.                                                              |
+| price   | decimal | The limit price. Can be null.                                                     |
+| type    | string  | The type of the Order. One of the following values: Market, MarketToLimit, Limit. |
+| visible | integer | The visible quantity.                                                             |
 
 ```
 "details":
@@ -92,19 +87,18 @@ Included on Place and Amend requests.
 }
 ```
 
-Holding State Structure
----
+## Holding State Structure
 
 Details of the current Holding, if any.
 
 Included on all requests, if a holding exists.
 
-| Name      | Type    | Purpose |
-| :-------- | :------ | :-- |
+| Name      | Type    | Purpose                                   |
+| :-------- | :------ | :---------------------------------------- |
 | available | integer | The total quantity available for trading. |
-| cost      | decimal | The total cost of the Holding. |
-| price     | decimal | The average price of the Holding. |
-| quantity  | integer | The total quantity held. |
+| cost      | decimal | The total cost of the Holding.            |
+| price     | decimal | The average price of the Holding.         |
+| quantity  | integer | The total quantity held.                  |
 
 ```
 "holding":
@@ -114,18 +108,17 @@ Included on all requests, if a holding exists.
 }
 ```
 
-Market State Structure
----
+## Market State Structure
 
 Information relating to the target Symbol's market state.
 
 Included on all requests.
 
-| Name     | Type    | Purpose |
-| :------- | :------ | :-- |
-| bestask  | decimal | The best ask price. Can be null. |
-| bestbid  | decimal | The best bid price. Can be null. |
-| last     | decimal | The last traded price. Can be null. |
+| Name    | Type    | Purpose                             |
+| :------ | :------ | :---------------------------------- |
+| bestask | decimal | The best ask price. Can be null.    |
+| bestbid | decimal | The best bid price. Can be null.    |
+| last    | decimal | The last traded price. Can be null. |
 
 ```
 "market":
@@ -136,18 +129,17 @@ Included on all requests.
 }
 ```
 
-Order State Structure
----
+## Order State Structure
 
 Information on the Order the request relates to.
 
 Included on Amend and Cancel requests.
 
-| Name     | Type    | Purpose |
-| :------- | :------ | :-- |
-| executed | integer | The total quantity executed. |
+| Name     | Type    | Purpose                                  |
+| :------- | :------ | :--------------------------------------- |
+| executed | integer | The total quantity executed.             |
 | price    | decimal | The average price of the Order thus far. |
-| quantity | integer | The total quantity held. |
+| quantity | integer | The total quantity held.                 |
 
 ```
 "order":
@@ -158,18 +150,17 @@ Included on Amend and Cancel requests.
 }
 ```
 
-Request State Structure
----
+## Request State Structure
 
 Information relating to the incoming request.
 
 Included on all requests.
 
-| Name     | Type     | Purpose |
-| :------- | :------- | :-- |
-| id       | string   | A unique identifier for the request. |
-| type     | string   | The type of request. One of the following: Place, Amend, Cancel. |
-| time     | datetime | The time the request was submitted. |
+| Name | Type     | Purpose                                                          |
+| :--- | :------- | :--------------------------------------------------------------- |
+| id   | string   | A unique identifier for the request.                             |
+| type | string   | The type of request. One of the following: Place, Amend, Cancel. |
+| time | datetime | The time the request was submitted.                              |
 
 ```
 "request":
@@ -180,19 +171,18 @@ Included on all requests.
 }
 ```
 
-Symbol State Structure
----
+## Symbol State Structure
 
 Information relating to the target Symbol.
 
 Included on all requests.
 
-| Name     | Type     | Purpose |
-| :------- | :------- | :-- |
-| class    | string   | The high-level Symbol class. |
-| code     | string   | The exchange-issued code for the Symbol. |
-| exchange | string   | The identifier of the exchange the Symbol is issued by. |
-| market   | string   | The identifier of the market the Symbol is listed on (where the Order will be routed to). |
+| Name     | Type   | Purpose                                                                                   |
+| :------- | :----- | :---------------------------------------------------------------------------------------- |
+| class    | string | The high-level Symbol class.                                                              |
+| code     | string | The exchange-issued code for the Symbol.                                                  |
+| exchange | string | The identifier of the exchange the Symbol is issued by.                                   |
+| market   | string | The identifier of the market the Symbol is listed on (where the Order will be routed to). |
 
 ```
 "symbol":
@@ -203,16 +193,15 @@ Included on all requests.
 }
 ```
 
-User State Structure
----
+## User State Structure
 
 Details of the user submitting the request.
 
 Included on all requests.
 
-| Name     | Type     | Purpose |
-| :------- | :------- | :-- |
-| id       | string   | The unique identifier of the submitting user. |
+| Name | Type   | Purpose                                       |
+| :--- | :----- | :-------------------------------------------- |
+| id   | string | The unique identifier of the submitting user. |
 
 ```
 "user":

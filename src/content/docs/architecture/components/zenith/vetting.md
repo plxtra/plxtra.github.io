@@ -1,31 +1,30 @@
 ---
-title: "Vetting"
+title: 'Vetting'
 draft: true
 ---
 
 Vetting is the act of interrogating a trade request to ensure that it conforms to a set of parameters. Vetting can:
 
-* ensure that risk exposure is minimised from both the Client and the Broker by adding safeguards
-* aid market integrity by stopping price manipulation
-* place restrictions on instruments or functions available to Clients
+- ensure that risk exposure is minimised from both the Client and the Broker by adding safeguards
+- aid market integrity by stopping price manipulation
+- place restrictions on instruments or functions available to Clients
 
 Vetting is carried out through the execution of a set of rules when a trade request (New or Amend) is issued. The trade request needs to pass **ALL** rules that apply to it. The way that Motionite determines which rules to enact is as follows.
 
 1. Before the trade request is passed to the market for placement, some details about the transaction are determined. These are called topics
-    * The Client or Account code
-    * The Dealer or Advisor code
-    * The Branch code
-    * The Broker ID
-    * The Market ID
-    * The Order type
-    * The User ID
+   - The Client or Account code
+   - The Dealer or Advisor code
+   - The Branch code
+   - The Broker ID
+   - The Market ID
+   - The Order type
+   - The User ID
 2. Motionite scans for any rules that apply to any of these topics
 3. This entire collection of rules is then evaluated and if any of them fail then the trade request is not submitted to the market
 
 #### Vortex, the vetting language
 
 Vetting rules are described using plain English in a format called [Vortex](./vortex). A natural language was chosen because of it's flexibility and ease of extension.
-
 
 #### Vetting Rulesets
 
@@ -62,6 +61,7 @@ Rulesets are allocated against Topics. The Ruleset Allocation page looks similar
 ![Vetting Allocations](/images/vetting-allocations.png)
 
 When carrying out an Add or Edit of an Allocation you need to choose
+
 1. the Topic to which it will apply
 2. the Value of the Topic to match
 3. the Ruleset to allocate

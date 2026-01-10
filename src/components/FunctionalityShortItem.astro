@@ -1,42 +1,46 @@
 ---
-
 import { type FunctionalityShort, convertMarkdownLinksToAnchors } from '../ts/shared';
 import EmLink from './EmLink.astro';
 
 interface Props {
-    short: FunctionalityShort
-    functionalityPage?: boolean;
+  short: FunctionalityShort;
+  functionalityPage?: boolean;
 }
 
 const { short, functionalityPage, ...attrs } = Astro.props;
-let functionalityLink = short.functionalityLink
+let functionalityLink = short.functionalityLink;
 let componentLink = short.componentLink;
 if (functionalityPage === true) {
-    functionalityLink = functionalityLink.replace('functionalities/', '');
-    componentLink += '.';
+  functionalityLink = functionalityLink.replace('functionalities/', '');
+  componentLink += '.';
 }
 const functionalityDescription = ` - ${convertMarkdownLinksToAnchors(short.functionalityDescription, (link) => processMarketdownLink(link))}`;
 
 function processMarketdownLink(link: string): string {
-    if (functionalityPage) {
-        if (link.startsWith('./functionalities/')) {
-            link = link.replace('functionalities/', '');
-        } else {
-            if (link.startsWith('./')) {
-                link = `.${link}`;
-            } else {
-                link = `../${link}`;
-            }
-        }
+  if (functionalityPage) {
+    if (link.startsWith('./functionalities/')) {
+      link = link.replace('functionalities/', '');
+    } else {
+      if (link.startsWith('./')) {
+        link = `.${link}`;
+      } else {
+        link = `../${link}`;
+      }
     }
-    return link;
+  }
+  return link;
 }
 ---
 
 <strong>
-    <a href={functionalityLink}>{short.functionalityLabel}</a>
-</strong><Fragment set:html={functionalityDescription}></Fragment>
+  <a href={functionalityLink}>{short.functionalityLabel}</a>
+</strong><Fragment set:html={functionalityDescription} />
 
-<EmLink href={componentLink} preText='Implemented in ' fontSize="small" {...attrs}>
-    {short.componentShort.label}
+<EmLink
+  href={componentLink}
+  preText="Implemented in "
+  fontSize="small"
+  {...attrs}
+>
+  {short.componentShort.label}
 </EmLink>

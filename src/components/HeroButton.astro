@@ -1,33 +1,40 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<"a"> {
-    href: string;
-    fontSize?: string;
+interface Props extends HTMLAttributes<'a'> {
+  href: string;
+  fontSize?: string;
 }
 
 const { href, fontSize, ...attrs } = Astro.props;
 ---
 
 <button>
-    <a href={href} {...attrs}><slot /></a>
-</a>
+  <a
+    href={href}
+    {...attrs}
+    ><slot /></a
+  >
+</button>
 
-<style lang="scss" define:vars={{
-    "a-font-size": fontSize,
-}}>
-    @use '@scss/color';
+<style
+  lang="scss"
+  define:vars={{
+    'a-font-size': fontSize,
+  }}
+>
+  @use '@scss/color';
 
-    button {
-        border: 1px solid color.get(color.$hero-border);
-        border-radius: 0.1em;
-        background-color: color.get(color.$hero-background);
+  button {
+    border: 1px solid color.get(color.$hero-border);
+    border-radius: 0.1em;
+    background-color: color.get(color.$hero-background);
 
-        > a {
-            display: inline-block;
-            font-size: var(--a-font-size);
-            text-decoration: none;
-            padding-bottom: 2px;
-        }
+    > a {
+      display: inline-block;
+      font-size: var(--a-font-size);
+      text-decoration: none;
+      padding-bottom: 2px;
     }
+  }
 </style>

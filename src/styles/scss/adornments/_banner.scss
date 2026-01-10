@@ -1,49 +1,49 @@
 @use '@scss/color';
 
 @mixin _base {
-    .banner {
-        flex: 0 0 auto;
-        display: flex;
-        justify-content: center;
-        background-color: color.get(color.$banner-background);
+  .banner {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    background-color: color.get(color.$banner-background);
 
-        h4 {
-            margin: 0;
-            color: color.get(color.$banner-foreground);
-        }
+    h4 {
+      margin: 0;
+      color: color.get(color.$banner-foreground);
     }
+  }
 }
 
 @mixin _none {
-    .banner {
-        display: none;
-    }
+  .banner {
+    display: none;
+  }
 }
 
 @mixin infinite {
-    @include _base;
+  @include _base;
 }
 
 @mixin wide {
-    @include _base;
+  @include _base;
 }
 
 @mixin normal {
-    @include _base;
+  @include _base;
 }
 
 @mixin narrow {
-    @include _base;
+  @include _base;
 }
 
 @mixin narrower {
-    @include _none;
+  @include _none;
 }
 
 @mixin mobile {
-    @include _none;
+  @include _none;
 }
 
 @mixin mobilep {
-    @include _none;
+  @include _none;
 }

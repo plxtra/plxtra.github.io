@@ -1,70 +1,70 @@
 @use '@scss/color';
 
 @mixin _base {
-    .imprint-site-grid-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 1.5em;
-        :nth-child(2n - 1) {
-            font-weight: bold;
-            justify-self: right;
-        }
+  .imprint-site-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5em;
+    :nth-child(2n - 1) {
+      font-weight: bold;
+      justify-self: right;
     }
+  }
 
-    .imprint-attributions-grid-container {
-        display: grid;
-        grid-template-columns: repeat(7, minmax(min-content, max-content));
-        column-gap: 5px;
+  .imprint-attributions-grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(min-content, max-content));
+    column-gap: 5px;
 
-        @each $offset in (8, 9, 10, 11, 12, 13, 14) {
-            :nth-child(14n+#{$offset}) {
-                background-color: color.get(color.$odd-row-background);
-            }
-        }
-        @each $offset in (15, 16, 17, 18, 19, 20, 21) {
-            :nth-child(14n+#{$offset}) {
-                background-color: color.get(color.$even-row-background);
-            }
-        }
+    @each $offset in (8, 9, 10, 11, 12, 13, 14) {
+      :nth-child(14n + #{$offset}) {
+        background-color: color.get(color.$odd-row-background);
+      }
     }
-
-    .imprint-grid-heading {
-        font-weight: bold;
+    @each $offset in (15, 16, 17, 18, 19, 20, 21) {
+      :nth-child(14n + #{$offset}) {
+        background-color: color.get(color.$even-row-background);
+      }
     }
+  }
 
-    .imprint-attribution {
-        font-size: smaller;
-    }
+  .imprint-grid-heading {
+    font-weight: bold;
+  }
 
-    // #attributionsHeader {
-    //     margin-top: 2em;
-    // }
+  .imprint-attribution {
+    font-size: smaller;
+  }
+
+  // #attributionsHeader {
+  //     margin-top: 2em;
+  // }
 }
 
 @mixin infinite {
-    @include _base;
+  @include _base;
 }
 
 @mixin wide {
-    @include _base;
+  @include _base;
 }
 
 @mixin normal {
-    @include _base;
+  @include _base;
 }
 
 @mixin narrow {
-    @include _base;
+  @include _base;
 }
 
 @mixin narrower {
-    @include _base;
+  @include _base;
 }
 
 @mixin mobile {
-    @include _base;
+  @include _base;
 }
 
 @mixin mobilep {
-    @include _base;
+  @include _base;
 }

@@ -12,5 +12,5 @@ Motif is built to expose the full power of the Plxtra platform, providing access
 
 ## Extensibility
 
-* Apply your own branding to the application, to give it a look and feel unique to your business.
-* Extensions can add new windows and features (like custom charting) to the application. Integrate your own business logic directly into Motif itself.
+- Apply your own branding to the application, to give it a look and feel unique to your business.
+- Extensions can add new windows and features (like custom charting) to the application. Integrate your own business logic directly into Motif itself.

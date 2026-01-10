@@ -7,38 +7,38 @@ import { getCollection } from 'astro:content';
 const entries = await getCollection('features');
 
 interface FeatureDetail {
-    entry: CollectionEntry<'features'>;
-    id: string;
-    title: string;
-    weight: number;
-    iconName: string | undefined;
-    readMoreUrl: string | undefined;
-};
+  entry: CollectionEntry<'features'>;
+  id: string;
+  title: string;
+  weight: number;
+  iconName: string | undefined;
+  readMoreUrl: string | undefined;
+}
 
-const featureDetails = entries.map(entry => {
-    const data = entry.data;
-    // const filePath = entry.filePath;
-    // let iconPath: string | undefined;
-    // if (filePath === undefined) {
-    //     iconPath = undefined
-    // } else {
-    //     const filePathParts = filePath.split('/');
-    //     if (filePathParts.length <= 1) {
-    //         iconPath = undefined;
-    //     } else {
-    //         filePathParts.pop();
-    //         iconPath = `/${filePathParts.join('/')}/${daiconNameath}`;
-    //     }
-    // }
-    const featureDetail: FeatureDetail = {
-        entry,
-        id: entry.id,
-        title: data.title,
-        weight: data.weight,
-        iconName: data.iconName,
-        readMoreUrl: data.readMoreUrl,
-    };
-    return featureDetail;
+const featureDetails = entries.map((entry) => {
+  const data = entry.data;
+  // const filePath = entry.filePath;
+  // let iconPath: string | undefined;
+  // if (filePath === undefined) {
+  //     iconPath = undefined
+  // } else {
+  //     const filePathParts = filePath.split('/');
+  //     if (filePathParts.length <= 1) {
+  //         iconPath = undefined;
+  //     } else {
+  //         filePathParts.pop();
+  //         iconPath = `/${filePathParts.join('/')}/${daiconNameath}`;
+  //     }
+  // }
+  const featureDetail: FeatureDetail = {
+    entry,
+    id: entry.id,
+    title: data.title,
+    weight: data.weight,
+    iconName: data.iconName,
+    readMoreUrl: data.readMoreUrl,
+  };
+  return featureDetail;
 });
 
 const sortedFeatureDetails = featureDetails.sort((left, right) => left.weight - right.weight);
@@ -47,64 +47,66 @@ let left = true;
 ---
 
 <BaseLayout pageTitle="Features">
-    <div class="left-right-alternating-iconed-summaries">
-        <div class="grid" style="grid-template-columns: repeat(2, 1fr)">
-            {sortedFeatureDetails.map(featureDetail => (
-                <>
-                    {left ?
-                        <>
-                            <IconedSummary
-                                entry={featureDetail.entry}
-                                title={featureDetail.title}
-                                iconName={featureDetail.iconName}
-                                readMoreUrl={featureDetail.readMoreUrl}
-                            ></IconedSummary>
-                            <div></div>
-                        </>
-                        :
-                        <>
-                            <div></div>
-                            <IconedSummary
-                                entry={featureDetail.entry}
-                                title={featureDetail.title}
-                                iconName={featureDetail.iconName}
-                                readMoreUrl={featureDetail.readMoreUrl}
-                            ></IconedSummary>
-                        </>
-                    }
-                    {(left = !left) && ""}
-                </>
-            ))}
-        </div>
+  <div class="left-right-alternating-iconed-summaries">
+    <div
+      class="grid"
+      style="grid-template-columns: repeat(2, 1fr)"
+    >
+      {
+        sortedFeatureDetails.map((featureDetail) => (
+          <>
+            {left ? (
+              <>
+                <IconedSummary
+                  entry={featureDetail.entry}
+                  title={featureDetail.title}
+                  iconName={featureDetail.iconName}
+                  readMoreUrl={featureDetail.readMoreUrl}
+                />
+                <div />
+              </>
+            ) : (
+              <>
+                <div />
+                <IconedSummary
+                  entry={featureDetail.entry}
+                  title={featureDetail.title}
+                  iconName={featureDetail.iconName}
+                  readMoreUrl={featureDetail.readMoreUrl}
+                />
+              </>
+            )}
+            {(left = !left) && ''}
+          </>
+        ))
+      }
     </div>
+  </div>
 </BaseLayout>
 
 <style lang="scss">
-    @use '@scss/breakpoint';
+  @use '@scss/breakpoint';
 
+  .left-right-alternating-iconed-summaries {
+    margin-top: 2em;
+    margin-bottom: 2em;
 
-    .left-right-alternating-iconed-summaries {
-        margin-top: 2em;
-        margin-bottom: 2em;
-
-        @include breakpoint.createNarrowerOrEqual(breakpoint.$narrower) {
-            margin-top: 0;
-        }
-
-        .grid {
-            display: grid;
-            margin-top: 0.7em;
-            grid-template-columns: repeat(3, 1fr);
-            column-gap: 3em;
-            row-gap: 0.7em;
-            font-size: 90%;
-
-            @include breakpoint.createNarrowerOrEqual(breakpoint.$narrower) {
-                display: block;
-                font-size: 90%;
-            }
-
-        }
+    @include breakpoint.createNarrowerOrEqual(breakpoint.$narrower) {
+      margin-top: 0;
     }
 
+    .grid {
+      display: grid;
+      margin-top: 0.7em;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 3em;
+      row-gap: 0.7em;
+      font-size: 90%;
+
+      @include breakpoint.createNarrowerOrEqual(breakpoint.$narrower) {
+        display: block;
+        font-size: 90%;
+      }
+    }
+  }
 </style>

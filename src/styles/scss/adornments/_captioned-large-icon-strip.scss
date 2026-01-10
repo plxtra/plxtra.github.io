@@ -1,150 +1,146 @@
 @mixin _base {
-    .captioned-large-icon-strip {
-    
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(3em, 1fr));
-            column-gap: 3em;
-    
-            .highlight {
-                text-align: center;
-        
-                .icon-title-container {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-        
-                    .icon-container {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        height: 5em;
-                        a {
-                            height: 100%;
-                            border: 0;
-                        }
-        
-                        img {
-                            height: 100%;
-                        }
-                    }
-    
-                    .title-container {
-                        h3 {
-                            margin-top: .3em;
-                            margin-bottom: .3em;
-                        }
-                    }
-                }
-                .content {
-                    p {
-                        margin: 0;
-                    }
-                    font-size: 0.95em;
-                    line-height: 1.2em;
-                }
+  .captioned-large-icon-strip {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(3em, 1fr));
+      column-gap: 3em;
+
+      .highlight {
+        text-align: center;
+
+        .icon-title-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .icon-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 5em;
+            a {
+              height: 100%;
+              border: 0;
             }
+
+            img {
+              height: 100%;
+            }
+          }
+
+          .title-container {
+            h3 {
+              margin-top: 0.3em;
+              margin-bottom: 0.3em;
+            }
+          }
         }
+        .content {
+          p {
+            margin: 0;
+          }
+          font-size: 0.95em;
+          line-height: 1.2em;
+        }
+      }
     }
+  }
 }
 
 @mixin _bulleted {
-    @include _base;
+  @include _base;
 
-    .captioned-large-icon-strip {
-        margin-bottom: 0.8em;
+  .captioned-large-icon-strip {
+    margin-bottom: 0.8em;
 
-        .grid {
-            display: block;
-            column-gap: 1.5em;
+    .grid {
+      display: block;
+      column-gap: 1.5em;
 
-            .highlight {
-                margin: 1em;
+      .highlight {
+        margin: 1em;
 
-                .icon-title-container {
-                    flex-direction: row;
+        .icon-title-container {
+          flex-direction: row;
 
-                    .icon-container {
-                        align-items: flex-start;
-                        width: 5em;
-                        height: 2.5em;
-                    }
+          .icon-container {
+            align-items: flex-start;
+            width: 5em;
+            height: 2.5em;
+          }
 
-                    .title {
-                        margin: 0;
-                    }
-                }
-
-                .content {
-                    text-align: left;
-
-                    p {
-                        margin: 0;
-                    }
-                }
-            }
+          .title {
+            margin: 0;
+          }
         }
+
+        .content {
+          text-align: left;
+
+          p {
+            margin: 0;
+          }
+        }
+      }
     }
+  }
 }
 
 @mixin _bulleted-smaller {
-    @include _bulleted;
+  @include _bulleted;
 
-    .captioned-large-icon-strip .grid .highlight {
-        margin-bottom: 0.8em;
+  .captioned-large-icon-strip .grid .highlight {
+    margin-bottom: 0.8em;
 
-        .icon-title-container {
-
-            .icon-container {
-                width: 5em;
-                height: 2.0em;
-            }
-
-        }
+    .icon-title-container {
+      .icon-container {
+        width: 5em;
+        height: 2em;
+      }
     }
+  }
 }
 
 @mixin infinite {
-    @include _base;
+  @include _base;
 }
 
 @mixin wide {
-    @include _base;
+  @include _base;
 
-    .captioned-large-icon-strip .grid .highlight .icon-title-container .icon-container {
-        height: 5em;
-    }
+  .captioned-large-icon-strip .grid .highlight .icon-title-container .icon-container {
+    height: 5em;
+  }
 }
 
 @mixin normal {
-    @include _base;
+  @include _base;
 
-    .captioned-large-icon-strip .grid .highlight .icon-title-container .icon-container {
-        height: 3.5em;
-    }
+  .captioned-large-icon-strip .grid .highlight .icon-title-container .icon-container {
+    height: 3.5em;
+  }
 }
 
 @mixin narrow {
-    @include _base;
+  @include _base;
 
-    .captioned-large-icon-strip .grid {
-        column-gap: 1.5em;
+  .captioned-large-icon-strip .grid {
+    column-gap: 1.5em;
 
-        .highlight .icon-title-container .icon-container {
-            height: 3em;
-        }
+    .highlight .icon-title-container .icon-container {
+      height: 3em;
     }
+  }
 }
 
 @mixin narrower {
-    @include _bulleted;
+  @include _bulleted;
 }
 
 @mixin mobile {
-    @include _bulleted-smaller;
-
+  @include _bulleted-smaller;
 }
 
 @mixin mobilep {
-    @include _bulleted-smaller;
+  @include _bulleted-smaller;
 }
