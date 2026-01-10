@@ -16,11 +16,11 @@
     "@astrojs/mdx": "^4.3.7",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/starlight": "^0.34.2",
+    "@astrojs/starlight": "^0.37.2",
     "@pbkware/astro-main-menu": "^3.0.1",
     "astro-icon": "^1.1.5",
     "sass": "^1.93.2",
-    "starlight-links-validator": "^0.17.0",
+    "starlight-links-validator": "^0.19.2",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
