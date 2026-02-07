@@ -153,7 +153,7 @@ $_definitions: (
 }
 
 @mixin createMainMenuConfigNarrowBreakpoint {
-  @media screen and ((hover: none) or (width < main-menu-config.$narrow-breakpoint)) {
+  @media screen and (hover: none), screen and (width < main-menu-config.$narrow-breakpoint) {
     @content;
   }
 }
