@@ -2,7 +2,7 @@
 title: Getting started
 ---
 
-Plxtra is an open source trading platform focused on retail brokerage operations.
+Plxtra is an trading platform focused on retail brokerage operations.
 
 ## Install
 
